@@ -33,7 +33,7 @@ class Content(db.Model):
     theme = db.Column(db.String(120), primary_key=True)
     section = db.Column(db.String(50))
     description = db.Column(db.String(120))
-    type = db.Column(db.String(50))
+    type_ = db.Column(db.String(50))
     url = db.Column(db.String(120))
     create_date = db.Column(db.DateTime, default=datetime.datetime.now)
     modified_date = db.Column(db.DateTime, default=datetime.datetime.now)
