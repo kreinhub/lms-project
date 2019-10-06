@@ -7,7 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 db = SQLAlchemy()
 
 
-class Users(db.Model, UserMixin):
+class Users(db.Model, UserMixin):           # нехватает поля для лэвэла
     user_id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), nullable=False)
     password = db.Column(db.String(120), nullable=False)
@@ -30,22 +30,36 @@ class Users(db.Model, UserMixin):
 
 
 class Content(db.Model):
-    theme = db.Column(db.String(120), primary_key=True)
-    section = db.Column(db.String(50), nullable=False)
+    content_id = db.Column(db.Integer, primary_key=True)
+    theme_name = db.Column(db.String(120), nullable=False)             # название лекции или курса лекций
+    section_name = db.Column(db.String(50), nullable=False)              # название большого раздела
     description = db.Column(db.String(120), nullable=True)
     type = db.Column(db.String(50), nullable=False)
     url = db.Column(db.String(120), nullable=False)
-    create_date = db.Column(db.DateTime, default=datetime.datetime.now)
-    modified_date = db.Column(db.DateTime, default=datetime.datetime.now)
-    rating = db.Column(db.Integer)      # need to specify default arg
+    create_date = db.Column(db.DateTime, default=datetime.datetime.now)     # как часто обновляется лекция
+    modified_date = db.Column(db.DateTime, default=datetime.datetime.now)   # используем как иентификатор раздела
+    rating = db.Column(db.Integer, default=0)      # need to specify default arg    (в процентах так как проще)
 
     def __repr__(self):
-        return f'<Content {self.theme} {self.type_}>'
+        return f'<Content {self.theme} {self.type}>'
 
-class Progress(db.Model, UserMixin):
+class Progress(db.Model, UserMixin):            # общий прогресс
     record_id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
-    theme = db.Column(db.String(120), db.ForeignKey('content.theme')) 
+    theme = db.Column(db.String(120), db.ForeignKey('content.theme'))
 
     def __repr__(self):
         return f'<Users progress by {self.theme}>'
+
+class Structure:
+    content_id = db.Column(db.Integer, db.ForeignKey('content.content_id'))
+    theme = db.Column(db.String(120), db.ForeignKey('content.theme_name'))
+    section = db.Column(db.String(59), db.ForeignKey('content.section_name'))
+
+    
+# class Таблица структура контента
+# id единица контента
+# id единица сабтемы
+# id единица раздела
+
+# class таблица прогресс по секции (не надо)
