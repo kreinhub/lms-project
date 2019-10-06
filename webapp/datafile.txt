@@ -7981,3 +7981,630 @@ Content-Transfer-Encoding: quoted-printable
             </center><img src="https://moscowpython.us10.list-manage.com/track/open.php?u=c697064155714e24c8be7e9d8&id=d5fffe2018&e=cbfff661df" height="1" width="1"></body>
 </html>
 --_----------=_MCPart_400834179--
+Delivered-To: sirionhvg@gmail.com
+Received: by 2002:a92:9505:0:0:0:0:0 with SMTP id y5csp1844241ilh;
+        Sat, 5 Oct 2019 03:59:47 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqyM1+fAekyGTIr03sQBKaqCvEL75QY8tUUGWF3ToYfHAxZfEvcs+7OshGPGNsJ3XUbDuroO
+X-Received: by 2002:ac8:1633:: with SMTP id p48mr21236433qtj.236.1570273187727;
+        Sat, 05 Oct 2019 03:59:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t70273187; cv=none;
+        d=google.com; s=arc-20160816;
+        b=qo0RUOvGkV7moAdRlKceBpwkYYUWgZAGkSulwcpajoHLlVOyXaQ1WK2sJ41ZQN68HY
+         45QYny4kdWe1rFdAhOjCsJbljtRYvh6cr5PXuM4KnIA2/K64T47yJNyq3dOco5jBewpR
+         0FC1Is0WISG5th2lG0DlDYh3iZ2jBVp0tq4eydpu47yJ3KpSbyS1xMTolRJB2gf7uqKc
+         5z8gLtIVXQ/NSWLpHtE0Gw0ECtEFhZR7JMSyVpnlv6EXGDWb+vs61R4bNcwYz5vwj0kS
+         2ANmcdcHQ9IOTzL2hJkPP/LRyTtnbrZjzXTkc3XE2dkrsP4oDnpOZmEsAb0G8GFA/S9Y
+         JsOw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe-post:list-unsubscribe:list-id
+         :feedback-id:message-id:date:to:reply-to:from:subject:dkim-signature
+         :dkim-signature;
+        bh=p4b1BZnRfH5H50nLCqbyqX6wfrixEpJ29g1goxUinYo=;
+        b=N7jKDP1Q3+tWTHID95ZhxkrLOfrvuTyfsHS4oEoDwobwKPYBtj29LQtz9/G3c330GA
+         /aM2KGCUDL2L73jdt3H9eSvnfKm0lPfuZsiD1w7IVqkF4skV9vlvJMPFPvEkZ2agM7k5
+         ip2N19YNs7fNpM33Syj9vlbGEPGNYH1I9/L/bsP7BaRN6mjcztS1arh1Qpq3g4EY/rr2
+         GY40D0j9Sxt7d1V2EslU9SXJZFuqUABZWlVGF8/DZPsJyBlS/rQPlz1gRuLE/kfuGLb3
+         1VcrCnYHI3xQveJ1Rlz6BNnU9aimoV9k0hYSAFfcHcLPp0f5nfRbXGa3oHdUkVobUVem
+         Fu7w=
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=P2ytJrDA;
+       dkim=pass header.i=@mailchimpapp.net header.s=k1 header.b=jZZzvTpS;
+       spf=pass (google.com: domain of bounce-mc.us10_40874093.1357129-cbfff661df@mail102.sea61.rsgsv.net designates 148.105.14.102 as permitted sender) smtp.mailfrom=bounce-mc.us10_40874093.1357129-cbfff661df@mail102.sea61.rsgsv.net
+Return-Path: <bounce-mc.us10_40874093.1357129-cbfff661df@mail102.sea61.rsgsv.net>
+Received: from mail102.sea61.rsgsv.net (mail102.sea61.rsgsv.net. [148.105.14.102])
+        by mx.google.com with ESMTPS id 16si8482056qvl.151.2019.10.05.03.59.47
+        for <sirionhvg@gmail.com>
+        (version=TLS1_2 cipherDHE-RSA-AES128-GCM-SHA256 bits8/128);
+        Sat, 05 Oct 2019 03:59:47 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-mc.us10_40874093.1357129-cbfff661df@mail102.sea61.rsgsv.net designates 148.105.14.102 as permitted sender) client-ip8.105.14.102;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=P2ytJrDA;
+       dkim=pass header.i=@mailchimpapp.net header.s=k1 header.b=jZZzvTpS;
+       spf=pass (google.com: domain of bounce-mc.us10_40874093.1357129-cbfff661df@mail102.sea61.rsgsv.net designates 148.105.14.102 as permitted sender) smtp.mailfrom=bounce-mc.us10_40874093.1357129-cbfff661df@mail102.sea61.rsgsv.net
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.mcsv.net;
+	s=k1; t70273185; bh=p4b1BZnRfH5H50nLCqbyqX6wfrixEpJ29g1goxUinYo=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:Feedback-ID:List-ID:
+	 List-Unsubscribe:Content-Type:MIME-Version;
+	b=P2ytJrDAuxwb++jpMYEYOIMcBdU7/hEiJiCY44NSeZcVEOcJZoSIh/AI31SkuY5GU
+	 kIk3QFuvfIx2NmfEHQPrs5QKa7a34gQZwoufO1rVQzWDihTBlU1+v8kSydxckjUGfx
+	 PTXqf1GjL/envId+6WTjMAF3mDTm8vl7k4XG6fjsDKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailchimpapp.net;
+	s=k1; t70273185; i=learn=3Dpython.ru@mailchimpapp.net;
+	bh=p4b1BZnRfH5H50nLCqbyqX6wfrixEpJ29g1goxUinYo=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:List-ID:List-Unsubscribe:
+	 Content-Type:MIME-Version;
+	b=jZZzvTpSL/AQkaTluySkg4PzihYaLtEhwEy+/Oxd+Jgpj+38NuVYi5xDR46dCrsaW
+	 vhSqXAgeq6GkeU/rjF95AqoGvdSXejTvIyPgWwEGYQNT9bGRXSoFMXck3agkg6BRkM
+	 rihdnxCwBuGVGoW1iHR6QXQJP6m4BY3c8Tgm4JK0Received: from localhost (localhost [127.0.0.1])
+	by mail102.sea61.rsgsv.net (Mailchimp) with ESMTP id 46lkKF4dZWzHXYl9d
+	for <sirionhvg@gmail.com>; Sat,  5 Oct 2019 10:59:45 +0000 (GMT)
+x-mcpf-jobid: mc.us10_40874093.1357129.5d98779d777b2.full_000001
+Subject: =?utf-8?Q?Learn Python: Материал 6 недели?From: =?utf-8?Q?Learn Python Team?= <learn@python.ru>
+Reply-To: =?utf-8?Q?Learn Python Team?= <learn@python.ru>
+To: =?utf-8?Q?Денис?= <sirionhvg@gmail.com>
+Date: Sat,  5 Oct 2019 10:59:45 +0000
+Message-ID: <c697064155714e24c8be7e9d8.cbfff661df.20191005105942.7738191e0a.00ea5161@mail102.sea61.rsgsv.net>
+X-Mailer: MailChimp Mailer - **CID7738191e0acbfff661df**
+X-Campaign: mailchimpc697064155714e24c8be7e9d8.7738191e0a
+X-campaignid: mailchimpc697064155714e24c8be7e9d8.7738191e0a
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u97064155714e24c8be7e9d8&idw38191e0a&efff661df
+X-MC-User: c697064155714e24c8be7e9d8
+Feedback-ID: 40874093:40874093.1357129:us10:mc
+List-ID: c697064155714e24c8be7e9d8mc list <c697064155714e24c8be7e9d8.300209.list-id.mcsv.net>
+X-Accounttype: pd
+List-Unsubscribe: <https://moscowpython.us10.list-manage.com/unsubscribe?u97064155714e24c8be7e9d8&ide32647f76&efff661df&cw38191e0a>, <mailto:unsubscribe-mc.us10_c697064155714e24c8be7e9d8.7738191e0a-cbfff661df@mailin.mcsv.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_1544688080"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_1544688080
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+Привет Денис!
+
+Привет, новая неделя - новый материал для вас.
+
+Трек "Веб-разработка":
+При разработке современных веб приложений важно уметь работать с пользователями. Сегодня мы научимся создавать пользователей, делать логин и проверять права доступа к страницам (слайды (https://learn.python.ru/lessons/web4.html?full#cover) ):
+1. Управление зависимостями (https://www.youtube.com/watch?v=bLwyjAyaDdM&list=PL48Rj2xJlxN3uU77aRnCHJLcn0PdnwjEn)
+2. Как устроены веб-формы (https://www.youtube.com/watch?v=K9gqDUFEmgk&list=PL48Rj2xJlxN3uU77aRnCHJLcn0PdnwjEn&index=2)
+3. Создаем форму логина (https://www.youtube.com/watch?v=MusKG4YwAdU&list=PL48Rj2xJlxN3uU77aRnCHJLcn0PdnwjEn&index=3)
+4. Модель User (https://www.youtube.com/watch?v=0HEREPb_sHc&list=PL48Rj2xJlxN3uU77aRnCHJLcn0PdnwjEn&index=4)
+5. Создадим первого пользователя (https://www.youtube.com/watch?v=CS-FoK58xgY&list=PL48Rj2xJlxN3uU77aRnCHJLcn0PdnwjEn&index=5)
+6. Подключим Flask-Login в приложение (https://www.youtube.com/watch?v=DG4Ree3lMgA&list=PL48Rj2xJlxN3uU77aRnCHJLcn0PdnwjEn&index=6)
+7. Проверка прав доступа (https://www.youtube.com/watch?v=GmNNHxbu0Uw&list=PL48Rj2xJlxN3uU77aRnCHJLcn0PdnwjEn&index=7)
+8. Важные мелочи (https://www.youtube.com/watch?v=zubK002n1MU&list=PL48Rj2xJlxN3uU77aRnCHJLcn0PdnwjEn&index=8)
+
+Трек "Боты":
+На этом занятии мы познакомимся с самой частой задачей при разработке ботов - построением диалогов (слайды (https://learn.python.ru/lessons/bots5.html?full#cover) ). Диалог в данном случае - это последовательность действий бота, по которой мы "проводим" пользователя. Например, это может быть заполнение анкеты:
+1. Как устроены диалоги (https://www.youtube.com/watch?v=astwpImMzEE&list=PL48Rj2xJlxN0Ra1ZUQAbdJmgegO0TO4mk)
+2. Conversation Handler (https://www.youtube.com/watch?v=XCPZYRSzGPA&list=PL48Rj2xJlxN0Ra1ZUQAbdJmgegO0TO4mk&index=2)
+3. Первый шаг диалога (https://www.youtube.com/watch?v=pS4ZGk4GORU&list=PL48Rj2xJlxN0Ra1ZUQAbdJmgegO0TO4mk&index=4)
+4. Следующие шаги диалога (https://www.youtube.com/watch?v=qd-XGy4tZhg&index=4&list=PL48Rj2xJlxN0Ra1ZUQAbdJmgegO0TO4mk)
+5. Обрабатываем Fallbacks (https://www.youtube.com/watch?v=pqxOPKilxvU&index=5&list=PL48Rj2xJlxN0Ra1ZUQAbdJmgegO0TO4mk)
+
+Трек "Анализ данных":
+С данными мы научились работать, а теперь давайте мы их визуализировать. Для этого воспользуемся модулем matplotlib (слайды (https://learn.python.ru/lessons/ds4.html?full#cover) ):
+1. Введение в Matplotlib (https://www.youtube.com/watch?v=FSHnbZuk2lQ&list=PL48Rj2xJlxN2tUOk3SdVgYHRcOhf6O5j6)
+2. Усложняем простой график (https://www.youtube.com/watch?v=XN0lHv_9B9U&list=PL48Rj2xJlxN2tUOk3SdVgYHRcOhf6O5j6&index=2)
+3. Pie chart: круговая диаграмма (https://www.youtube.com/watch?v=_4r_D307Bqo&list=PL48Rj2xJlxN2tUOk3SdVgYHRcOhf6O5j6&index=3)
+4. Bar chart: Гистограмма (https://www.youtube.com/watch?v=7PSz63oVdNQ&index=4&list=PL48Rj2xJlxN2tUOk3SdVgYHRcOhf6O5j6)
+
+Дополнительно:
+
+В python есть общепринятые правила оформления кода, и чтобы стать профессиональным разработчиком нужно им следовать. В этих видео Илья Лебедев рассказывает о стандартах оформления кода на python и показывает, как улучшить свой код, сделав его более понятным и читаемым:
+1. Стандарт pep 8 - оформляем код правильно (https://www.youtube.com/watch?v=vPXoBez08lE&index=1&list=PL48Rj2xJlxN1wM_NobQiOat4e4n7NRJ16)
+2. Как правильно назвать переменные (https://www.youtube.com/watch?v=UEYx5xSjOBY&index=2&list=PL48Rj2xJlxN1wM_NobQiOat4e4n7NRJ16)
+3. Пример доработки кода (https://www.youtube.com/watch?v=qHBbkdHIa4c&index=3&list=PL48Rj2xJlxN1wM_NobQiOat4e4n7NRJ16)
+
+Михаил Корнеев и команда Learn Python
+
+============================================================
+
+This email was sent to sirionhvg@gmail.com (mailto:sirionhvg@gmail.com)
+why did I get this? (https://moscowpython.us10.list-manage.com/about?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df&c=7738191e0a)     unsubscribe from this list (https://moscowpython.us10.list-manage.com/unsubscribe?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df&c=7738191e0a)     update subscription preferences (https://moscowpython.us10.list-manage.com/profile?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df)
+MoscowPython . Москва, Серебряническая набережная, 29 . Moscow 101000 . Russia
+--_----------=_MCPart_1544688080
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+    <head>
+        <!-- NAME: SIMPLE TEXT -->
+        <!--[if gte mso 15]>
+        <xml>
+            <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Learn Python: Материал 6 недели</title>
+
+    <style type="text/css">
+		p{
+			margin:10px 0;
+			padding:0;
+		}
+		table{
+			border-collapse:collapse;
+		}
+		h1,h2,h3,h4,h5,h6{
+			display:block;
+			margin:0;
+			padding:0;
+		}
+		img,a img{
+			border:0;
+			height:auto;
+			outline:none;
+			text-decoration:none;
+		}
+		body,#bodyTable,#bodyCell{
+			height:100%;
+			margin:0;
+			padding:0;
+			width:100%;
+		}
+		.mcnPreviewText{
+			display:none !important;
+		}
+		#outlook a{
+			padding:0;
+		}
+		img{
+			-ms-interpolation-mode:bicubic;
+		}
+		table{
+			mso-table-lspace:0pt;
+			mso-table-rspace:0pt;
+		}
+		.ReadMsgBody{
+			width:100%;
+		}
+		.ExternalClass{
+			width:100%;
+		}
+		p,a,li,td,blockquote{
+			mso-line-height-rule:exactly;
+		}
+		a[href^=tel],a[href^=sms]{
+			color:inherit;
+			cursor:default;
+			text-decoration:none;
+		}
+		p,a,li,td,body,table,blockquote{
+			-ms-text-size-adjust:100%;
+			-webkit-text-size-adjust:100%;
+		}
+		.ExternalClass,.ExternalClass p,.ExternalClass td,.ExternalClass div,.ExternalClass span,.ExternalClass font{
+			line-height:100%;
+		}
+		a[x-apple-data-detectors]{
+			color:inherit !important;
+			text-decoration:none !important;
+			font-size:inherit !important;
+			font-family:inherit !important;
+			font-weight:inherit !important;
+			line-height:inherit !important;
+		}
+		#bodyCell{
+			padding:10px;
+		}
+		.templateContainer{
+			max-width:600px !important;
+		}
+		a.mcnButton{
+			display:block;
+		}
+		.mcnImage,.mcnRetinaImage{
+			vertical-align:bottom;
+		}
+		.mcnTextContent{
+			word-break:break-word;
+		}
+		.mcnTextContent img{
+			height:auto !important;
+		}
+		.mcnDividerBlock{
+			table-layout:fixed !important;
+		}
+		body,#bodyTable{
+			background-color:#FFFFFF;
+			background-image:none;
+			background-repeat:no-repeat;
+			background-position:center;
+			background-size:cover;
+		}
+		#bodyCell{
+			border-top:0;
+		}
+		.templateContainer{
+			border:0;
+		}
+		h1{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:26px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:125%;
+			letter-spacing:normal;
+			text-align:left;
+		}
+		h2{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:22px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:125%;
+			letter-spacing:normal;
+			text-align:left;
+		}
+		h3{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:20px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:125%;
+			letter-spacing:normal;
+			text-align:left;
+		}
+		h4{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:18px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:125%;
+			letter-spacing:normal;
+			text-align:left;
+		}
+		#templateHeader{
+			border-top:0;
+			border-bottom:0;
+		}
+		#templateHeader .mcnTextContent,#templateHeader .mcnTextContent p{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:16px;
+			line-height:150%;
+			text-align:left;
+		}
+		#templateHeader .mcnTextContent a,#templateHeader .mcnTextContent p a{
+			color:#007C89;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+		#templateBody{
+			border-top:0;
+			border-bottom:0;
+		}
+		#templateBody .mcnTextContent,#templateBody .mcnTextContent p{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:16px;
+			line-height:150%;
+			text-align:left;
+		}
+		#templateBody .mcnTextContent a,#templateBody .mcnTextContent p a{
+			color:#007C89;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+		#templateFooter{
+			border-top:0;
+			border-bottom:0;
+		}
+		#templateFooter .mcnTextContent,#templateFooter .mcnTextContent p{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:12px;
+			line-height:150%;
+			text-align:left;
+		}
+		#templateFooter .mcnTextContent a,#templateFooter .mcnTextContent p a{
+			color:#202020;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+	@media only screen and (min-width:768px){
+		.templateContainer{
+			width:600px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		body,table,td,p,a,li,blockquote{
+			-webkit-text-size-adjust:none !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		body{
+			width:100% !important;
+			min-width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		#bodyCell{
+			padding-top:10px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnRetinaImage{
+			max-width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImage{
+			width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnCartContainer,.mcnCaptionTopContent,.mcnRecContentContainer,.mcnCaptionBottomContent,.mcnTextContentContainer,.mcnBoxedTextContentContainer,.mcnImageGroupContentContainer,.mcnCaptionLeftTextContentContainer,.mcnCaptionRightTextContentContainer,.mcnCaptionLeftImageContentContainer,.mcnCaptionRightImageContentContainer,.mcnImageCardLeftTextContentContainer,.mcnImageCardRightTextContentContainer,.mcnImageCardLeftImageContentContainer,.mcnImageCardRightImageContentContainer{
+			max-width:100% !important;
+			width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnBoxedTextContentContainer{
+			min-width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageGroupContent{
+			padding:9px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnCaptionLeftContentOuter .mcnTextContent,.mcnCaptionRightContentOuter .mcnTextContent{
+			padding-top:9px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageCardTopImageContent,.mcnCaptionBottomContent:last-child .mcnCaptionBottomImageContent,.mcnCaptionBlockInner .mcnCaptionTopContent:last-child .mcnTextContent{
+			padding-top:18px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageCardBottomImageContent{
+			padding-bottom:9px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageGroupBlockInner{
+			padding-top:0 !important;
+			padding-bottom:0 !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageGroupBlockOuter{
+			padding-top:9px !important;
+			padding-bottom:9px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnTextContent,.mcnBoxedTextContentColumn{
+			padding-right:18px !important;
+			padding-left:18px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageCardLeftImageContent,.mcnImageCardRightImageContent{
+			padding-right:18px !important;
+			padding-bottom:0 !important;
+			padding-left:18px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcpreview-image-uploader{
+			display:none !important;
+			width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		h1{
+			font-size:22px !important;
+			line-height:125% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		h2{
+			font-size:20px !important;
+			line-height:125% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		h3{
+			font-size:18px !important;
+			line-height:125% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		h4{
+			font-size:16px !important;
+			line-height:150% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		table.mcnBoxedTextContentContainer td.mcnTextContent,td.mcnBoxedTextContentContainer td.mcnTextContent p{
+			font-size:14px !important;
+			line-height:150% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		td#templateHeader td.mcnTextContent,td#templateHeader td.mcnTextContent p{
+			font-size:16px !important;
+			line-height:150% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		td#templateBody td.mcnTextContent,td#templateBody td.mcnTextContent p{
+			font-size:16px !important;
+			line-height:150% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		td#templateFooter td.mcnTextContent,td#templateFooter td.mcnTextContent p{
+			font-size:14px !important;
+			line-height:150% !important;
+		}
+
+}</style></head>
+    <body style="background:#FFFFFF none no-repeat center/cover;height: 100%;margin: 0;padding: 0;width: 100%;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #FFFFFF;background-image: none;background-repeat: no-repeat;background-position: center;background-size: cover;">
+        <!--
+-->
+        <center>
+            <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable" style="background:#FFFFFF none no-repeat center/cover;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;height: 100%;margin: 0;padding: 0;width: 100%;background-color: #FFFFFF;background-image: none;background-repeat: no-repeat;background-position: center;background-size: cover;">
+                <tr>
+                    <td align="left" valign="top" id="bodyCell" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;height: 100%;margin: 0;padding: 10px;width: 100%;border-top: 0;">
+                        <!-- BEGIN TEMPLATE // -->
+                        <!--[if (gte mso 9)|(IE)]>
+                        <table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;">
+                        <tr>
+                        <td align="center" valign="top" width="600" style="width:600px;">
+                        <![endif]-->
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="templateContainer" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;border: 0;max-width: 600px !important;">
+                            <tr>
+                                <td valign="top" id="templateHeader" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;border-top: 0;border-bottom: 0;"></td>
+                            </tr>
+                            <tr>
+                                <td valign="top" id="templateBody" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;border-top: 0;border-bottom: 0;"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock" style="min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+    <tbody class="mcnTextBlockOuter">
+        <tr>
+            <td valign="top" class="mcnTextBlockInner" style="padding-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+              	<!--[if mso]>
+				<table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
+				<tr>
+				<![endif]-->
+			
+				<!--[if mso]>
+				<td valign="top" width="600" style="width:600px;">
+				<![endif]-->
+                <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width: 100%;min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" width="100%" class="mcnTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign="top" class="mcnTextContent" style="padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;color: #202020;font-family: Helvetica;font-size: 16px;line-height: 150%;text-align: left;">
+
+                            <strong>Привет Денис!</strong><br>
+<br>
+Привет, новая неделя - новый материал для вас.&nbsp;
+<p style="margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #202020;font-family: Helvetica;font-size: 16px;line-height: 150%;text-align: left;"><strong>Трек "Веб-разработка":</strong><br>
+При разработке современных веб приложений важно уметь работать с пользователями. Сегодня мы научимся создавать пользователей, делать логин и проверять права доступа к страницам (<a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=c42579683c&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">слайды</a>):</p>
+
+<ol>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=c403feea1b&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Управление зависимостями</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=c729c5ee9e&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Как устроены веб-формы</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=558b366e36&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Создаем форму логина</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=8d006e26d8&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Модель User</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=3ad99f9a35&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Создадим первого пользователя</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=64da06af9c&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Подключим Flask-Login в приложение</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=a1c649131c&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Проверка прав доступа</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=cd56002a2d&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Важные мелочи</a></li>
+</ol>
+<strong>Трек "Боты":</strong><br>
+На этом занятии мы познакомимся с самой частой задачей при разработке ботов - построением диалогов (<a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=50b78d6e4a&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">слайды</a>). Диалог в данном случае - это последовательность действий бота, по которой мы "проводим" пользователя. Например, это может быть заполнение анкеты:
+
+<ol>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=954ff70d68&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Как устроены диалоги</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=884b91d235&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Conversation Handler</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=4eee96ad37&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Первый шаг диалога</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=f25a893d3d&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Следующие шаги диалога</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=052b57142d&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Обрабатываем Fallbacks</a></li>
+</ol>
+<strong>Трек "Анализ данных":</strong><br>
+С данными мы научились работать, а теперь давайте мы их визуализировать. Для этого воспользуемся модулем matplotlib (<a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=2d0eb52567&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">слайды</a>):
+
+<ol>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=0898631fd9&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Введение в Matplotlib</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=5b137c3120&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Усложняем простой график</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=cd2b1c12fd&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Pie chart: круговая диаграмма</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=4ada0acc74&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Bar chart: Гистограмма</a></li>
+</ol>
+<br>
+<strong>Дополнительно</strong>:
+
+<p style="margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #202020;font-family: Helvetica;font-size: 16px;line-height: 150%;text-align: left;">В python есть общепринятые правила оформления кода, и чтобы стать профессиональным разработчиком нужно им следовать. В этих видео Илья Лебедев рассказывает о стандартах оформления кода на python и показывает, как улучшить свой код, сделав его более понятным и читаемым:</p>
+
+<ol>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=7df267b4d2&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Стандарт pep 8 - оформляем код правильно</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=5f5db4c812&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Как правильно назвать переменные</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=a2e4620bf9&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Пример доработки кода</a></li>
+</ol>
+<br>
+<em>Михаил Корнеев и команда Learn Python</em>
+                        </td>
+                    </tr>
+                </tbody></table>
+				<!--[if mso]>
+				</td>
+				<![endif]-->
+
+				<!--[if mso]>
+				</tr>
+				</table>
+				<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                            </tr>
+                            <tr>
+                                <td valign="top" id="templateFooter" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;border-top: 0;border-bottom: 0;"></td>
+                            </tr>
+                        </table>
+                        <!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]-->
+                        <!-- // END TEMPLATE -->
+                    </td>
+                </tr>
+            </table>
+        </center>
+                <center>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" id="canspamBarWrapper" style="background-color:#FFFFFF; border-top:1px solid #E5E5E5;">
+                    <tr>
+                        <td align="center" valign="top" style="padding-top:20px; padding-bottom:20px;">
+                            <table border="0" cellpadding="0" cellspacing="0" id="canspamBar">
+                                <tr>
+                                    <td align="center" valign="top" style="color:#606060; font-family:Helvetica, Arial, sans-serif; font-size:11px; line-height:150%; padding-right:20px; padding-bottom:5px; padding-left:20px; text-align:center;">
+                                        This email was sent to <a href="mailto:sirionhvg@gmail.com" target="_blank" style="color:#404040 !important;">sirionhvg@gmail.com</a>
+                                        <br />
+                                        <a href="https://moscowpython.us10.list-manage.com/about?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df&c=7738191e0a" target="_blank" style="color:#404040 !important;"><em>why did I get this?</em></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://moscowpython.us10.list-manage.com/unsubscribe?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df&c=7738191e0a" style="color:#404040 !important;">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://moscowpython.us10.list-manage.com/profile?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df" style="color:#404040 !important;">update subscription preferences</a>
+                                        <br />
+                                        MoscowPython &middot; Москва, Серебряническая набережная, 29 &middot; Moscow 101000 &middot; Russia
+                                        <br />
+                                        <br />
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <style type="text/css">
+                    @media only screen and (max-width: 480px){
+                        table#canspamBar td{font-size:14px !important;}
+                        table#canspamBar td a{display:block !important; margin-top:10px !important;}
+                    }
+                </style>
+            </center><img src="https://moscowpython.us10.list-manage.com/track/open.php?u=c697064155714e24c8be7e9d8&id=7738191e0a&e=cbfff661df" height="1" width="1"></body>
+</html>
+--_----------=_MCPart_1544688080--
