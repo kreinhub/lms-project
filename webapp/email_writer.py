@@ -1,0 +1,57 @@
+import imaplib
+import os
+import email
+import quopri
+from datetime import datetime, timedelta, date
+
+
+def need_to_sync():
+    basedir = os.path.abspath(os.path.dirname(__file__))
+    fullpath = os.path.join(basedir, __file__)
+
+    last_modified = datetime.fromtimestamp(os.stat(fullpath).st_mtime).date()
+    time_to_sync = timedelta(days=1)
+    today = date.today()
+
+    result = last_modified - today
+    if result >= time_to_sync:
+        return True
+    else:
+        return False
+
+
+def write_data():
+    if need_to_sync():
+        user = 'sirionhvg@gmail.com'
+        password = 'tsehrtwmxzbpzuyb'
+        imap_url = 'imap.gmail.com'
+
+        try:
+            mail = imaplib.IMAP4_SSL(imap_url)
+            mail.login(user, password)
+            mail.select('Inbox')
+        except imaplib.socket.gaierror: 
+            print("No internet connection")
+            return False
+        except (AttributeError, TypeError, OSError, imaplib.IMAP4.error):
+            print('[Error occured] Invalid credentals')
+            return False
+
+        typ, data = mail.search(None, "from", "learn@python.ru")
+        mail_ids = data[0]
+        id_list = mail_ids.split()
+
+        result = []
+        for num in id_list:
+            status, data = mail.fetch(num, '(RFC822)')
+            raw_email = data[0][1]
+            decoded_string = quopri.decodestring(raw_email)
+            result.append(decoded_string)
+
+        with open("datafile.txt", "w+") as f:
+            for string in result:
+                f.write(string.decode('utf-8', errors="ignore"))
+    else:
+        pass
+
+write_data()
