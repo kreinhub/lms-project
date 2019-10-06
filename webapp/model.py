@@ -33,7 +33,7 @@ class Content(db.Model):
     theme = db.Column(db.String(120), primary_key=True)
     section = db.Column(db.String(50), nullable=False)
     description = db.Column(db.String(120), nullable=True)
-    type_ = db.Column(db.String(50), nullable=False)
+    type = db.Column(db.String(50), nullable=False)
     url = db.Column(db.String(120), nullable=False)
     create_date = db.Column(db.DateTime, default=datetime.datetime.now)
     modified_date = db.Column(db.DateTime, default=datetime.datetime.now)
@@ -45,8 +45,7 @@ class Content(db.Model):
 class Progress(db.Model, UserMixin):
     record_id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
-    theme = db.Column(db.Integer, db.ForeignKey('content.theme')) # Integer?
-    section = db.Column(db.String, db.ForeignKey('content.section'))
+    theme = db.Column(db.String(120), db.ForeignKey('content.theme')) 
 
     def __repr__(self):
         return f'<Users progress by {self.theme}>'
