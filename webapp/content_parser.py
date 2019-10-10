@@ -136,5 +136,3 @@ def get_content_entries():
                                 url, type, description = get_url_type_description(a)                       
                                 write_to_db(theme_name, section_name, modified_date=modified_date, type=type, url=url, description=description)
                                 uniq_check_list.append(a.text)
-
-# print(get_content_entries())
