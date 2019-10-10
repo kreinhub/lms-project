@@ -16,8 +16,8 @@ class Users(db.Model, UserMixin):           # нехватает поля для
     gender = db.Column(db.String(50), nullable=True)
     age = db.Column(db.Integer, nullable=True)
     phone = db.Column(db.String(50), nullable=True)
-    last_login = db.Column(db.DateTime, default=datetime.datetime.now)
-    registered = db.Column(db.DateTime, default=datetime.datetime.now)
+    last_login = db.Column(db.DateTime, default=datetime.now())
+    registered = db.Column(db.DateTime, default=datetime.now())
 
     def set_password(self, password):
         self.password = generate_password_hash(password)
@@ -46,7 +46,7 @@ class Content(db.Model):
 class Progress(db.Model, UserMixin):            # общий прогресс
     record_id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
-    theme = db.Column(db.String(120), db.ForeignKey('content.theme'))
+    theme = db.Column(db.String(120), db.ForeignKey('content.theme_name'))
 
     def __repr__(self):
         return f'<Users progress by {self.theme}>'
