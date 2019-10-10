@@ -15,8 +15,4 @@ def create_app():
     return app
 
 
-def save_data(db, *args):       # *args are table names. perhaps using *kwargs will be better
-    pass
-
-
 # export FLASK_APP=webapp && export FLASK_ENV=development && flask run
