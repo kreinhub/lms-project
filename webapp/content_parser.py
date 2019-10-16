@@ -112,14 +112,14 @@ def write_to_db(theme_name, section_name, modified_date="Empty", description="Em
     url_exist = Content.query.filter(Content.url == url).count()
     if type == "text":
         description_exist = Content.query.filter(Content.description == description).count()
-        print(f"description exist is {description_exist}")
-        print(f"url_exist is {url_exist}")
+        print(f"description exist is {bool(description_exist)}")
+        print(f"url_exist is {bool(url_exist)}")
         if not description_exist and not url_exist:
             content = Content(theme_name=theme_name, section_name=section_name, type=type, description=description, url=url, modified_date=modified_date)
             db.session.add(content)
             db.session.commit()
     else:
-        print(f"url_exist is {url_exist}")
+        print(f"url_exist is {bool(url_exist)}")
         if not url_exist:
             content = Content(theme_name=theme_name, section_name=section_name, type=type, description=description, url=url, modified_date=modified_date)
             db.session.add(content)
@@ -147,12 +147,13 @@ def get_content_entries(counter):
         strong_theme_letters = [5, 9, 12, 13, 14]
 
         for idx, letter in enumerate(letters_body_list):
-            # letter["letter_number"] = 14
-            # letter["body"] = letters_body_list[14]["body"]
+            # letter = letters_body_list[10]
+            # letter["letter_number"] = 12
+            # letter["body"] = letters_body_list[12]["body"]
+            # letter["letter_title"] = letters_body_list[12]["letter_title"]
             if letter["letter_number"] in wasted_letters_numbers:
                 continue
             else:
-                
                 section_name = letter["letter_title"]
                 modified_date = get_modified_date(section_name)   
 
@@ -213,8 +214,9 @@ def get_content_entries(counter):
                             write_to_db(theme_name, section_name, modified_date=modified_date, description=description, url=url, type=type)
                         elif "трек" in strong.text.lower() or "дополнительно" in strong.text.lower():
                             # continue
-
-                            if "трек" in strong.text.lower():
+                            if "5-й недели" in letter["letter_title"].lower():
+                                next_next_ = next_.find_next().find_next().find_next()
+                            elif "трек" in strong.text.lower():
                                 next_next_ = next_.find_next().find_next()
                             elif "дополнительно" in strong.text.lower():
                                 next_next_ = next_.find_next()
@@ -231,16 +233,14 @@ def get_content_entries(counter):
                     theme_name = section_name
                     regex = re.compile(r".*gmail.com.*|.*subscri*.|why did I get this")
                     tables = letter["body"].find_all("table")
-                    uniq_check_list = []   # нужен только для проверки уникальности
                     for td in tables:
                         list_a = td.find_all('a')
                         for a in list_a:
                             match = regex.search(a.text)
-                            if a.text not in uniq_check_list and not match:
+                            if not match:                            
                                 url, type = get_url_and_url_type(a)
                                 description = a.text                       
                                 write_to_db(theme_name, section_name, modified_date=modified_date, type=type, url=url, description=description)
-                                uniq_check_list.append(a.text)
                 
                 else:
                     # continue
@@ -262,5 +262,5 @@ def get_content_entries(counter):
                                 description = a.text
                                 url, type = get_url_and_url_type(a)
                                 write_to_db(theme_name, section_name, modified_date=modified_date, description=description, url=url, type=type)
-
-# get_content_entries(1)      
+    else:
+        print('\t[Error] No datafile found')
