@@ -67,7 +67,16 @@ class News(db.Model):
     def __repr__(self):
         return '<News {} {}>'.format(self.title, self.url)
 
-    
+
+class Articles(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String, nullable=False)
+    url = db.Column(db.String, unique=True, nullable=False)
+    text = db.Column(db.Text)
+    published = db.Column(db.DateTime, nullable=False)
+    img_url = db.Column(db.String)
+    source = db.Column(db.String, nullable=False)
+
 # class Таблица структура контента
 # id единица контента
 # id единица сабтемы

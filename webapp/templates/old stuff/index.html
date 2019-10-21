@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootsrap CSS connection starts here-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Bootsrap CSS connection ends here-->   
+    <style>
+            .anyClass {
+                height:300px;
+                overflow-y: scroll;
+              }
+              .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+                color:white;
+                background-color: #d9d9d9;
+            }
+            
+    </style> 
+    <title>Main page</title>
+</head>
+
+<body>
+    <div class="pos-f-t fixed-top">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="navbar-brand">
+                    <span class="text-primary">L</span><span class="text-white">EARN</span> <span class="text-warning">P</span><span class="text-white">YTHON</span> Online
+
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                            <a class="nav-link" href="#">Главная</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="#">Обратная связь</a>
+                            </li>
+                    </ul>
+                    ...
+                    <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Поиск...">
+                            <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button> -->
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">&#128269;</button>
+                    </form>
+                    <!-- <div class="input-group mb-6" style="max-width: 15%">
+                            <div class="input-group-prepend">
+                              <!-- <span class="input-group-text" id="inputGroup-sizing-default">&#128269;</span> -->
+                              <!-- <button class="btn btn-outline-primary" type="button">&#128269;</button>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Поиск" aria-label="Поиск..." aria-describedby="inputGroup-sizing-default">
+                    </div> --> 
+                    ...
+                    <div class="btn-group">
+                    <div class="dropdown open">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Русский        
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">English</a>
+                        </div>
+                    </div>
+                    ...
+                    <div class="btn-group">
+                    <div class="dropdown open">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Имя пользователя<span class="badge badge-secondary">(4)</span>
+                        </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Профиль</a>
+                                <a class="dropdown-item" href="#">Настройки</a>
+                                <a class="dropdown-item" href="#">Уведомления<span class="badge badge-light">(4)</span></a>
+                                <a class="dropdown-item" href="#">Выход</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+    </div>
+    <!-- Areas -->
+    <div class="container-fluid" style="padding-top: 50px;">
+        <div class="row" >
+            <!-- <div class="col-3" style="background-color:darkgoldenrod; height: 200px;"> -->
+            <div class="col-3">
+                <h2>Statistic</h2>
+            </div>
+            <div class="col-9">
+                <h2>{{ news_title }}</h2>
+                <div class="anyClass">
+                {% for news in news_list %}
+                    <h3><a href="{{ news.url }}">{{ news.title }}</a></h3>
+                    <p>{{ news.published.strftime('%d.%m.%Y %H:%M') }}</p>
+                    <hr />
+                {% endfor %}
+                </div>
+            </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-pills-start-tab" data-toggle="pill" href="#v-pills-start" role="tab" aria-controls="v-pills-start" aria-selected="true">Начало курса</a>
+                    <a class="nav-link" id="v-pills-common-tab" data-toggle="pill" href="#v-pills-common" role="tab" aria-controls="v-pills-common" aria-selected="false">Лекции общей направленности</a>
+                    <a class="nav-link" id="v-pills-web-tab" data-toggle="pill" href="#v-pills-web" role="tab" aria-controls="v-pills-web" aria-selected="false">Трек Веб-программироание</a>
+                    <a class="nav-link" id="v-pills-ds-tab" data-toggle="pill" href="#v-pills-ds" role="tab" aria-controls="v-pills-ds" aria-selected="false">Трек Data-Science</a>
+                    <a class="nav-link" id="v-pills-bot-tab" data-toggle="pill" href="#v-pills-bot" role="tab" aria-controls="v-pills-bot" aria-selected="false">Трек Telegram bot</a>
+
+                </div>
+                </div>
+                <div class="col-9">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-start" role="tabpanel" aria-labelledby="v-pills-start-tab">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate diam at elit feugiat, pellentesque varius nisi sodales. Maecenas erat dui, faucibus non sem et, dapibus semper quam. Sed sed mauris varius, facilisis libero non, ullamcorper nulla. Nunc erat augue, condimentum sit amet nibh eget, pulvinar consequat velit. Phasellus vitae nunc suscipit, ullamcorper elit id, vestibulum justo. Quisque feugiat rutrum risus, quis dignissim lectus consequat in. Phasellus mollis, mi nec tempor semper, nisi purus maximus eros, eu blandit augue justo et elit. In leo mauris, placerat quis dictum in, egestas sed tortor. Vestibulum at elit mollis, tincidunt enim eu, sollicitudin metus. Nunc venenatis magna sapien, a rutrum leo vehicula at. Aliquam justo leo, efficitur sit amet justo hendrerit, ullamcorper tempus odio. Pellentesque ac lectus nec dui dictum consequat et sed lacus. Suspendisse potenti. Fusce libero augue, posuere pellentesque quam vitae, dapibus viverra purus. Duis porta mi lorem, ut tempus neque pulvinar et. Sed bibendum eget dolor ac dapibus.</div>
+                    <div class="tab-pane fade" id="v-pills-common" role="tabpanel" aria-labelledby="v-pills-common-tab">Proin metus neque, luctus a nisl vitae, ornare semper massa. Curabitur nec semper eros. Duis fringilla nunc sit amet felis auctor, ac consequat eros tincidunt. Proin vestibulum ligula quis enim ornare, eu congue velit placerat. Donec gravida eleifend mauris eget tincidunt. Nulla semper augue risus, sit amet ultrices eros consequat vitae. Cras mi justo, elementum nec ultrices at, ullamcorper eget ex. Ut id lobortis purus. Fusce et tellus est. Integer ac leo urna. Sed a metus sit amet leo lacinia pulvinar vel in nisi. Quisque aliquam est felis, id commodo orci ultrices vitae. In facilisis, risus vel pharetra accumsan, sapien tortor elementum nulla, et tempus enim magna quis nisl. Aenean in enim pellentesque, varius orci ut, aliquet lacus. Integer in mauris odio. Duis viverra felis vel nisi accumsan, eu ornare nulla fermentum.</div>
+                    <div class="tab-pane fade" id="v-pills-web" role="tabpanel" aria-labelledby="v-pills-web-tab">Duis facilisis rutrum tempor. Etiam eu fermentum lectus. Nam ut ante a nisl feugiat iaculis vitae in risus. Suspendisse volutpat tempor nunc eget tincidunt. Quisque varius dignissim mauris vel mattis. Praesent feugiat magna fringilla arcu rhoncus posuere. In id nibh pharetra, rhoncus eros id, faucibus leo.</div>
+                    <div class="tab-pane fade" id="v-pills-ds" role="tabpanel" aria-labelledby="v-pills-ds-tab">Nulla viverra laoreet metus a hendrerit. Phasellus massa justo, laoreet ac porttitor in, sodales vitae justo. Integer nisi lorem, congue eu leo vel, tincidunt ornare ex. Pellentesque facilisis venenatis nunc vel gravida. Curabitur quis blandit felis. In vitae ultricies augue, id vulputate est. Sed quis metus ante. In consequat efficitur viverra. Mauris quis sem ac tortor aliquet auctor at eget quam. Aliquam in fringilla quam. Donec metus quam, rutrum vel purus sit amet, imperdiet posuere mauris. Aliquam ultricies metus vitae risus aliquet ultricies.</div>
+                    <div class="tab-pane fade" id="v-pills-bot" role="tabpanel" aria-labelledby="v-pills-bot-tab">Maecenas purus ligula, tempus at eros vel, varius rhoncus ante. Morbi egestas, risus sit amet rutrum viverra, nunc neque molestie risus, eu gravida urna elit sed turpis. Ut pharetra leo non ex dictum, ac molestie sem mattis. Ut sollicitudin justo eget urna rutrum ullamcorper. Nulla placerat, mauris at viverra venenatis, ante risus placerat nisi, vitae luctus nibh augue non lacus. Nunc orci arcu, posuere vel velit nec, congue bibendum sem. Sed nec tortor magna.</div>
+
+
+
+                        </div>
+                </div>
+            </div>
+            <!-- <div class="col-3" style="background-color:aqua; min-height: 700px;">
+                <h2>Sections area</h2>
+            </div>
+            <div class="col-9" style="background-color:darkolivegreen">
+                <h2>Working area</h2>
+            </div> -->
+        </div>
+    </div>    
+    </div>
+
+
+
+<!-- Bootsrap Java script connection starts here-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- Bootsrap Java script connection ends here-->
+</body>
+</html>

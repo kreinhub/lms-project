@@ -144,7 +144,7 @@ def get_content_entries(counter):
 
         wasted_letters_numbers = [2,4,8]
         without_li_letters_numbers = [6, 7, 10, 11]
-        strong_theme_letters = [5, 9, 12, 13, 14]
+        strong_theme_letters = [5, 9, 12, 13, 14, 15]
 
         for idx, letter in enumerate(letters_body_list):
             # letter = letters_body_list[10]

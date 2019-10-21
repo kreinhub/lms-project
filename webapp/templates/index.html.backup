@@ -121,7 +121,7 @@
           </ul>
         </aside>
 
-    <!-- Main page content-->
+
     <main class="app-content">
       <div class="app-title">
         <div>
@@ -187,67 +187,40 @@
       </div>
 
       <!--News and articles -->
-      <!--News -->
+      <div class="container-fluid">
       <div class="row">
         <div class="col-md-3">
           <div class="tile">
-            <h3 class="tile-title">Новости Python</h3>
+            <h3 class="tile-title">{{ news_title }}</h3>
               <ul style="list-style-type: none; margin:0; padding: 0">
                 {% for news in news_list %}
-                <li style="text-align: left;"><a href="{{ news.url }}"><h4>{{ news.title }}</h4></a></li>
+                <li style="text-align: left;"><a href="{{ news.url }}" style="font-weight: bold;">{{ news.title }}</a></li>
                   <p>{{ news.published.strftime('%d.%m.%Y %H:%M') }}</p>
                 {% endfor %}
               </ul>
             <p class="mt-4 mb-4"><a class="btn btn-primary mr-2 mb-2" href="http://pratikborsadiya.in/blog/vali-admin" target="_blank"><i class="fa fa-file"></i>Docs</a><a class="btn btn-info mr-2 mb-2" href="https://github.com/pratikborsadiya/vali-admin" target="_blank"><i class="fa fa-github"></i>GitHub</a><a class="btn btn-success mr-2 mb-2" href="https://github.com/pratikborsadiya/vali-admin/archive/master.zip" target="_blank"><i class="fa fa-download"></i>Download</a></p>
           </div>
         </div>
-
-        <!-- Articles -->
-        <div class="col-md-9">
-            <div class="row">
-              <div class="col-md-4">
-                <div class="tile">
-                  <h2 class="tile-title">{{ habr_list[0].title }}</h2>
-                  <p>This theme is not built for a specific framework or technology like Angular or React etc. But due to it's modular nature it's very easy to incorporate it into any front-end or back-end framework like Angular, React or Laravel.</p>
-                  <a href="{{ habr_list[0].url }}"><h4>Читать на habr.com</h4></a>
-                </div>
-            </div>
-        <div class="col-md-4">
-            <div class="tile">
-                  <h3 class="tile-title">{{ habr_list[1].title }}</h3>
-                  <p>This theme is not built for a specific framework or technology like Angular or React etc. But due to it's modular nature it's very easy to incorporate it into any front-end or back-end framework like Angular, React or Laravel.</p>
-                  <a href="{{ habr_list[1].url }}"><h4>Читать на habr.com</h4></a>
-                </div>
+        <div class="col-md-3">
+          <div class="tile">
+            <h3 class="tile-title">Топ-3 популярных статей за неделю</h3>
+            <p>This theme is not built for a specific framework or technology like Angular or React etc. But due to it's modular nature it's very easy to incorporate it into any front-end or back-end framework like Angular, React or Laravel.</p>
+          </div>
         </div>
-        <div class="col-md-4">
-            <div class="tile">
-                  <h3 class="tile-title">{{ habr_list[2].title }}</h3>
-                  <p>This theme is not built for a specific framework or technology like Angular or React etc. But due to it's modular nature it's very easy to incorporate it into any front-end or back-end framework like Angular, React or Laravel.</p>
-                  <a href="{{ habr_list[2].url }}"><h4>Читать на habr.com</h4></a>
-                </div>
+        <div class="col-md-3">
+          <div class="tile">
+            <h3 class="tile-title">Топ-4 популярных статей за неделю</h3>
+            <p>This theme is not built for a specific framework or technology like Angular or React etc. But due to it's modular nature it's very easy to incorporate it into any front-end or back-end framework like Angular, React or Laravel.</p>
+          </div>
         </div>
-        <div class="col-md-4">
-            <div class="tile">
-                    <h3 class="tile-title">{{ tproger_list[0].title }}</h3>
-                    <p>{{  tproger_list[0].text }}</p>
-                    <a href="{{ tproger_list[0].url }}"><h4>Читать на tproger.ru</h4></a>
-                  </div>
-        </div>
-        <div class="col-md-4">
-            <div class="tile">
-                      <h3 class="tile-title">{{ tproger_list[1].title }}</h3>
-                      <p>{{ tproger_list[1].text }}</p>
-                      <a href="{{ tproger_list[1].url }}"><h4>Читать на tproger.ru</h4></a>
-                  </div>
-        </div>
-        <div class="col-md-4">
-            <div class="tile">
-                      <h3 class="tile-title">{{ tproger_list[2].title }}</h3>
-                      <p>{{ tproger_list[2].text }}</p>
-                      <a href="{{ tproger_list[0].url }}"><h4>Читать на tproger.ru</h4></a>
-                  </div>
+        <div class="col-md-3">
+          <div class="tile">
+            <h3 class="tile-title">Топ-3 популярных статей за неделю</h3>
+            <p>This theme is not built for a specific framework or technology like Angular or React etc. But due to it's modular nature it's very easy to incorporate it into any front-end or back-end framework like Angular, React or Laravel.</p>
+          </div>
         </div>
         </div>
+      </div>
 
       <!-- <div class="row">
         <div class="col-md-6">
