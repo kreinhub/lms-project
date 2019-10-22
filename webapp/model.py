@@ -47,6 +47,8 @@ class Progress(db.Model, UserMixin):            # общий прогресс
     record_id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
     theme = db.Column(db.String(120), db.ForeignKey('content.theme_name'))
+    section = db.Column(db.String(120), db.ForeignKey('content.section_name'))
+
 
     def __repr__(self):
         return f'<Users progress by {self.theme}>'
