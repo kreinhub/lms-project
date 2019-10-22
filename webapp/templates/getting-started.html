@@ -1,162 +1,178 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-    <!-- Twitter meta-->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:site" content="@pratikborsadiya">
-    <meta property="twitter:creator" content="@pratikborsadiya">
-    <!-- Open Graph Meta-->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Vali Admin">
-    <meta property="og:title" content="Vali - Free Bootstrap 4 admin theme">
-    <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
-    <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
-    <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-    <title>Начало курса</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <!-- Font-icon css-->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-  <body class="app sidebar-mini rtl">
-    <!-- Navbar-->
-    <header class="app-header">
-      <a class="app-header__logo" href="index.html">
-        <span class="text-primary">L</span><span class="text-white">EARN</span> <span class="text-warning">P</span><span class="text-white">YTHON</span>
-      </a>
-      <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
-      <!-- Navbar Right Menu-->
-      <ul class="app-nav">
-        <li class="app-search">
-          <input class="app-search__input" type="search" placeholder="Поиск...">
-          <button class="app-search__button"><i class="fa fa-search"></i></button>
-        </li>
-        <!--Notification Menu-->
-        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications"><i class="fa fa-bell-o fa-lg"></i></a>
-          <ul class="app-notification dropdown-menu dropdown-menu-right">
-            <li class="app-notification__title">You have 4 new notifications.</li>
-            <div class="app-notification__content">
-              <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
-                  <div>
-                    <p class="app-notification__message">Lisa sent you a mail</p>
-                    <p class="app-notification__meta">2 min ago</p>
-                  </div></a></li>
-              <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
-                  <div>
-                    <p class="app-notification__message">Mail server not working</p>
-                    <p class="app-notification__meta">5 min ago</p>
-                  </div></a></li>
-              <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-success"></i><i class="fa fa-money fa-stack-1x fa-inverse"></i></span></span>
-                  <div>
-                    <p class="app-notification__message">Transaction complete</p>
-                    <p class="app-notification__meta">2 days ago</p>
-                  </div></a></li>
-              <div class="app-notification__content">
-                <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
-                    <div>
-                      <p class="app-notification__message">Lisa sent you a mail</p>
-                      <p class="app-notification__meta">2 min ago</p>
-                    </div></a></li>
-                <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
-                    <div>
-                      <p class="app-notification__message">Mail server not working</p>
-                      <p class="app-notification__meta">5 min ago</p>
-                    </div></a></li>
-                <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-success"></i><i class="fa fa-money fa-stack-1x fa-inverse"></i></span></span>
-                    <div>
-                      <p class="app-notification__message">Transaction complete</p>
-                      <p class="app-notification__meta">2 days ago</p>
-                    </div></a></li>
-              </div>
-            </div>
-            <li class="app-notification__footer"><a href="#">See all notifications.</a></li>
-          </ul>
-        </li>
-        <!-- User Menu-->
-        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
-          <ul class="dropdown-menu settings-menu dropdown-menu-right">
-            <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i>Настройки</a></li>
-            <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i>Профиль</a></li>
-            <li><a class="dropdown-item" href="page-login.html"><i class="fa fa-sign-out fa-lg"></i>Выйти</a></li>
-          </ul>
-        </li>
+{% extends 'base.html' %}
+
+
+{% block title %}
+Начало курса
+{% endblock %}
+
+
+{% block menu_highlight %}
+<ul class="app-menu">
+    <li><a class="app-menu__item" href="{{url_for('index')}}"><i class="app-menu__icon fa fa-dashboard" aria-hidden="true"></i><span class="app-menu__label">Главная</span></a></li>
+
+    <li class="treeview is-expanded"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa fa-graduation-cap"></i><span class="app-menu__label">Лекции</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+      <ul class="treeview-menu">
+        <li><a class="treeview-item active" href="{{url_for('start')}}"><i class="icon fa fa-play-circle-o"></i>Начало курса</a></li>
+        <li><a class="treeview-item" href="{{url_for('common_1')}}"><i class="icon fa fa-circle-o"></i>Лекции общей направленности</a></li>
+        <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-circle-o"></i>Трек Веб-разработка</a></li>
+        <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-circle-o"></i>Трек Data-Science</a></li>
+        <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-circle-o"></i>Трек Telegram bot</a></li>
       </ul>
-    </header>
-    <!-- Sidebar menu-->
-    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
-    <aside class="app-sidebar">
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
-        <div>
-          <p class="app-sidebar__user-name">Василий</p>
-          <p class="app-sidebar__user-designation">Студент</p>
-        </div>
+
+    <li><a class="app-menu__item" href="путь к html файлу"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Статистика</span></a></li>
+
+
+      
+    <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-info-circle"></i><span class="app-menu__label">Справочная</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+      <ul class="treeview-menu">
+        <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-question-circle"></i>FAQ</a></li>
+        <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-database"></i>База знаний</a></li>
+        <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-book"></i>Литература</a></li>
+        <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-address-book"></i>Контакты</a></li>
+
+</ul>
+{% endblock %}
+
+{% block content %}
+<main class="app-content">
+    <div class="app-title">
+      <div>
+        <h1><i class="fa fa-play-circle-o"></i> Начало курса</h1>
+        <p>Подготовка к курсу</p>
       </div>
-      <ul class="app-menu">
-        <li><a class="app-menu__item" href="index.html"><i class="app-menu__icon fa fa-dashboard" aria-hidden="true"></i><span class="app-menu__label">Главная</span></a></li>
+      <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+        <li class="breadcrumb-item"><a href="{{url_for('index')}}">Главная</a></li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tile">
 
-        <li class="treeview is-expanded"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa fa-graduation-cap"></i><span class="app-menu__label">Лекции</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a class="treeview-item active" href="getting-started.html"><i class="icon fa fa-play-circle-o"></i>Начало курса</a></li>
-            <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-circle-o"></i>Лекции общей направленности</a></li>
-            <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-circle-o"></i>Трек Веб-разработка</a></li>
-            <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-circle-o"></i>Трек Data-Science</a></li>
-            <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-circle-o"></i>Трек Telegram bot</a></li>
+          <!-- Content of page -->
+          <h1 style="display: block; margin: 0px; padding: 0px; color: rgb(32, 32, 32); font-family: Helvetica; font-size: 26px; font-style: normal; font-weight: bold; line-height: 32.5px; letter-spacing: normal; text-align: left; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong>Добро пожаловать на курс Learn Python,&nbsp;</strong>&nbsp;&lt;username&gt;&nbsp;<strong>!</strong></h1>
+          <p style="margin: 10px 0px; padding: 0px; color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; line-height: 24px; text-align: left; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Это Михаил Корнеев и команда Learn Python! Мы хотим рассказать вам о том, как устроен курс.
+            <br>
+            <br>Первое занятие пройдет <strong>в эту субботу, 7 сентября. 
+              <br>
+              <br><span style="color: rgb(255, 0, 0);">Если вы занимаетесь онлайн,</span></strong>
+            <br>Мы созвонимся с вами для того, чтобы рассказать, как будет проходить наш курс, познакомить с куратором, ответить на ваши вопросы. Начало в&nbsp;<strong>13-00</strong>, созваниваться мы будем через 
+            <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Dba0902b208%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310541000&amp;usg=AFQjCNEQ_oU5AyLn4ddtJp6yz-2P1aASFg" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=ba0902b208&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Zoom</a> (установите себе клиент).
+            <br>
+            <br>Ссылка для созвона - 
+            <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D6f4c780df1%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310541000&amp;usg=AFQjCNHa856RuT_NgaZ-XWeEIrZUXlA9PA" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=6f4c780df1&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">https://zoom.us/j/881657362</a>
+            <wbr> (нажми на нее в субботу, раньше - не надо, там ничего не будет =) )
+            <br>Если вы не сможете присутствовать на созвоне, мы будем очень скучать по вам. Запись созвона ведется, поэтому вы сможете просмотреть его позже.
+            <br>
+            <br>Все последующие созвоны будут проходить по субботам с 11.30.
+            <br>
+            <br>
+            <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D99e3ace17e%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310541000&amp;usg=AFQjCNG5MJfew2GwkjLYWezIv2jDoResMQ" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=99e3ace17e&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Часто задаваемые вопросы</a> про учебу онлайн.
+            <br>
+            <br><span style="color: rgb(255, 0, 0);"><strong>Если вы занимаетесь оффлайн,</strong></span>
+            <br>С вами мы встречаемся&nbsp;<strong>в 10-00&nbsp;</strong>в&nbsp;<strong>Deworkacy Полянка</strong> (ул. Большая Полянка, 2/10с1). Приходить лучше чуть пораньше. Занятие продлится до&nbsp;<strong>19-00</strong>. Будет перерыв на обед, мы заказываем пиццу для вас.
+            <br>
+            <br>На первом&nbsp;занятии мы разберем базовые конструкции языка Python и напишем работающего бота для Telegram. Обязательно возьмите с собой ноутбук и зарядку.
+          </p>
+          <p style="margin: 10px 0px; padding: 0px; color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; line-height: 24px; text-align: left; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Все последующие занятия будут проходить по субботам с 11:00 до 14:00.</p>
+          <p style="margin: 10px 0px; padding: 0px; color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; line-height: 24px; text-align: left; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+            <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D652bfe6c4d%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310541000&amp;usg=AFQjCNHkUpC2iZ1yPIKz8SdvawcX-3q7yw" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=652bfe6c4d&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Часто задаваемые вопросы</a> про учебу оффлайн.
+            <br>
+            <br><strong>Коммуникация</strong>
+            <br>Для общения между занятиями бы используем Telegram, чтобы подключиться к чату:
+          </p>
+          <ol style="color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+            <li style="margin-left: 15px;">Установите телеграм на компьютер (
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D3f4e3f3388%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310541000&amp;usg=AFQjCNHWl60kBxd2mGioBY2zfJbwbtlbvA" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=3f4e3f3388&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">windows</a> / 
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D18b1c39f25%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310541000&amp;usg=AFQjCNGUVB5WIHgHb7Il5YBn7TjuS6cPEQ" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=18b1c39f25&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">macos</a> / 
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D07dc2a178a%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310541000&amp;usg=AFQjCNG_lYDZMuWGB-CfuBNOwIWjtIN_vA" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=07dc2a178a&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">linix</a>) и на телефон.
+            </li>
+            <li style="margin-left: 15px;">Зарегистрируте аккаунт.&nbsp;Обязательно выбери себе&nbsp;<em>@никнейм</em>, чтобы мы могли вас найти</li>
+            <li style="margin-left: 15px;">Подключитесь к чату&nbsp;(
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3De9c7565b68%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310541000&amp;usg=AFQjCNGhiST38oMQ9UhQJ_Ok9hHbXVO4hg" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=e9c7565b68&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">ссылка на чат</a>)
+            </li>
+            <li style="margin-left: 15px;">Помните, что РКН "борется" с Telegram и подключение по ссылке будет работать только через VPN или откройте ссылку на телефоне через Telegram.</li>
+            <li style="margin-left: 15px;">Пожалуйста, сразу установите себе никнейм, чтобы вас было легко найти в чате. Поиск по номеру телефона для незнакомых контактов не работает. Также очень сложно найти человека, если он Алексей Петров, никнейм не установлен, а в имени в Телеграме - ShadowWarriror312.</li>
+          </ol>
+          <p><span style="color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Если у вас не получится побывать на первом занятии - не переживайте, весь материал, который мы будем проходить на занятии, вы обязательно получите.</span></p>
+          <p style="margin: 10px 0px; padding: 0px; color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; line-height: 24px; text-align: left; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong>Некоторые вопросы перед курсом:</strong>
+            <br>Мы разделим все участников курса на небольшие группы по 5-7 человек. У каждой группы будет свой куратор, который будет помогать вам на занятиях и онлайн. Со своим куратором вы познакомитесь на первом занятии.
+            <br>
+            <br>При регистрации вы заполняли анкету, мы хотим больше знать про вас и ваш уровень, чтобы лучше разделить вас на группы, поэтому просим вас&nbsp;
+            <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D645e8408d8%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310541000&amp;usg=AFQjCNGR5_mzHhmsLhiWPBUYhAsNsmFfEQ" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=645e8408d8&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">ответить на вопросы</a>.
+          </p>
+          <p><span style="color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">После третьего занятия, вы перейдете от решения задач к работе над дипломными проектами. Каждый участник курса должен будет написать работающую систему, решающую практическую задачу. Вот несколько примеров того, что делали учащиеся на предыдущих наших курсах:</span></p>
+          <ul style="color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+            <li style="margin-left: 15px;">Сайт, предоставляющий аналитику по курсу акций на основе Yahoo! Finance</li>
+            <li style="margin-left: 15px;">Сайт, на котором абонент Beeline может ввести свой номер телефона и посмотреть, какие дополнительные услуги у него подключены</li>
+            <li style="margin-left: 15px;">Бот для Telegram, который принимает заявки от клиентов службы техподдержки и кладет их в систему работы с заявками</li>
+            <li style="margin-left: 15px;">Сайт, ищущий посты о сдаче квартир в фейсбуке, скачивает их и размещает как объявления у себя</li>
+            <li style="margin-left: 15px;">Интернет-магазин handmade-товаров</li>
           </ul>
+          <p style="margin: 10px 0px; padding: 0px; color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; line-height: 24px; text-align: left; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Подробнее о дипломных проектах мы расскажем на первом занятии.
+            <br>Материалы обучения для онлайн и оффлайн студентов не различаются, не переживайте.
+            <br>
+            <br><span style="color: rgb(255, 0, 0);"><strong>Что еще нужно сделать перед началом занятия?</strong></span>
+            <br>
+            <br><strong>Установите нужные программы на компьютер</strong>
+            <br>Мы подготовили видео, на которых рассказываем как настроить компьютер для участия в курсе. Выберите операционную систему и следуй инструкциям:
+          </p>
+          <ul style="color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+            <li style="margin-left: 15px;">
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Dcb17e41cb6%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310541000&amp;usg=AFQjCNEvf3YV2MkjpFkJFf8uEv2rxVkBww" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=cb17e41cb6&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Windows</a> + 
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D3774ea5cbd%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310541000&amp;usg=AFQjCNFd-MZuRlyn2NzYmHckL7VDoT1iKQ" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=3774ea5cbd&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Git</a> + 
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D056825686e%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310541000&amp;usg=AFQjCNEJuaGcYIntUDMzkNkLcXTYxe5wFQ" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=056825686e&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">IDE</a>
+            </li>
+            <li style="margin-left: 15px;">
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D770f8c37be%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310541000&amp;usg=AFQjCNEKKQQ_GFHZKvYXeipBkKferSTKjg" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=770f8c37be&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Mac OS</a> + 
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Dd74b07500c%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310542000&amp;usg=AFQjCNFPN5p9E-sxAE7XCLE9XtrmiSCheQ" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=d74b07500c&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">IDE</a> + 
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Df3f8683242%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310542000&amp;usg=AFQjCNGwirndPADHdLQUQh5Gxt1vGRN7ow" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=f3f8683242&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Git</a>
+            </li>
+            <li style="margin-left: 15px;">
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Df33275e6c4%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310542000&amp;usg=AFQjCNFnMjFNOE9japOxMkGfGjq0JHXBxQ" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=f33275e6c4&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Linux</a>&nbsp; + 
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Dcfbe103394%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310542000&amp;usg=AFQjCNHfzMW8bGQlTnxivRthMe91RGneLw" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=cfbe103394&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Git</a> + 
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D71cb811575%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310542000&amp;usg=AFQjCNFefbrMb80QlO_A2p_JvrhDIDOlbg" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=71cb811575&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">IDE</a>
+            </li>
+          </ul>
+          <p style="margin: 10px 0px; padding: 0px; color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; line-height: 24px; text-align: left; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+            <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D5b271cef6d%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310542000&amp;usg=AFQjCNGk7k48N91ctF_jh7aIW3ELi3L0Fg" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=5b271cef6d&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Слайды</a> с установкой Python 3.7
+            <br>
+            <br><strong>Зарегистрируйте аккаунт на Github</strong>
+            <br>
+            <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Dbf99288e7d%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310542000&amp;usg=AFQjCNFlCZga6c5DA-gqrdO1MdxbGUS-AA" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=bf99288e7d&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Регистрация на GitHub</a> устроена куда проще, все доступно по ссылке.
+            <br>&nbsp;
+          </p>
+          <p style="margin: 10px 0px; padding: 0px; color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; line-height: 24px; text-align: left; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong>Командная строка</strong>
+            <br>Командная строка - очень важный инструмент в работе программиста. Начнем осваивать её прямо сейчас. Посмотрите видео для своей операционной системы:
+          </p>
+          <ol style="color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+            <li style="margin-left: 15px;">
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D25fd1ab988%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310542000&amp;usg=AFQjCNFoxOdmrkM1zPaBkGO8X7W6I9PYpA" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=25fd1ab988&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Windows</a>
+            </li>
+            <li style="margin-left: 15px;">
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3De809de48cc%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310542000&amp;usg=AFQjCNGTtjgQQcR6WvIjBZUlzuh7PkI7NA" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=e809de48cc&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Mac OS</a>
+            </li>
+            <li style="margin-left: 15px;">
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D375c2e920b%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310542000&amp;usg=AFQjCNFUUlMydIrackRDmnC9ZX8zZJs2tg" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=375c2e920b&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Linux</a>
+            </li>
+          </ol>
+          <p style="margin: 10px 0px; padding: 0px; color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; line-height: 24px; text-align: left; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Если остались вопросы - пишите на&nbsp;
+            <a href="mailto:learn@python.ru" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">learn@python.ru</a>, в чат или звоните&nbsp;+7&nbsp;906 051 81 90, Семен поможет вам.
+            <br>
+            <br>До встречи на курсе!
+          </p>
+          <p><em style="color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Михаил Корнеев и команда Moscow Python</em></p>
+          <br>
+          <br>
 
-        <li><a class="app-menu__item" href="путь к html файлу"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Форум</span></a></li>
-
-
+          <a href="{{url_for('common_1')}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Начать обучение</a>
           
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-info-circle"></i><span class="app-menu__label">Справочная</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-question-circle"></i>FAQ</a></li>
-            <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-database"></i>База знаний</a></li>
-            <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-book"></i>Литература</a></li>
-            <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-address-book"></i>Контакты</a></li>
+        </div>
 
-          </ul>
-        </aside>
-    <main class="app-content">
-      <div class="app-title">
-        <div>
-          <h1><i class="fa fa-play-circle-o"></i> Начало курса</h1>
-          <p>Материалы первой недели</p>
-        </div>
-        <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="#">Blank Page</a></li>
-        </ul>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="tile">
-            <div class="tile-body">Create a beautiful dashboard</div>
-          </div>
+
+
         </div>
       </div>
-    </main>
-    <!-- Essential javascripts for application to work-->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-    <!-- The javascript plugin to display page loading on top-->
-    <script src="js/plugins/pace.min.js"></script>
-    <!-- Page specific javascripts-->
-    <!-- Google analytics script-->
-    <script type="text/javascript">
-      if(document.location.hostname == 'pratikborsadiya.in') {
-      	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      	ga('create', 'UA-72504830-1', 'auto');
-      	ga('send', 'pageview');
-      }
-    </script>
-  </body>
-</html>
+    </div>
+  </main>
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Начало курса
+{% endblock %}
+
+
+{% block menu_highlight %}
+<ul class="app-menu">
+    <li><a class="app-menu__item" href="{{url_for('index')}}"><i class="app-menu__icon fa fa-dashboard" aria-hidden="true"></i><span class="app-menu__label">Главная</span></a></li>
+
+    <li class="treeview is-expanded"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa fa-graduation-cap"></i><span class="app-menu__label">Лекции</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+      <ul class="treeview-menu">
+        <li><a class="treeview-item" href="{{url_for('start')}}"><i class="icon fa fa-play-circle-o"></i>Начало курса</a></li>
+        <li><a class="treeview-item active" href="{{url_for('common_1')}}"><i class="icon fa fa-circle-o"></i>Лекции общей направленности</a></li>
+        <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-circle-o"></i>Трек Веб-разработка</a></li>
+        <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-circle-o"></i>Трек Data-Science</a></li>
+        <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-circle-o"></i>Трек Telegram bot</a></li>
+      </ul>
+
+    <li><a class="app-menu__item" href="путь к html файлу"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Статистика</span></a></li>
+
+
+      
+    <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-info-circle"></i><span class="app-menu__label">Справочная</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+      <ul class="treeview-menu">
+        <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-question-circle"></i>FAQ</a></li>
+        <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-database"></i>База знаний</a></li>
+        <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-book"></i>Литература</a></li>
+        <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-address-book"></i>Контакты</a></li>
+
+</ul>
+{% endblock %}
+
+{% block content %}
+<main class="app-content">
+    <div class="app-title">
+      <div>
+        <h1><i class="fa fa-play-circle-o"></i> Начало курса</h1>
+        <p>Подготовка к курсу</p>
+      </div>
+      <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+        <li class="breadcrumb-item"><a href="{{url_for('index')}}">Главная</a></li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tile">
+
+            <p><span style="color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Материалы сегодняшнего занятия:</span></p>
+            <ul style="color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+              <li style="margin-left: 15px;">Основы командной строки: 
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Dd0709e80a1%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772312258000&amp;usg=AFQjCNH-dvjzrHoy-9MYQzS6nlpNzrVR8A" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=d0709e80a1&amp;e=cbfff661df" style="color: rgb(0, 124, 137); font-weight: normal; text-decoration: underline;" target="_blank">Windows</a>, 
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Dc920b7e550%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772312258000&amp;usg=AFQjCNHD_BA7ukfJSFtxAMMxNaCMlOJklg" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=c920b7e550&amp;e=cbfff661df" style="color: rgb(0, 124, 137); font-weight: normal; text-decoration: underline;" target="_blank">Mac OS</a>, 
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D62b05ecb1d%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772312258000&amp;usg=AFQjCNGssOd7sDlEM-f_gZjtv65cnU81uw" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=62b05ecb1d&amp;e=cbfff661df" style="color: rgb(0, 124, 137); font-weight: normal; text-decoration: underline;" target="_blank">Linux</a> (
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Db54d06d671%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772312258000&amp;usg=AFQjCNGm8xTaI0sOpETTD4nsaq5p-isj9w" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=b54d06d671&amp;e=cbfff661df" style="color: rgb(0, 124, 137); font-weight: normal; text-decoration: underline;" target="_blank">слайды</a>)
+              </li>
+              <li style="margin-left: 15px;">Файлы *.py и редактор 
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Defb5194e62%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772312258000&amp;usg=AFQjCNEI8AweB4GFcmqsYwnZiKB7f4G_WQ" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=efb5194e62&amp;e=cbfff661df" style="color: rgb(0, 124, 137); font-weight: normal; text-decoration: underline;" target="_blank">видео</a>&nbsp; (
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Da8c733255c%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772312258000&amp;usg=AFQjCNFOJ8HW2pK_GKDngIrpFungCfq7pw" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=a8c733255c&amp;e=cbfff661df" style="color: rgb(0, 124, 137); font-weight: normal; text-decoration: underline;" target="_blank">слайды</a>)
+              </li>
+              <li style="margin-left: 15px;">Простые типы данных 
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D9b435e2d23%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772312258000&amp;usg=AFQjCNFsEsNNHZhzwOJMGxLhc3XJp7koeg" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=9b435e2d23&amp;e=cbfff661df" style="color: rgb(0, 124, 137); font-weight: normal; text-decoration: underline;" target="_blank">видео</a> (
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Dc49588164d%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772312258000&amp;usg=AFQjCNFPwuCfkKKG5aT8jxGCh9mCBavECg" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=c49588164d&amp;e=cbfff661df" style="color: rgb(0, 124, 137); font-weight: normal; text-decoration: underline;" target="_blank">слайды</a>)
+              </li>
+              <li style="margin-left: 15px;">
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D7c159b939f%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772312258000&amp;usg=AFQjCNGPQVH_DpiPWvw0mC0szK2gU-HU8A" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=7c159b939f&amp;e=cbfff661df" style="color: rgb(0, 124, 137); font-weight: normal; text-decoration: underline;" target="_blank">Переменные</a> (
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D2a672dd459%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772312258000&amp;usg=AFQjCNFuWeT3UtxlDMlr3cxexK02NJmfaA" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=2a672dd459&amp;e=cbfff661df" style="color: rgb(0, 124, 137); font-weight: normal; text-decoration: underline;" target="_blank">слайды</a>)
+              </li>
+              <li style="margin-left: 15px;">Комплексные типы данных 
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Dbbb8f858ff%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772312258000&amp;usg=AFQjCNHnVEo1u1o0O_Q713jCfXRrAFUO0Q" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=bbb8f858ff&amp;e=cbfff661df" style="color: rgb(0, 124, 137); font-weight: normal; text-decoration: underline;" target="_blank">списки</a> (
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D1b67970caf%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772312258000&amp;usg=AFQjCNFsh9_kITh1mT8szJWxlc3lfNhpQA" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=1b67970caf&amp;e=cbfff661df" style="color: rgb(0, 124, 137); font-weight: normal; text-decoration: underline;" target="_blank">слайды</a>)
+              </li>
+              <li style="margin-left: 15px;">Комплексные типы данных 
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Dbb82fbc9a0%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772312258000&amp;usg=AFQjCNGX5XA99cUAzEO2p2w-1WY102asrg" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=bb82fbc9a0&amp;e=cbfff661df" style="color: rgb(0, 124, 137); font-weight: normal; text-decoration: underline;" target="_blank">словари</a> (
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Dd006941b5f%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772312258000&amp;usg=AFQjCNGoXkIOjer9GC0huN3dsMw45JwNog" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=d006941b5f&amp;e=cbfff661df" style="color: rgb(0, 124, 137); font-weight: normal; text-decoration: underline;" target="_blank">слайды</a>)
+              </li>
+              <li style="margin-left: 15px;">
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D403eb5d02c%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772312258000&amp;usg=AFQjCNHiNzczh7ZtzRIgZ-LOH-agkbcy2w" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=403eb5d02c&amp;e=cbfff661df" style="color: rgb(0, 124, 137); font-weight: normal; text-decoration: underline;" target="_blank">Функции</a> (
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Dc24bf1e0dc%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772312258000&amp;usg=AFQjCNFLda-fgNxnpMz8PEGzjyBnFPQyCg" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=c24bf1e0dc&amp;e=cbfff661df" style="color: rgb(0, 124, 137); font-weight: normal; text-decoration: underline;" target="_blank">слайды</a>)
+              </li>
+              <li style="margin-left: 15px;">
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Db6e7c5e81c%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772312258000&amp;usg=AFQjCNGJ5wl8T0dF8H2iIIMk70oppwKF1w" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=b6e7c5e81c&amp;e=cbfff661df" style="color: rgb(0, 124, 137); font-weight: normal; text-decoration: underline;" target="_blank">Git и GitHub</a> (
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D8e78bd57f2%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772312258000&amp;usg=AFQjCNHJMpPmyICgSK3V9fiuN1oZMS-ppQ" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=8e78bd57f2&amp;e=cbfff661df" style="color: rgb(0, 124, 137); font-weight: normal; text-decoration: underline;" target="_blank">слайды</a>)
+              </li>
+              <li style="margin-left: 15px;">
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D587c64380d%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772312258000&amp;usg=AFQjCNFGNy5osnTtMH50vdD2LQv93hulqA" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=587c64380d&amp;e=cbfff661df" style="color: rgb(0, 124, 137); font-weight: normal; text-decoration: underline;" target="_blank">Пишем бота&nbsp;для Telegram</a> - плейлист из 8 шагов (
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D4134e64249%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772312258000&amp;usg=AFQjCNEP_3uenmkmd2OZboj05pKwxbKk1A" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=4134e64249&amp;e=cbfff661df" style="color: rgb(0, 124, 137); font-weight: normal; text-decoration: underline;" target="_blank">слайды</a>)
+              </li>
+            </ul>
+            <p><span style="color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Это основы, на которых строится разработка на python в целом и дальнейший курс в частности. Поэтому, если у тебя есть вопросы и что-то непонятно - обязательно напиши куратору.&nbsp;</span></p>
+            <p>
+              <br style="color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+            </p>
+
+
+            <nav aria-label="...">
+                <ul class="pagination">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item active">
+                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                  </li>
+                </ul>
+              </nav>
+
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+

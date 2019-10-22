@@ -160,11 +160,12 @@ def get_content_entries(counter):
                 list_a_in_text = get_all_a_in_text(letter["body"], letter["letter_title"], modified_date)
                 # continue
 
-                text = get_text(letter["body"], 31, -16)
+                # text = get_text(letter["body"], 31, -16)
                 theme_name = section_name
                 url = "text_" + str(counter)
                 counter += 1
-                write_to_db(theme_name, section_name, modified_date=modified_date, description=text, url=url)
+                # write_to_db(theme_name, section_name, modified_date=modified_date, description=text, url=url)
+                write_to_db(theme_name, section_name, modified_date=modified_date, description=str(letter["body"]), url=url)
                 
                 if letter["letter_number"] == 5:
                     # continue
@@ -245,11 +246,12 @@ def get_content_entries(counter):
                 else:
                     # continue
                     
-                    text = get_text(letter["body"], 31, -16)
+                    # text = get_text(letter["body"], 31, -16)
                     theme_name = section_name
                     url = "text_" + str(counter)
                     counter += 1
-                    write_to_db(theme_name, section_name, modified_date=modified_date, description=text, url=url)
+                    # write_to_db(theme_name, section_name, modified_date=modified_date, description=text, url=url)
+                    write_to_db(theme_name, section_name, modified_date=modified_date, description=str(letter["body"]), url=url)
 
                     # continue
 
@@ -263,4 +265,4 @@ def get_content_entries(counter):
                                 url, type = get_url_and_url_type(a)
                                 write_to_db(theme_name, section_name, modified_date=modified_date, description=description, url=url, type=type)
     else:
-        print('\t[Error] No datafile found')
+        print('\t[Error] No datafile found')   

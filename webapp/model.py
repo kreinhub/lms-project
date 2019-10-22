@@ -41,7 +41,7 @@ class Content(db.Model):
     rating = db.Column(db.Integer, default=0)      # need to specify default arg    (в процентах так как проще)
 
     def __repr__(self):
-        return f'<Content {self.theme} {self.type}>'
+        return f'<Content {self.theme_name} {self.type}>'
 
 class Progress(db.Model, UserMixin):            # общий прогресс
     record_id = db.Column(db.Integer, primary_key=True)
