@@ -8,8 +8,8 @@ db = SQLAlchemy()
 
 
 class Users(db.Model, UserMixin):           # нехватает поля для лэвэла
-    user_id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(50), nullable=False)
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(50), nullable=True)
     password = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String(120), nullable=False)
     role = db.Column(db.String(50), default="student")
@@ -45,7 +45,7 @@ class Content(db.Model):
 
 class Progress(db.Model, UserMixin):            # общий прогресс
     record_id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     theme = db.Column(db.String(120), db.ForeignKey('content.theme_name'))
     section = db.Column(db.String(120), db.ForeignKey('content.section_name'))
 
