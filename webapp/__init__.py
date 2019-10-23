@@ -1,3 +1,5 @@
+import logging
+
 from flask import Flask, render_template, request, flash, redirect, url_for
 from webapp.forms import LoginForm, RegistrationForm
 from webapp.model import db, News, Articles, Content, Users
@@ -14,6 +16,12 @@ def create_app():
     login_manager.init_app(app)
     login_manager.login_view = '/'
 
+    logging.basicConfig(filename='app.log',
+                        filemode='w',
+                        level=logging.ERROR,
+                        datefmt='%m/%d/%Y %I:%M:%S %p',
+                        format='%(name)s - %(levelname)s - %(message)s')
+
     @login_manager.user_loader
     def load_user(user_id):
         return Users.query.get(user_id)
@@ -23,6 +31,7 @@ def create_app():
         form = LoginForm()
         title = 'Login'
         if current_user.is_authenticated:
+            logging.error('Вы уже авторизованы')
             flash('Вы уже авторизованы')
             return redirect(url_for('index'))
 
@@ -35,16 +44,17 @@ def create_app():
             user = Users.query.filter_by(email=form.email.data).first()
             if user and user.check_password(form.password.data):
                 login_user(user)
-                flash('Вы вошли на сайт')
                 return redirect(url_for('index'))
 
             else:
+                logging.error('Неправильное имя пользователя или пароль')
                 flash('Неправильное имя пользователя или пароль')
                 return redirect(url_for('login'))
 
     @app.route('/registration')
     def registration():
         if current_user.is_authenticated:
+            logging.error('Вы уже авторизованы')
             flash('Вы уже авторизованы')
             return redirect(url_for('index'))
 
@@ -62,10 +72,12 @@ def create_app():
             password_confirm = form.password_reg_confirm.data
 
             if Users.query.filter(Users.email == email).count():
+                logging.error('Такой пользователь уже есть')
                 flash('Такой пользователь уже есть')
                 return redirect(url_for('login'))
 
             if not password == password_confirm:
+                logging.error('Пароли не совпадают')
                 flash('Пароли не совпадают. Повторите ввод')
                 return redirect(url_for('registration'))
 
@@ -76,7 +88,7 @@ def create_app():
 
             flash('Вы успешно зарегистрировались')
             return redirect(url_for('login'))
-
+        logging.error('Пароль не соответствует требованиям')
         flash('Пароль должен содержать хотя бы одну заглавную букву, хотя бы одну цифру и быть не менее 8 символов')
         return redirect(url_for('registration'))
 
