@@ -10,10 +10,22 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>{{ title }}</title>
   </head>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="alert alert-warning" role="alert">
+        {% for message in messages %}
+            {{ message }}<br>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endwith %}
   <body>
     <section class="material-half-bg">
       <div class="cover"></div>
     </section>
+
+
     <section class="login-content">
       <div class="logo">
         <h1>Vali</h1>

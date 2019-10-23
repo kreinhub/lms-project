@@ -24,30 +24,29 @@ def create_app():
         title = 'Login'
         if current_user.is_authenticated:
             flash('Вы уже авторизованы')
-            return redirect(url_for('main'))
+            return redirect(url_for('index'))
 
         return render_template('page-login.html', form=form, title=title)
 
     @app.route('/process-login', methods=['POST'])
     def process_login():
         form = LoginForm()
-        # if form.validate_on_submit():
-        user = Users.query.filter_by(email=form.email.data).first()
-        if user and user.check_password(form.password.data):
-            login_user(user)
-            flash('Вы вошли на сайт')
-            return redirect(url_for('main'))
+        if form.validate_on_submit():
+            user = Users.query.filter_by(email=form.email.data).first()
+            if user and user.check_password(form.password.data):
+                login_user(user)
+                flash('Вы вошли на сайт')
+                return redirect(url_for('index'))
 
-        else:
-            flash('Неправильное имя пользователя или пароль')
-            print('wrng pwd')
-            return redirect(url_for('login'))
+            else:
+                flash('Неправильное имя пользователя или пароль')
+                return redirect(url_for('login'))
 
     @app.route('/registration')
     def registration():
         if current_user.is_authenticated:
             flash('Вы уже авторизованы')
-            return redirect(url_for('main'))
+            return redirect(url_for('index'))
 
         title = "Регистрация"
         registration_form = RegistrationForm()
@@ -55,7 +54,6 @@ def create_app():
 
     @app.route('/process_registration', methods=['POST'])
     def process_registration():
-
         form = RegistrationForm()
         if form.validate_on_submit():
 
@@ -82,15 +80,14 @@ def create_app():
         flash('Пароль должен содержать хотя бы одну заглавную букву, хотя бы одну цифру и быть не менее 8 символов')
         return redirect(url_for('registration'))
 
-
     @app.route('/logout')
     def logout():
         logout_user()
         flash('Вы успешно вышли из системы')
         return redirect(url_for('login'))
 
-    @app.route('/main')
-    def main():
+    @app.route('/index')
+    def index():
         # print(request.args["test"])
         news_list = News.query.order_by(News.published.desc()).all()
         habr_list = Articles.query.filter_by(source="habr").all()
