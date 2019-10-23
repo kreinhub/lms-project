@@ -20,7 +20,7 @@ def create_app():
                         filemode='w',
                         level=logging.ERROR,
                         datefmt='%m/%d/%Y %I:%M:%S %p',
-                        format='%(name)s - %(levelname)s - %(message)s')
+                        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
     @login_manager.user_loader
     def load_user(user_id):
