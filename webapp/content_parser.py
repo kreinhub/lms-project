@@ -17,10 +17,13 @@ def get_html():
             raw_text = f.read()
     except FileNotFoundError:
         return False
-    soup = bso(raw_text, "html.parser")
-    object_html = soup.find_all('html')
-    list_html = [str(item) for item in object_html]    
-    html = '\n'.join(list_html)
+    
+    list_html = re.split(r"(<html.*</html>)", raw_text)
+    html = ''.join(list_html)
+    # soup = bso(raw_text, "html.parser")
+    # object_html = soup.find_all('html')
+    # list_html = [str(item) for item in object_html]    
+    # html = '\n'.join(list_html)
 
     return html
 
