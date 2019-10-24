@@ -102,6 +102,7 @@
         </div>
       </div>
       
+      <!-- Sidebar elements and their highlight -->
       {% block menu_highlight %}
     
       {% endblock %}
@@ -179,5 +180,20 @@
       	ga('send', 'pageview');
       }
     </script>
+    
+    <!-- Javasript for anchored links -->
+    <!-- <script type="text/javascript">
+      $(document).ready(function(){
+         $("#menu").on("click","a", function (event) {
+             event.preventDefault();
+             var id  = $(this).attr('href'),
+                 top = $(id).offset().top;
+             $('body,html').animate({scrollTop: top}, 1500);
+         });
+     }); -->
+     </script>
+
+
+
   </body>
 </html>

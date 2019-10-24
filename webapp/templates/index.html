@@ -8,8 +8,68 @@
 {% block menu_highlight %}
 
 <ul class="app-menu">
+  <li><a class="app-menu__item active" href="{{url_for('index')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Главная</span></a></li>
+  <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-play-circle-o"></i><span class="app-menu__label">Начало курса</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+    <ul class="treeview-menu">
+      <li><a class="treeview-item" href="{{url_for('start')}}"><i class="icon fa fa-circle-o"></i>О курсе и коммуникации</a></li>
+      <!-- <li><a class="treeview-item" href="{{url_for('start')}}#yak1" target="_blank" rel="noopener"><i class="icon fa fa-circle-o"></i>Коммуникация</a></li> -->
+      <li><a class="treeview-item" href="{{url_for('start_faq')}}"><i class="icon fa fa-circle-o"></i>Вопросы</a></li>
+      <li><a class="treeview-item" href="{{url_for('start_py')}}"><i class="icon fa fa-circle-o"></i>Установка Python</a></li>
+      <li><a class="treeview-item" href="{{url_for('start_cli')}}"><i class="icon fa fa-circle-o"></i>Командная строка</a></li>
+    </ul>
+  </li>
+  <!-- <li><a class="app-menu__item" href="charts.html"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Charts</span></a></li> -->
+  <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Общий курс</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+    <ul class="treeview-menu">
+      <li><a class="treeview-item" href="form-components.html"><i class="icon fa fa-circle-o"></i>Урок 1</a></li>
+      <li><a class="treeview-item" href="form-custom.html"><i class="icon fa fa-circle-o"></i>Урок 2</a></li>
+      <li><a class="treeview-item" href="form-samples.html"><i class="icon fa fa-circle-o"></i>Урок 3</a></li>
+      <li><a class="treeview-item" href="form-notifications.html"><i class="icon fa fa-circle-o"></i>Урок 4</a></li>
+    </ul>
+  </li>
+  <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Трек Веб-разработка</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+    <ul class="treeview-menu">
+      <li><a class="treeview-item" href="table-basic.html"><i class="icon fa fa-circle-o"></i>Урок 1</a></li>
+      <li><a class="treeview-item" href="table-data-table.html"><i class="icon fa fa-circle-o"></i>Урок 2</a></li>
+      <li><a class="treeview-item" href="table-data-table.html"><i class="icon fa fa-circle-o"></i>Урок 3</a></li>
+    </ul>
+  </li>
+  <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Трек Data-Science</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+    <ul class="treeview-menu">
+      <li><a class="treeview-item" href="blank-page.html"><i class="icon fa fa-circle-o"></i>Урок 1</a></li>
+      <li><a class="treeview-item" href="page-login.html"><i class="icon fa fa-circle-o"></i>Урок 2</a></li>
+      <li><a class="treeview-item" href="page-lockscreen.html"><i class="icon fa fa-circle-o"></i>Урок 3</a></li>
+    </ul>
+    <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Трек Telegram-Bot</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+      <ul class="treeview-menu">
+        <li><a class="treeview-item" href="blank-page.html"><i class="icon fa fa-circle-o"></i>Урок 1</a></li>
+        <li><a class="treeview-item" href="page-login.html"><i class="icon fa fa-circle-o"></i>Урок 2</a></li>
+        <li><a class="treeview-item" href="page-lockscreen.html"><i class="icon fa fa-circle-o"></i>Урок 3</a></li>
+      </ul>
+    <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Дополнительно</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+      <ul class="treeview-menu">
+        <li><a class="treeview-item" href="blank-page.html"><i class="icon fa fa-circle-o"></i>Урок 1</a></li>
+        <li><a class="treeview-item" href="page-login.html"><i class="icon fa fa-circle-o"></i>Урок 2</a></li>
+        <li><a class="treeview-item" href="page-lockscreen.html"><i class="icon fa fa-circle-o"></i>Урок 3</a></li>
+      </ul>
+      <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-info-circle"></i><span class="app-menu__label">Справочная</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <ul class="treeview-menu">
+          <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-question-circle"></i>FAQ</a></li>
+          <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-database"></i>База знаний</a></li>
+          <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-book"></i>Литература</a></li>
+          <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-address-book"></i>Контакты</a></li>
+        </ul>
+  </li>
+  <!-- <li><a class="app-menu__item" href="docs.html"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Docs</span></a></li> -->
+</ul>
+
+
+
+
+<!-- <ul class="app-menu">
     <li><a class="app-menu__item active" href="{{url_for('index')}}"><i class="app-menu__icon fa fa-dashboard" aria-hidden="true"></i><span class="app-menu__label">Главная</span></a></li>
-    <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa fa-graduation-cap"></i><span class="app-menu__label">Вводный курс</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+    <li><a class="app-menu__item" href="{{url_for('start')}}"><i class="app-menu__icon fa fa-play-circle-o" aria-hidden="true"></i><span class="app-menu__label">Начало курса</span></a></li>
+    <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa fa-graduation-cap"></i><span class="app-menu__label">Общий материал</span><i class="treeview-indicator fa fa-angle-right"></i></a>
       <ul class="treeview-menu">
         <li><a class="treeview-item" href="{{url_for('start')}}"><i class="icon fa fa-play-circle-o"></i>Подготовка</a></li>
         <li><a class="treeview-item" href="{{url_for('common_1')}}"><i class="icon fa fa-circle-o"></i>Первая неделя</a></li>
@@ -27,7 +87,7 @@
         <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-book"></i>Литература</a></li>
         <li><a class="treeview-item" href="путь к html файлу"><i class="icon fa fa-address-book"></i>Контакты</a></li>
 
-</ul>
+</ul> -->
 {% endblock %}
 
 
