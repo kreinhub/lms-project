@@ -28,15 +28,15 @@ def create_app():
     def start_py():
         return render_template('start_python.html')
 
-    @app.route('/start/cli')
-    def start_cli():
-        return render_template('start_cli.html')
-
     @app.route('/start/last_step')
     def start_last():
         return render_template('start_last_step.html')
     
-    @app.route('/lections/common')
+    @app.route('/common/cli')
+    def common_cli():
+        return render_template('common_cli.html')
+
+    @app.route('/lections/common/first')
     def common_1():
         return render_template('common_1.html')
     
