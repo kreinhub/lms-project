@@ -13,8 +13,9 @@
     <ul class="treeview-menu">
       <li><a class="treeview-item" href="{{url_for('start')}}"><i class="icon fa fa-circle-o"></i>О курсе и коммуникации</a></li>
       <li><a class="treeview-item" href="{{url_for('start_faq')}}"><i class="icon fa fa-circle-o"></i>Вопросы</a></li>
-      <li><a class="treeview-item active" href="{{url_for('start_py')}}"><i class="icon fa fa-circle-o"></i>Установка Python</a></li>
+      <li><a class="treeview-item active" href="{{url_for('start_py')}}"><i class="icon fa fa-circle-o"></i>Настройка рабочего места</a></li>
       <li><a class="treeview-item" href="{{url_for('start_cli')}}"><i class="icon fa fa-circle-o"></i>Командная строка</a></li>
+      <li><a class="treeview-item" href="{{url_for('start_last')}}"><i class="icon fa fa-circle-o"></i>Начать обучение</a></li>
     </ul>
   </li>
   <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Общий курс</span><i class="treeview-indicator fa fa-angle-right"></i></a>
@@ -66,7 +67,7 @@
 <main class="app-content">
     <div class="app-title">
       <div>
-        <h1><i class="fa fa-play-circle-o"></i> Установка Python</h1>
+        <h1><i class="fa fa-play-circle-o"></i> Настройка рабочего места</h1>
         <p>Подготовка к курсу</p>
       </div>
       <ul class="app-breadcrumb breadcrumb">
@@ -74,6 +75,7 @@
         <li class="breadcrumb-item"><a href="{{url_for('index')}}">Главная</a></li>
       </ul>
     </div>
+    
     <div class="row">
       <div class="col-md-12">
         <div class="tile">
@@ -96,14 +98,69 @@
                 <br>
                 <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D5b271cef6d%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310542000&amp;usg=AFQjCNGk7k48N91ctF_jh7aIW3ELi3L0Fg" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=5b271cef6d&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Слайды</a> с установкой Python 3.7
                 <br>Мы подготовили видео, на которых рассказываем как настроить компьютер для участия в курсе. Выберите операционную систему и следуй инструкциям:
-
-                <div class='embed-container'>
-                        <h2>Hui</h2>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLsyvDWwjkTqtOmqAiTzzfHspTAztB-udL" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-
-                        <h2>Hui</h2>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/JfJYHfrOGgQ" frameborder="0" gesture="media" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <br>
+                <br>
+                <!-- <div class='embed-container'> -->
+                <div class="row">
+                  <div class="col-md-4"> 
+                        <h4>Установка python на Windows</h4>
+                        <iframe width="480" height="270" src="https://www.youtube.com/embed/1_cnG-uVStE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>      
+                        <!-- <br> -->
+                        <!-- <br> -->
+                  <div class="col-md-4"> 
+                        <h4>Установка git на Windows</h4>                        
+                        <iframe width="480" height="270" src="https://www.youtube.com/embed/qx7R1ropPog" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>                        
+                        <!-- <br>
+                        <br> -->
+                  <div class="col-md-4"> 
+                        <h4>Установка IDE на Windows</h4>                                                
+                        <iframe width="480" height="270" src="https://www.youtube.com/embed/pJoBPVZjfnM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
                 </div>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-md-4"> 
+                          <h4>Установка python на Mac OS</h4>
+                          <iframe width="480" height="270" src="https://www.youtube.com/embed/qUjO1H0LYAs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>      
+                          <!-- <br> -->
+                          <!-- <br> -->
+                    <div class="col-md-4"> 
+                          <h4>Установка git на MacOS</h4>
+                          <iframe width="480" height="270" src="https://www.youtube.com/embed/EHUgqqTWnA4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                        
+                    </div>                        
+                          <!-- <br>
+                          <br> -->
+                    <div class="col-md-4"> 
+                          <h4>Установка IDE на MacOS</h4>
+                          <iframe width="480" height="270" src="https://www.youtube.com/embed/1Uj6dcBa3eo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                                                
+                    </div>
+                  </div>
+                  
+                  <br>
+                <br>
+                <div class="row">
+                    <div class="col-md-4"> 
+                          <h4>Установка python на Linux</h4>
+                          <iframe width="480" height="270" src="https://www.youtube.com/embed/BBjyrFPFvPI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>      
+                          <!-- <br> -->
+                          <!-- <br> -->
+                    <div class="col-md-4"> 
+                          <h4>Установка git на Linux</h4>
+                          <iframe width="480" height="270" src="https://www.youtube.com/embed/mMsvNxTVoyo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>                        
+                          <!-- <br>
+                          <br> -->
+                    <div class="col-md-4"> 
+                          <h4>Установка IDE на Linux</h4>
+                          <iframe width="480" height="270" src="https://www.youtube.com/embed/9iN-oQBYGdU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  </div> 
+                <!-- </div> -->
 
         </p>
 
@@ -135,7 +192,8 @@
           <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Dbf99288e7d%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310542000&amp;usg=AFQjCNFlCZga6c5DA-gqrdO1MdxbGUS-AA" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=bf99288e7d&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Регистрация на GitHub</a> устроена куда проще, все доступно по ссылке.
           <br>&nbsp;
         </p> -->
-        
+        <br>
+        <br>        
         <a href="{{url_for('start_cli')}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Далее</a>
     
         </div>

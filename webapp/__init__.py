@@ -16,15 +16,28 @@ def create_app():
         tproger_list = Articles.query.filter_by(source="tproger").all()       
         return render_template('index.html', news_list=news_list, habr_list=habr_list, tproger_list= tproger_list)
 
-    @app.route('/lections/start')
+    @app.route('/start')
     def start():
-        # content_item = Content.query.filter_by(url="text_1").first()
         return render_template('getting-started.html')
 
+    @app.route('/start/faq')
+    def start_faq():
+        return render_template('start_faq.html')
+
+    @app.route('/start/python')
+    def start_py():
+        return render_template('start_python.html')
+
+    @app.route('/start/cli')
+    def start_cli():
+        return render_template('start_cli.html')
+
+    @app.route('/start/last_step')
+    def start_last():
+        return render_template('start_last_step.html')
     
-    @app.route('/lections/common=1')
+    @app.route('/lections/common')
     def common_1():
-        # content_item = Content.query.filter_by(url="text_1").first()
         return render_template('common_1.html')
     
 
