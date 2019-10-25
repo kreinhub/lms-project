@@ -2,7 +2,7 @@
 
 
 {% block title %}
-Общий курс
+Начало курса
 {% endblock %}
 
 
@@ -19,13 +19,13 @@
   </li>
   <li class="treeview is-expanded"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Общий курс</span><i class="treeview-indicator fa fa-angle-right"></i></a>
     <ul class="treeview-menu">
-      <li><a class="treeview-item active" href="{{url_for('common_cli')}}"><i class="icon fa fa-circle-o"></i>Командная строка</a></li>
+      <li><a class="treeview-item" href="{{url_for('common_cli')}}"><i class="icon fa fa-circle-o"></i>Командная строка</a></li>
       <li><a class="treeview-item" href="{{url_for('common_pyfiles')}}"><i class="icon fa fa-circle-o"></i>Файлы *.py и редактор</a></li>
       <li><a class="treeview-item" href="{{url_for('common_simple')}}"><i class="icon fa fa-circle-o"></i>Простые типы данных</a></li>
       <li><a class="treeview-item" href="{{url_for('common_complex')}}"><i class="icon fa fa-circle-o"></i>Комплексные типы данных</a></li>
       <li><a class="treeview-item" href="{{url_for('common_funcs')}}"><i class="icon fa fa-circle-o"></i>Функции</a></li>
       <li><a class="treeview-item" href="{{url_for('common_github')}}"><i class="icon fa fa-circle-o"></i>Git и GitHub</a></li>
-      <li><a class="treeview-item" href="{{url_for('common_bot')}}"><i class="icon fa fa-circle-o"></i>Пишем бота для Telegram</a></li>
+      <li><a class="treeview-item active" href="{{url_for('common_bot')}}"><i class="icon fa fa-circle-o"></i>Пишем бота для Telegram</a></li>
     </ul>
   </li>
   <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Трек Веб-разработка</span><i class="treeview-indicator fa fa-angle-right"></i></a>
@@ -69,7 +69,7 @@
 <main class="app-content">
     <div class="app-title">
       <div>
-        <h1><i class="fa fa-play-circle-o"></i> Командная строка</h1>
+        <h1><i class="fa fa-play-circle-o"></i> Пишем бота для Telegram</h1>
         <p>Общий курс</p>
       </div>
       <ul class="app-breadcrumb breadcrumb">
@@ -83,28 +83,21 @@
         <div class="tile">
 
           <!-- Content of page -->
-          <p style="margin: 10px 0px; padding: 0px; color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; line-height: 24px; text-align: left; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong>Командная строка</strong>
-            <br>Командная строка - очень важный инструмент в работе программиста. Начнем осваивать её прямо сейчас. Посмотрите видео для своей операционной системы:
-          <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D5b271cef6d%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310542000&amp;usg=AFQjCNGk7k48N91ctF_jh7aIW3ELi3L0Fg" href="https://learn.python.ru/lessons/02_bash.html?full#cover" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Слайды</a>                      
+          <!-- <p style="margin: 10px 0px; padding: 0px; color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; line-height: 24px; text-align: left; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong>Простые типы данных</strong> -->
+            <!-- <br>Программа на Python — просто текстовый файл, содержащий набор инструкций. Файлы python имеют расширение .py -->
           </p>
 
           <div class="row">
-              <div class="col-md-4"> 
-                    <h4>Windows</h4>
-                    <iframe width="480" height="270" src="https://www.youtube.com/embed/rX_qyJ-vKMY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </div>      
-                    <!-- <br> -->
-                    <!-- <br> -->
-              <div class="col-md-4"> 
-                    <h4>MacOS</h4>
-                    <iframe width="480" height="270" src="https://www.youtube.com/embed/ECFcluamWCY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                        
-              </div>                        
-                    <!-- <br>
-                    <br> -->
-              <div class="col-md-4"> 
-                    <h4>Linux</h4>
-                    <iframe width="480" height="270" src="https://www.youtube.com/embed/cSBVTsYE8rI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                                                
-              </div>
+                <div class="col-md-4"> 
+                  <h4>Плейлист из 8 шагов:</h4>
+                  <iframe width="480" height="270" src="https://www.youtube.com/embed/0nI1poACyPI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D5b271cef6d%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310542000&amp;usg=AFQjCNGk7k48N91ctF_jh7aIW3ELi3L0Fg" href="https://learn.python.ru/lessons/bots1.html?full#cover" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Слайды</a>                      
+                </div>      
+          <!-- <div class="col-md-4"> 
+                  <h4>Словари</h4>
+                  <iframe width="480" height="270" src="https://www.youtube.com/embed/KDELZ_2pzpg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D5b271cef6d%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310542000&amp;usg=AFQjCNGk7k48N91ctF_jh7aIW3ELi3L0Fg" href="https://learn.python.ru/lessons/05_listsanddicts.html?full#cover" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Слайды</a>                      
+                </div>        -->
             </div>
           <br>
           <br>

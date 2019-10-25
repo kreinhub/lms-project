@@ -8,22 +8,24 @@
 
 {% block menu_highlight %}
 <ul class="app-menu">
-  <li><a class="app-menu__item active" href="{{url_for('index')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Главная</span></a></li>
+  <li><a class="app-menu__item" href="{{url_for('index')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Главная</span></a></li>
   <li class="treeview is-expanded"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-play-circle-o"></i><span class="app-menu__label">Начало курса</span><i class="treeview-indicator fa fa-angle-right"></i></a>
     <ul class="treeview-menu">
       <li><a class="treeview-item" href="{{url_for('start')}}"><i class="icon fa fa-circle-o"></i>О курсе и коммуникации</a></li>
       <li><a class="treeview-item active" href="{{url_for('start_faq')}}"><i class="icon fa fa-circle-o"></i>Вопросы</a></li>
       <li><a class="treeview-item" href="{{url_for('start_py')}}"><i class="icon fa fa-circle-o"></i>Настройка рабочего места</a></li>
-      <li><a class="treeview-item" href="{{url_for('start_cli')}}"><i class="icon fa fa-circle-o"></i>Командная строка</a></li>
       <li><a class="treeview-item" href="{{url_for('start_last')}}"><i class="icon fa fa-circle-o"></i>Начать обучение</a></li>
     </ul>
   </li>
   <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Общий курс</span><i class="treeview-indicator fa fa-angle-right"></i></a>
     <ul class="treeview-menu">
-      <li><a class="treeview-item" href="form-components.html"><i class="icon fa fa-circle-o"></i>Урок 1</a></li>
-      <li><a class="treeview-item" href="form-custom.html"><i class="icon fa fa-circle-o"></i>Урок 2</a></li>
-      <li><a class="treeview-item" href="form-samples.html"><i class="icon fa fa-circle-o"></i>Урок 3</a></li>
-      <li><a class="treeview-item" href="form-notifications.html"><i class="icon fa fa-circle-o"></i>Урок 4</a></li>
+      <li><a class="treeview-item" href="{{url_for('common_cli')}}"><i class="icon fa fa-circle-o"></i>Командная строка</a></li>
+      <li><a class="treeview-item" href="{{url_for('common_pyfiles')}}"><i class="icon fa fa-circle-o"></i>Файлы *.py и редактор</a></li>
+      <li><a class="treeview-item active" href="{{url_for('common_simple')}}"><i class="icon fa fa-circle-o"></i>Простые типы данных</a></li>
+      <li><a class="treeview-item" href="{{url_for('common_complex')}}"><i class="icon fa fa-circle-o"></i>Комплексные типы данных</a></li>
+      <li><a class="treeview-item" href="{{url_for('common_funcs')}}"><i class="icon fa fa-circle-o"></i>Функции</a></li>
+      <li><a class="treeview-item" href="{{url_for('common_github')}}"><i class="icon fa fa-circle-o"></i>Git и GitHub</a></li>
+      <li><a class="treeview-item" href="{{url_for('common_bot')}}"><i class="icon fa fa-circle-o"></i>Пишем бота для Telegram</a></li>
     </ul>
   </li>
   <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Трек Веб-разработка</span><i class="treeview-indicator fa fa-angle-right"></i></a>

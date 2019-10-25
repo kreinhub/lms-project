@@ -36,10 +36,49 @@ def create_app():
     def common_cli():
         return render_template('common_cli.html')
 
-    @app.route('/lections/common/first')
-    def common_1():
-        return render_template('common_1.html')
+    @app.route('/common/pyfiles')
+    def common_pyfiles():
+        return render_template('common_pyfiles.html')
     
+    @app.route('/common/simpletypes')
+    def common_simple():
+        return render_template('common_simple_types.html')
+    
+    @app.route('/common/variables')
+    def common_vars():
+        return render_template('common_variables.html')
+    
+    @app.route('/common/complextypes')
+    def common_complex():
+        return render_template('common_complex_types.html')
+    
+    @app.route('/common/functions')
+    def common_funcs():
+        return render_template('common_functions.html')
+    
+    @app.route('/common/github')
+    def common_github():
+        return render_template('common_github.html')
+
+    @app.route('/common/telegrambot')
+    def common_bot():
+        return render_template('common_bot.html')
+
+    @app.route('/common/if')
+    def common_if():
+        return render_template('common_if.html')
+
+    @app.route('/common/cycles')
+    def common_cycles():
+        return render_template('common_cycles.html')
+
+    @app.route('/common/exceptions')
+    def common_try():
+        return render_template('common_try.html')
+
+    @app.route('/common/modules')
+    def common_modules():
+        return render_template('common_modules.html')
 
     return app
 
