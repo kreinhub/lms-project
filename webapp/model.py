@@ -9,7 +9,7 @@ db = SQLAlchemy()
 class Users(db.Model, UserMixin):  # нехватает поля для лэвэла
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), nullable=False)
-    username = db.Column(db.String(120), nullable=False)
+    username = db.Column(db.String(120), nullable=False, default='username')
     password = db.Column(db.String(120), nullable=False)
     role = db.Column(db.String(50), default="student")
     phone = db.Column(db.String(50), nullable=True)

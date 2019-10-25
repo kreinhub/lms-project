@@ -1,9 +1,9 @@
 import logging
 
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, flash, redirect, url_for
 from webapp.forms import LoginForm, RegistrationForm
 from webapp.model import db, News, Articles, Content, Users
-from flask_login import LoginManager, login_user, logout_user, current_user, login_required
+from flask_login import LoginManager, login_user, logout_user, current_user
 from webapp.config import SECRET_KEY
 from flask_migrate import Migrate
 
@@ -73,16 +73,6 @@ def create_app():
             password = form.password_reg.data
             password_confirm = form.password_reg_confirm.data
 
-            if Users.query.filter(Users.email == email).count():
-                logging.error('Такой пользователь уже есть')
-                flash('Такой пользователь уже есть')
-                return redirect(url_for('login'))
-
-            if not password == password_confirm:
-                logging.error('Пароли не совпадают')
-                flash('Пароли не совпадают. Повторите ввод')
-                return redirect(url_for('registration'))
-
             new_user = Users(email=email)
             new_user.set_password(password)
             db.session.add(new_user)
@@ -90,8 +80,16 @@ def create_app():
 
             flash('Вы успешно зарегистрировались')
             return redirect(url_for('login'))
-        logging.error('Пароль не соответствует требованиям')
-        flash('Пароль должен содержать хотя бы одну заглавную букву, хотя бы одну цифру и быть не менее 8 символов')
+        else:
+            for field, errors in form.errors.items():
+                for error in errors:
+                    flash('Ошибка в поле "{}": - {}'.format(
+                        getattr(form, field).label.text,
+                        error))
+
+        logging.error('Ошибка в поле "{}": - {}'.format(
+                        getattr(form, field).label.text,
+                        error))
         return redirect(url_for('registration'))
 
     @app.route('/logout')
