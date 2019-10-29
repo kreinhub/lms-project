@@ -1,6 +1,6 @@
+from datetime import datetime
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -39,6 +39,7 @@ class Content(db.Model):
     create_date = db.Column(db.DateTime, default=datetime.now())     # как часто обновляется лекция
     modified_date = db.Column(db.DateTime, default=datetime.now())   # используем как иентификатор раздела (section)
     rating = db.Column(db.Integer, default=0)      # need to specify default arg    (в процентах так как проще)
+    slug = db.Column(db.String(200))
 
     def __repr__(self):
         return f'<Content {self.theme_name} {self.type}>'

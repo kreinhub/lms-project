@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from sqlalchemy import or_
 
 from webapp.model import db, News, Articles, Content
 
@@ -13,72 +14,36 @@ def create_app():
         # print(request.args["test"])
         news_list = News.query.order_by(News.published.desc()).all()
         habr_list = Articles.query.filter_by(source="habr").all()
-        tproger_list = Articles.query.filter_by(source="tproger").all()       
-        return render_template('index.html', news_list=news_list, habr_list=habr_list, tproger_list= tproger_list)
+        tproger_list = Articles.query.filter_by(source="tproger").all()
 
-    @app.route('/start')
+        common_menu = Content.query.with_entities(Content.theme_name, Content.slug).filter(Content.slug != "").filter((or_(Content.section_name.ilike('%первой%'), Content.section_name.ilike('%2 недели%')))).distinct()
+        return render_template('index.html', news_list=news_list, habr_list=habr_list, tproger_list=tproger_list, common_menu=common_menu)
+
+    @app.route('/start/')
     def start():
-        return render_template('getting-started.html')
+        common_menu = Content.query.with_entities(Content.theme_name, Content.slug).filter(Content.slug != "").filter((or_(Content.section_name.ilike('%первой%'), Content.section_name.ilike('%2 недели%')))).distinct()
+        return render_template('start.html', common_menu=common_menu)
 
-    @app.route('/start/faq')
-    def start_faq():
-        return render_template('start_faq.html')
+    @app.route('/common/<page_slug>/')
+    def common(page_slug):
+        common_menu = Content.query.with_entities(Content.theme_name, Content.slug).filter(Content.slug != "").filter((or_(Content.section_name.ilike('%первой%'), Content.section_name.ilike('%2 недели%')))).distinct()
+        page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()
+        if not page:
+            return 'Not found', 404
 
-    @app.route('/start/python')
-    def start_py():
-        return render_template('start_python.html')
+        return render_template(f'{page.slug}.html', common_menu=common_menu)
 
-    @app.route('/start/last_step')
-    def start_last():
-        return render_template('start_last_step.html')
-    
-    @app.route('/common/cli')
-    def common_cli():
-        return render_template('common_cli.html')
+    # @app.route('/common/<page_slug>/')
+    # def common(page_slug):
+    #     slug_list = [content.slug for content in db.session.query(Content).all()]
+    #     uniq_slugs = [x for i, x in enumerate(slug_list) if x not in slug_list[:i]]
+        
+    #     page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()
+    #     if not page:
+    #         return 'Not found', 404
 
-    @app.route('/common/pyfiles')
-    def common_pyfiles():
-        return render_template('common_pyfiles.html')
-    
-    @app.route('/common/simpletypes')
-    def common_simple():
-        return render_template('common_simple_types.html')
-    
-    @app.route('/common/variables')
-    def common_vars():
-        return render_template('common_variables.html')
-    
-    @app.route('/common/complextypes')
-    def common_complex():
-        return render_template('common_complex_types.html')
-    
-    @app.route('/common/functions')
-    def common_funcs():
-        return render_template('common_functions.html')
-    
-    @app.route('/common/github')
-    def common_github():
-        return render_template('common_github.html')
-
-    @app.route('/common/telegrambot')
-    def common_bot():
-        return render_template('common_bot.html')
-
-    @app.route('/common/if')
-    def common_if():
-        return render_template('common_if.html')
-
-    @app.route('/common/cycles')
-    def common_cycles():
-        return render_template('common_cycles.html')
-
-    @app.route('/common/exceptions')
-    def common_try():
-        return render_template('common_try.html')
-
-    @app.route('/common/modules')
-    def common_modules():
-        return render_template('common_modules.html')
+    #     return render_template(f'{page.slug}.html', slug_list=uniq_slugs[1:])
+        
 
     return app
 

@@ -9217,3 +9217,1795 @@ Content-Transfer-Encoding: quoted-printable
             </center><img src="https://moscowpython.us10.list-manage.com/track/open.php?u=c697064155714e24c8be7e9d8&id=3273780d42&e=cbfff661df" height="1" width="1"></body>
 </html>
 --_----------=_MCPart_1097941060--
+Delivered-To: sirionhvg@gmail.com
+Received: by 2002:a92:9505:0:0:0:0:0 with SMTP id y5csp2142085ilh;
+        Sat, 19 Oct 2019 06:56:47 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqzZIbSd0OYx2EOjLD/FGZ7gxibtxwgKDoaM5c+MQdxef58qoLcuVwqPWnKbDzINH7RODnM7
+X-Received: by 2002:a25:d049:: with SMTP id h70mr9012058ybg.2.1571493407262;
+        Sat, 19 Oct 2019 06:56:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t71493407; cv=none;
+        d=google.com; s=arc-20160816;
+        b=nret/n0AQu3TIRcn1zeInMlXfW8j9LTgeF7rSOSgkc5ZefklBX6Xw8xbrUIlGSXQ8N
+         z2hFp6ZLbO6bjPuBw8JXWklyW2Yf7gMO0CKntLnxRbvU/+Xr/5fE20neLqxfph/zLs6b
+         3gq+B4pOH4mQwbXKGb9dlY5G1klfe0XuCFXMTzZnw6Q+qHFeN3A0APbP9DNOSv0jaLqQ
+         F9HpeR4cyLwUr0Y8bYRL9tnv8jfHCm+4R8H0+PfM1t4UhB6HS2avTbyG5FYoeqNlkZK6
+         88qF0ezPeN77y23w1hosxXcBMc6LrwKEPzxxey/7Q4RWYvwH4GR3COZP9RZjhNVNLYs2
+         U/uQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe-post:list-unsubscribe:list-id
+         :feedback-id:message-id:date:to:reply-to:from:subject:dkim-signature
+         :dkim-signature;
+        bh=VpXfyUbBA69jFQi6Xk2IQ3+QFIQ0GM99E09lngePjZY=;
+        b=O/vpZpPQjJkvnKniTvGlwlf7veRqjSJHj+hocHB9FXDqQ98UNsgJtvVYcm+7du3p4+
+         69183bMjG3hAP9BurpSggo1ziaN+GbXcAVkalgG3YTKEoczE7ita27QHeJpJMf5s800V
+         hs3NPWDkpCVYrontBcfBzOnPZ4vvW61j9SgCPGW+2kEggR9nGRjRiU5mLr1zU+BPJEF3
+         r19t2nP9CnsF9uYJ1FPr46NznbFJ4GRcRAZE5taRGuuRvr+lPBNNtEGxVNJr9wqyf46L
+         NadPz5rj3jsLDRgLxnH5ndlyc7sxGPfVfHkIIG1N8/gkgO5/BUJfBBoSgudpz613amHf
+         yXzA=
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=qUjD9foH;
+       dkim=pass header.i=@mailchimpapp.net header.s=k1 header.b=rmZQzNVc;
+       spf=pass (google.com: domain of bounce-mc.us10_40874093.1357141-cbfff661df@mail250.atl61.mcsv.net designates 205.201.135.250 as permitted sender) smtp.mailfrom=bounce-mc.us10_40874093.1357141-cbfff661df@mail250.atl61.mcsv.net
+Return-Path: <bounce-mc.us10_40874093.1357141-cbfff661df@mail250.atl61.mcsv.net>
+Received: from mail250.atl61.mcsv.net (mail250.atl61.mcsv.net. [205.201.135.250])
+        by mx.google.com with ESMTPS id a6si3331353ybg.239.2019.10.19.06.56.47
+        for <sirionhvg@gmail.com>
+        (version=TLS1_2 cipherDHE-RSA-AES128-GCM-SHA256 bits8/128);
+        Sat, 19 Oct 2019 06:56:47 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-mc.us10_40874093.1357141-cbfff661df@mail250.atl61.mcsv.net designates 205.201.135.250 as permitted sender) client-ip 5.201.135.250;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=qUjD9foH;
+       dkim=pass header.i=@mailchimpapp.net header.s=k1 header.b=rmZQzNVc;
+       spf=pass (google.com: domain of bounce-mc.us10_40874093.1357141-cbfff661df@mail250.atl61.mcsv.net designates 205.201.135.250 as permitted sender) smtp.mailfrom=bounce-mc.us10_40874093.1357141-cbfff661df@mail250.atl61.mcsv.net
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.mcsv.net;
+	s=k1; t71493407; bh=VpXfyUbBA69jFQi6Xk2IQ3+QFIQ0GM99E09lngePjZY=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:Feedback-ID:List-ID:
+	 List-Unsubscribe:Content-Type:MIME-Version;
+	b=qUjD9foHsLTVGjuTMo0cgyaEUDtCjus9tl7Z4NPkCp8eyPAbSiN04dNhDp/M6lnu3
+	 0tx3rDLWu25JDdhP0msSZgxYGTmN62gcu1QZSDGsNC7qy00iHutDiggCSprsDmhG5K
+	 n4jtgYY9obgRvbiUg6/V2QLrNxb6BjyHcgocYr9IDKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailchimpapp.net;
+	s=k1; t71493407; i=learn=3Dpython.ru@mailchimpapp.net;
+	bh=VpXfyUbBA69jFQi6Xk2IQ3+QFIQ0GM99E09lngePjZY=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:List-ID:List-Unsubscribe:
+	 Content-Type:MIME-Version;
+	b=rmZQzNVcRHLZ1kqJvQkPyGwpdx5TL4ussPNkX+54AYO1SrXplNJPxz6lJML05A3NE
+	 3lBWtcgOnu2yIw27h9zGWGaXvyKqyiT47+0/LLmrXxfypj4d1RuFzhxOQ6ifKiaD2V
+	 OCKfet/jF8976liNI3jXX2vDKThsNijCYy22hs7oReceived: from localhost (localhost [127.0.0.1])
+	by mail250.atl61.mcsv.net (Mailchimp) with ESMTP id 46wPb26sjQz5QkVd5
+	for <sirionhvg@gmail.com>; Sat, 19 Oct 2019 13:56:46 +0000 (GMT)
+x-mcpf-jobid: mc.us10_40874093.1357141.5dab1619b6fa5.full_000001
+Subject: =?utf-8?Q?Learn Python: как тестировать свой код. Лекции 8 недели?From: =?utf-8?Q?Learn Python Team?= <learn@python.ru>
+Reply-To: =?utf-8?Q?Learn Python Team?= <learn@python.ru>
+To: =?utf-8?Q?Денис?= <sirionhvg@gmail.com>
+Date: Sat, 19 Oct 2019 13:56:45 +0000
+Message-ID: <c697064155714e24c8be7e9d8.cbfff661df.20191019135642.a84d99a3b4.7f69a7cd@mail250.atl61.mcsv.net>
+X-Mailer: MailChimp Mailer - **CIDa84d99a3b4cbfff661df**
+X-Campaign: mailchimpc697064155714e24c8be7e9d8.a84d99a3b4
+X-campaignid: mailchimpc697064155714e24c8be7e9d8.a84d99a3b4
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u97064155714e24c8be7e9d8&id4d99a3b4&efff661df
+X-MC-User: c697064155714e24c8be7e9d8
+Feedback-ID: 40874093:40874093.1357141:us10:mc
+List-ID: c697064155714e24c8be7e9d8mc list <c697064155714e24c8be7e9d8.300209.list-id.mcsv.net>
+X-Accounttype: pd
+List-Unsubscribe: <https://moscowpython.us10.list-manage.com/unsubscribe?u97064155714e24c8be7e9d8&ide32647f76&efff661df&c4d99a3b4>, <mailto:unsubscribe-mc.us10_c697064155714e24c8be7e9d8.a84d99a3b4-cbfff661df@mailin.mcsv.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_1989094033"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_1989094033
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+Привет Денис!
+
+Мы с вами не забываем про качество кода, которое пишем. Сегодня мы разберем еще один важный момент - как и зачем писать тесты.
+1. Что такое тестирование и зачем оно нужно? - видео (https://youtu.be/Mud-X6Q8uEA?list=PL48Rj2xJlxN2buFNaeBO9ZEUA5ZcB1GRV) , слайды (https://learn.python.ru/lessons/7_1_testing.html?full#cover)
+2. Что и как тестировать? - видео (https://youtu.be/YfDojwNa-7o?list=PL48Rj2xJlxN2buFNaeBO9ZEUA5ZcB1GRV) , слайды (https://learn.python.ru/lessons/7_2_testing.html?full#cover)
+3. Инструменты тестирования кода - видео (https://www.youtube.com/watch?v=Sua7Oi6qsmk&list=PL48Rj2xJlxN2buFNaeBO9ZEUA5ZcB1GRV&index=3) , слайды (https://learn.python.ru/lessons/7_3_testing.html?full#cover)
+
+Трек "Боты":
+Наш бот пока не умеет сохранять данные между сессиями - стоит его перезагрузить и он все "забывает". Научим бота сохранять данные в MongoDB (слайды (https://learn.python.ru/lessons/bots7.html?full#cover) ):
+1. Регистрация в сервисе MongoDB Atlas (https://www.youtube.com/watch?v=QAo5FtUQb40&list=PL48Rj2xJlxN3LvSSMmOsHJuqwYznBhg36)
+2. Настройка и подключение (https://www.youtube.com/watch?v=8uLO_H73uVw&list=PL48Rj2xJlxN3LvSSMmOsHJuqwYznBhg36&index=2)
+3. Введение в PyMongo (https://www.youtube.com/watch?v=J5l1otgF9JA&list=PL48Rj2xJlxN3LvSSMmOsHJuqwYznBhg36&index=3)
+4. Добавляем поддержку MongoDB в бота (https://www.youtube.com/watch?v=aJqd6TbqIk0&list=PL48Rj2xJlxN3LvSSMmOsHJuqwYznBhg36&index=4)
+5. Переписываем get_user_emo (https://www.youtube.com/watch?v=qNq11Qtw1d4&index=5&list=PL48Rj2xJlxN3LvSSMmOsHJuqwYznBhg36)
+6. Управление подпиской чрез базу данных (https://www.youtube.com/watch?v=h9dL8_nQtDE&index=6&list=PL48Rj2xJlxN3LvSSMmOsHJuqwYznBhg36)
+
+Трек "Анализ данных":
+В прошлый раз мы познакомились с датасетом "Титаник", в этот раз давайте попробуем сделать на его основе предсказания (слайды (https://learn.python.ru/lessons/ds6.html?full#cover) ):
+1. Приводим датасеты в порядок (https://www.youtube.com/watch?v=me3pnO4R1LI&list=PL48Rj2xJlxN2neRD_y2HPvpujECi_55Wh)
+2. Кодируем текстовые параметры (https://www.youtube.com/watch?v=Ya7NEieo3kY&list=PL48Rj2xJlxN2neRD_y2HPvpujECi_55Wh&index=2)
+3. Делаем предсказания (https://www.youtube.com/watch?v=4A6F566K-04&index=3&list=PL48Rj2xJlxN2neRD_y2HPvpujECi_55Wh)
+
+Трек "Веб разработка":
+Сегодня мы с вами поговорим о базах данных, миграциях и проверках в формах (слайды (https://learn.python.ru/lessons/web6.html?full#cover) ):
+1. Скрипт для запуска приложений (https://www.youtube.com/watch?v=LFkE5MjtwVM&list=PL48Rj2xJlxN36Op3QI5OkrPRXMljjtEL2)
+2. Что такое миграции? (https://www.youtube.com/watch?v=2iaqiW7LAFE&list=PL48Rj2xJlxN36Op3QI5OkrPRXMljjtEL2&index=2)
+3. Создаем первую миграцию (https://www.youtube.com/watch?v=mJXz04sIyCM&list=PL48Rj2xJlxN36Op3QI5OkrPRXMljjtEL2&index=3)
+4. Добавим поле в модель (https://www.youtube.com/watch?v=WyTo8WWRoHU&list=PL48Rj2xJlxN36Op3QI5OkrPRXMljjtEL2&index=4)
+5. Регистрация пользователей (https://www.youtube.com/watch?v=XFM6VsiE25w&list=PL48Rj2xJlxN36Op3QI5OkrPRXMljjtEL2&index=5)
+6. Работа с пользователями в шаблоне (https://www.youtube.com/watch?v=ZNovB2bysC4&list=PL48Rj2xJlxN36Op3QI5OkrPRXMljjtEL2&index=6)
+7. Дополнительные проверки в форме (https://www.youtube.com/watch?v=prL0zKdhifA&list=PL48Rj2xJlxN36Op3QI5OkrPRXMljjtEL2&index=7)
+
+Запись сегодняшнего онлайн созвона - здесь (https://zoom.us/recording/play/8O6sPScsx1IelpaWGm2XGWl2R8Hts6B71GIcifsRUO1XpozUYdBP30noCZziG9dt?autoplay=true&startTime=1561796084000) .
+
+Михаил Корнеев и команда Learn Python
+
+============================================================
+
+This email was sent to sirionhvg@gmail.com (mailto:sirionhvg@gmail.com)
+why did I get this? (https://moscowpython.us10.list-manage.com/about?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df&c=a84d99a3b4)     unsubscribe from this list (https://moscowpython.us10.list-manage.com/unsubscribe?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df&c=a84d99a3b4)     update subscription preferences (https://moscowpython.us10.list-manage.com/profile?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df)
+MoscowPython . Москва, Серебряническая набережная, 29 . Moscow 101000 . Russia
+--_----------=_MCPart_1989094033
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+    <head>
+        <!-- NAME: SIMPLE TEXT -->
+        <!--[if gte mso 15]>
+        <xml>
+            <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Learn Python: как тестировать свой код. Лекции 8 недели</title>
+
+    <style type="text/css">
+		p{
+			margin:10px 0;
+			padding:0;
+		}
+		table{
+			border-collapse:collapse;
+		}
+		h1,h2,h3,h4,h5,h6{
+			display:block;
+			margin:0;
+			padding:0;
+		}
+		img,a img{
+			border:0;
+			height:auto;
+			outline:none;
+			text-decoration:none;
+		}
+		body,#bodyTable,#bodyCell{
+			height:100%;
+			margin:0;
+			padding:0;
+			width:100%;
+		}
+		.mcnPreviewText{
+			display:none !important;
+		}
+		#outlook a{
+			padding:0;
+		}
+		img{
+			-ms-interpolation-mode:bicubic;
+		}
+		table{
+			mso-table-lspace:0pt;
+			mso-table-rspace:0pt;
+		}
+		.ReadMsgBody{
+			width:100%;
+		}
+		.ExternalClass{
+			width:100%;
+		}
+		p,a,li,td,blockquote{
+			mso-line-height-rule:exactly;
+		}
+		a[href^=tel],a[href^=sms]{
+			color:inherit;
+			cursor:default;
+			text-decoration:none;
+		}
+		p,a,li,td,body,table,blockquote{
+			-ms-text-size-adjust:100%;
+			-webkit-text-size-adjust:100%;
+		}
+		.ExternalClass,.ExternalClass p,.ExternalClass td,.ExternalClass div,.ExternalClass span,.ExternalClass font{
+			line-height:100%;
+		}
+		a[x-apple-data-detectors]{
+			color:inherit !important;
+			text-decoration:none !important;
+			font-size:inherit !important;
+			font-family:inherit !important;
+			font-weight:inherit !important;
+			line-height:inherit !important;
+		}
+		#bodyCell{
+			padding:10px;
+		}
+		.templateContainer{
+			max-width:600px !important;
+		}
+		a.mcnButton{
+			display:block;
+		}
+		.mcnImage,.mcnRetinaImage{
+			vertical-align:bottom;
+		}
+		.mcnTextContent{
+			word-break:break-word;
+		}
+		.mcnTextContent img{
+			height:auto !important;
+		}
+		.mcnDividerBlock{
+			table-layout:fixed !important;
+		}
+		body,#bodyTable{
+			background-color:#FFFFFF;
+			background-image:none;
+			background-repeat:no-repeat;
+			background-position:center;
+			background-size:cover;
+		}
+		#bodyCell{
+			border-top:0;
+		}
+		.templateContainer{
+			border:0;
+		}
+		h1{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:26px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:125%;
+			letter-spacing:normal;
+			text-align:left;
+		}
+		h2{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:22px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:125%;
+			letter-spacing:normal;
+			text-align:left;
+		}
+		h3{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:20px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:125%;
+			letter-spacing:normal;
+			text-align:left;
+		}
+		h4{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:18px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:125%;
+			letter-spacing:normal;
+			text-align:left;
+		}
+		#templateHeader{
+			border-top:0;
+			border-bottom:0;
+		}
+		#templateHeader .mcnTextContent,#templateHeader .mcnTextContent p{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:16px;
+			line-height:150%;
+			text-align:left;
+		}
+		#templateHeader .mcnTextContent a,#templateHeader .mcnTextContent p a{
+			color:#007C89;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+		#templateBody{
+			border-top:0;
+			border-bottom:0;
+		}
+		#templateBody .mcnTextContent,#templateBody .mcnTextContent p{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:16px;
+			line-height:150%;
+			text-align:left;
+		}
+		#templateBody .mcnTextContent a,#templateBody .mcnTextContent p a{
+			color:#007C89;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+		#templateFooter{
+			border-top:0;
+			border-bottom:0;
+		}
+		#templateFooter .mcnTextContent,#templateFooter .mcnTextContent p{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:12px;
+			line-height:150%;
+			text-align:left;
+		}
+		#templateFooter .mcnTextContent a,#templateFooter .mcnTextContent p a{
+			color:#202020;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+	@media only screen and (min-width:768px){
+		.templateContainer{
+			width:600px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		body,table,td,p,a,li,blockquote{
+			-webkit-text-size-adjust:none !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		body{
+			width:100% !important;
+			min-width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		#bodyCell{
+			padding-top:10px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnRetinaImage{
+			max-width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImage{
+			width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnCartContainer,.mcnCaptionTopContent,.mcnRecContentContainer,.mcnCaptionBottomContent,.mcnTextContentContainer,.mcnBoxedTextContentContainer,.mcnImageGroupContentContainer,.mcnCaptionLeftTextContentContainer,.mcnCaptionRightTextContentContainer,.mcnCaptionLeftImageContentContainer,.mcnCaptionRightImageContentContainer,.mcnImageCardLeftTextContentContainer,.mcnImageCardRightTextContentContainer,.mcnImageCardLeftImageContentContainer,.mcnImageCardRightImageContentContainer{
+			max-width:100% !important;
+			width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnBoxedTextContentContainer{
+			min-width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageGroupContent{
+			padding:9px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnCaptionLeftContentOuter .mcnTextContent,.mcnCaptionRightContentOuter .mcnTextContent{
+			padding-top:9px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageCardTopImageContent,.mcnCaptionBottomContent:last-child .mcnCaptionBottomImageContent,.mcnCaptionBlockInner .mcnCaptionTopContent:last-child .mcnTextContent{
+			padding-top:18px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageCardBottomImageContent{
+			padding-bottom:9px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageGroupBlockInner{
+			padding-top:0 !important;
+			padding-bottom:0 !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageGroupBlockOuter{
+			padding-top:9px !important;
+			padding-bottom:9px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnTextContent,.mcnBoxedTextContentColumn{
+			padding-right:18px !important;
+			padding-left:18px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageCardLeftImageContent,.mcnImageCardRightImageContent{
+			padding-right:18px !important;
+			padding-bottom:0 !important;
+			padding-left:18px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcpreview-image-uploader{
+			display:none !important;
+			width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		h1{
+			font-size:22px !important;
+			line-height:125% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		h2{
+			font-size:20px !important;
+			line-height:125% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		h3{
+			font-size:18px !important;
+			line-height:125% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		h4{
+			font-size:16px !important;
+			line-height:150% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		table.mcnBoxedTextContentContainer td.mcnTextContent,td.mcnBoxedTextContentContainer td.mcnTextContent p{
+			font-size:14px !important;
+			line-height:150% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		td#templateHeader td.mcnTextContent,td#templateHeader td.mcnTextContent p{
+			font-size:16px !important;
+			line-height:150% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		td#templateBody td.mcnTextContent,td#templateBody td.mcnTextContent p{
+			font-size:16px !important;
+			line-height:150% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		td#templateFooter td.mcnTextContent,td#templateFooter td.mcnTextContent p{
+			font-size:14px !important;
+			line-height:150% !important;
+		}
+
+}</style></head>
+    <body style="background:#FFFFFF none no-repeat center/cover;height: 100%;margin: 0;padding: 0;width: 100%;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #FFFFFF;background-image: none;background-repeat: no-repeat;background-position: center;background-size: cover;">
+        <!--
+-->
+        <center>
+            <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable" style="background:#FFFFFF none no-repeat center/cover;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;height: 100%;margin: 0;padding: 0;width: 100%;background-color: #FFFFFF;background-image: none;background-repeat: no-repeat;background-position: center;background-size: cover;">
+                <tr>
+                    <td align="left" valign="top" id="bodyCell" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;height: 100%;margin: 0;padding: 10px;width: 100%;border-top: 0;">
+                        <!-- BEGIN TEMPLATE // -->
+                        <!--[if (gte mso 9)|(IE)]>
+                        <table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;">
+                        <tr>
+                        <td align="center" valign="top" width="600" style="width:600px;">
+                        <![endif]-->
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="templateContainer" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;border: 0;max-width: 600px !important;">
+                            <tr>
+                                <td valign="top" id="templateHeader" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;border-top: 0;border-bottom: 0;"></td>
+                            </tr>
+                            <tr>
+                                <td valign="top" id="templateBody" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;border-top: 0;border-bottom: 0;"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock" style="min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+    <tbody class="mcnTextBlockOuter">
+        <tr>
+            <td valign="top" class="mcnTextBlockInner" style="padding-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+              	<!--[if mso]>
+				<table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
+				<tr>
+				<![endif]-->
+			
+				<!--[if mso]>
+				<td valign="top" width="600" style="width:600px;">
+				<![endif]-->
+                <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width: 100%;min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" width="100%" class="mcnTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign="top" class="mcnTextContent" style="padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;color: #202020;font-family: Helvetica;font-size: 16px;line-height: 150%;text-align: left;">
+
+                            <strong>Привет Денис!</strong>
+
+<p style="margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #202020;font-family: Helvetica;font-size: 16px;line-height: 150%;text-align: left;">Мы с вами не забываем про качество кода, которое пишем. Сегодня мы разберем еще один важный момент - как и зачем писать тесты.</p>
+
+<ol>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">Что такое тестирование и зачем оно&nbsp;нужно? - <a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=5eea1469bd&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">видео</a>,&nbsp;<a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=62d8c9301e&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">слайды</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">Что и как тестировать? - <a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=65b5d9fe87&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">видео</a>, <a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=5b073216fb&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">слайды</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">Инструменты тестирования кода - <a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=5829a92f93&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">видео</a>, <a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=e26fcbd9eb&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">слайды</a></li>
+</ol>
+<strong>Трек "Боты":</strong><br>
+Наш бот пока не умеет сохранять данные между сессиями - стоит его перезагрузить и он все "забывает". Научим бота сохранять данные в MongoDB (<a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=c3fd21b624&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">слайды</a>):
+
+<ol>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=a0351170df&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Регистрация в сервисе MongoDB Atlas</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=07bda2d4ec&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Настройка и подключение</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=b09f3d319d&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Введение в PyMongo</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=c4ad890fcc&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Добавляем поддержку MongoDB в бота</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=87a2ade6d9&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Переписываем get_user_emo</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=97a7960c88&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Управление подпиской чрез базу данных</a></li>
+</ol>
+<strong>Трек "Анализ данных":</strong><br>
+В прошлый раз мы познакомились с датасетом "Титаник", в этот раз давайте попробуем сделать на его основе предсказания (<a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=b7843cb4c2&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">слайды</a>):
+
+<ol>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=2ccbe8e3d1&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Приводим датасеты в порядок</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=b4c207b3b0&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Кодируем текстовые параметры</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=827972d280&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Делаем предсказания</a></li>
+</ol>
+<br>
+<strong>Трек "Веб разработка":</strong><br>
+Сегодня мы с вами поговорим о базах данных, миграциях и проверках в формах (<a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=4686b88bd2&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">слайды</a>):
+
+<ol>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=e6a79640c2&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Скрипт для запуска приложений</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=35b8c4261a&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Что такое миграции?</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=614d6f3561&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Создаем первую миграцию</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=1f07ce8f23&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Добавим поле в модель</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=ae34113aa7&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Регистрация пользователей</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=2e9be94a6e&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Работа с пользователями в шаблоне</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=49f700a6d6&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Дополнительные проверки в форме</a></li>
+</ol>
+<br>
+Запись сегодняшнего онлайн созвона - <a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=e22e081c4d&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">здесь</a>.<br>
+<br>
+<em>Михаил Корнеев и команда Learn Python</em>
+                        </td>
+                    </tr>
+                </tbody></table>
+				<!--[if mso]>
+				</td>
+				<![endif]-->
+
+				<!--[if mso]>
+				</tr>
+				</table>
+				<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                            </tr>
+                            <tr>
+                                <td valign="top" id="templateFooter" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;border-top: 0;border-bottom: 0;"></td>
+                            </tr>
+                        </table>
+                        <!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]-->
+                        <!-- // END TEMPLATE -->
+                    </td>
+                </tr>
+            </table>
+        </center>
+                <center>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" id="canspamBarWrapper" style="background-color:#FFFFFF; border-top:1px solid #E5E5E5;">
+                    <tr>
+                        <td align="center" valign="top" style="padding-top:20px; padding-bottom:20px;">
+                            <table border="0" cellpadding="0" cellspacing="0" id="canspamBar">
+                                <tr>
+                                    <td align="center" valign="top" style="color:#606060; font-family:Helvetica, Arial, sans-serif; font-size:11px; line-height:150%; padding-right:20px; padding-bottom:5px; padding-left:20px; text-align:center;">
+                                        This email was sent to <a href="mailto:sirionhvg@gmail.com" target="_blank" style="color:#404040 !important;">sirionhvg@gmail.com</a>
+                                        <br />
+                                        <a href="https://moscowpython.us10.list-manage.com/about?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df&c=a84d99a3b4" target="_blank" style="color:#404040 !important;"><em>why did I get this?</em></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://moscowpython.us10.list-manage.com/unsubscribe?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df&c=a84d99a3b4" style="color:#404040 !important;">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://moscowpython.us10.list-manage.com/profile?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df" style="color:#404040 !important;">update subscription preferences</a>
+                                        <br />
+                                        MoscowPython &middot; Москва, Серебряническая набережная, 29 &middot; Moscow 101000 &middot; Russia
+                                        <br />
+                                        <br />
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <style type="text/css">
+                    @media only screen and (max-width: 480px){
+                        table#canspamBar td{font-size:14px !important;}
+                        table#canspamBar td a{display:block !important; margin-top:10px !important;}
+                    }
+                </style>
+            </center><img src="https://moscowpython.us10.list-manage.com/track/open.php?u=c697064155714e24c8be7e9d8&id=a84d99a3b4&e=cbfff661df" height="1" width="1"></body>
+</html>
+--_----------=_MCPart_1989094033--
+Delivered-To: sirionhvg@gmail.com
+Received: by 2002:a92:474d:0:0:0:0:0 with SMTP id u74csp44605ila;
+        Fri, 25 Oct 2019 14:02:47 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqx8Rg4aExBpJO1BqrlTXRPC2sg5aaXSW2k3yi9QUSha9ym3nBtfFl/I3Bnss5ZLddrtT9ZA
+X-Received: by 2002:a63:4d09:: with SMTP id a9mr6616981pgb.229.1572037367296;
+        Fri, 25 Oct 2019 14:02:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t72037367; cv=none;
+        d=google.com; s=arc-20160816;
+        b=mzTCAJiziE1uqPD4tAUWlKAhaAHX7Ozt1KGuz2IsagUuoZpw+efbIXE4wwnkqGGxNa
+         ECX6yHExYKT+O89+x8pq9wtW4HBFY1DdQwLlAASmNDhIr6Ss8uwnfOeID8Vhg6rWrtOE
+         nKNB/Pd1CNV9scvcBHBM5Wmkq68W31FY0loUF8xpLYVGdp5ouqgOemhS7XZ3in4+EWmC
+         QMrx7RrZgmH4XwL6SJdk2APbq5jzSzdfT/dRt11NYPVCrQcwt74UHEn0HYMvAYxAX+2S
+         xBPcDre3GdPFfsIeydInbRPtknT+vthjDJSQHRrBD5ycs9cqCP7tg6ka6DQz7f/hyAl1
+         bL5Q=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe-post:list-unsubscribe:list-id
+         :feedback-id:message-id:date:to:reply-to:from:subject:dkim-signature
+         :dkim-signature;
+        bh=XLQIP9tYGiopCcm1pE44lj0RvvWvCy76Grtr5TAPsk0=;
+        b=dsvhqYOQMTh9Ujf8qj2536vKGaGIk9NeJ6/+8BzkM8IAWguNYCG4fSTj0y29gzTXFI
+         rOE+JykG59YCSY9j5jmF3XNejw1G8JQev7BV5yRP3Eyt+kG6NcesTy8HxhdCKsgA9x/p
+         Py81G8xh5ziI1ki45FjZLHcDT7SOLrqWl7CtCnai7pVdIEvu/mh+a1+O51wyUKwth7DJ
+         ATIBHDfzuSJTUfSdjpk08lccYFQSF0tbnL3MnYdU6yWWOkLIHEbrOMW9Va2kM3V6AixV
+         dmLYHbt4Td0qUO7xWoXMJcNBFXcVaBup6M2ZeEX0jqr0pATz9pGiqnwbeOCh+YOt64SG
+         zGtg=
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=iPyHZgpC;
+       dkim=pass header.i=@mailchimpapp.net header.s=k1 header.b=NpwMbCX6;
+       spf=pass (google.com: domain of bounce-mc.us10_40874093.1357149-cbfff661df@mail102.sea61.rsgsv.net designates 148.105.14.102 as permitted sender) smtp.mailfrom=bounce-mc.us10_40874093.1357149-cbfff661df@mail102.sea61.rsgsv.net
+Return-Path: <bounce-mc.us10_40874093.1357149-cbfff661df@mail102.sea61.rsgsv.net>
+Received: from mail102.sea61.rsgsv.net (mail102.sea61.rsgsv.net. [148.105.14.102])
+        by mx.google.com with ESMTPS id y26si3475121pfq.28.2019.10.25.14.02.46
+        for <sirionhvg@gmail.com>
+        (version=TLS1_2 cipherDHE-RSA-AES128-GCM-SHA256 bits8/128);
+        Fri, 25 Oct 2019 14:02:47 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-mc.us10_40874093.1357149-cbfff661df@mail102.sea61.rsgsv.net designates 148.105.14.102 as permitted sender) client-ip8.105.14.102;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=iPyHZgpC;
+       dkim=pass header.i=@mailchimpapp.net header.s=k1 header.b=NpwMbCX6;
+       spf=pass (google.com: domain of bounce-mc.us10_40874093.1357149-cbfff661df@mail102.sea61.rsgsv.net designates 148.105.14.102 as permitted sender) smtp.mailfrom=bounce-mc.us10_40874093.1357149-cbfff661df@mail102.sea61.rsgsv.net
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.mcsv.net;
+	s=k1; t72037366; bh=XLQIP9tYGiopCcm1pE44lj0RvvWvCy76Grtr5TAPsk0=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:Feedback-ID:List-ID:
+	 List-Unsubscribe:Content-Type:MIME-Version;
+	b=iPyHZgpConU5gJaVz2pSgrh1orNFcFwcW9mpZz2WkGFOdJ1cOKEeFV5g4TR+lTg8P
+	 eCjkBKsZfjh32Y8C3PIWBeR5sZaj2nME4rNICAzex5OEmkkpxrsU/nm0WBZJzLov+d
+	 zThx4UmjIEIVLqOLDBiN/xC2BJ+CktxLWDO8JGOEDKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailchimpapp.net;
+	s=k1; t72037366; i=learn=3Dpython.ru@mailchimpapp.net;
+	bh=XLQIP9tYGiopCcm1pE44lj0RvvWvCy76Grtr5TAPsk0=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:List-ID:List-Unsubscribe:
+	 Content-Type:MIME-Version;
+	b=NpwMbCX61wlk0UGIL46AzYn+ktRGrKoSx2fpIQKoAxYbD+qlJnx7DsVMuPPnGWZJB
+	 xsmHl/3pF/wOkRElFaDJWLgE2sHTx3yDpg998zpZEMma97FAksMVxcLMMIQXAbbOLl
+	 MRYid0enpxOoE66lRpxoglUJOAw2796NVvMYyHPwReceived: from localhost (localhost [127.0.0.1])
+	by mail102.sea61.rsgsv.net (Mailchimp) with ESMTP id 470Glp539PzHXYqWD
+	for <sirionhvg@gmail.com>; Fri, 25 Oct 2019 21:02:46 +0000 (GMT)
+x-mcpf-jobid: mc.us10_40874093.1357149.5db362f28959c.full_000001
+Subject: =?utf-8?Q?Learn Python: изменение площадки?From: =?utf-8?Q?Learn Python Team?= <learn@python.ru>
+Reply-To: =?utf-8?Q?Learn Python Team?= <learn@python.ru>
+To: =?utf-8?Q?Денис?= <sirionhvg@gmail.com>
+Date: Fri, 25 Oct 2019 21:02:45 +0000
+Message-ID: <c697064155714e24c8be7e9d8.cbfff661df.20191025210243.ed04b5008a.ebc6e46a@mail102.sea61.rsgsv.net>
+X-Mailer: MailChimp Mailer - **CIDed04b5008acbfff661df**
+X-Campaign: mailchimpc697064155714e24c8be7e9d8.ed04b5008a
+X-campaignid: mailchimpc697064155714e24c8be7e9d8.ed04b5008a
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u97064155714e24c8be7e9d8&id04b5008a&efff661df
+X-MC-User: c697064155714e24c8be7e9d8
+Feedback-ID: 40874093:40874093.1357149:us10:mc
+List-ID: c697064155714e24c8be7e9d8mc list <c697064155714e24c8be7e9d8.300209.list-id.mcsv.net>
+X-Accounttype: pd
+List-Unsubscribe: <https://moscowpython.us10.list-manage.com/unsubscribe?u97064155714e24c8be7e9d8&ide32647f76&efff661df&c04b5008a>, <mailto:unsubscribe-mc.us10_c697064155714e24c8be7e9d8.ed04b5008a-cbfff661df@mailin.mcsv.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_643246272"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_643246272
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+Привет Денис!
+
+ВНИМАНИЕ! ПЕРЕНОС МЕСТА ЗАНЯТИЯ!
+
+ОФФЛАЙН
+В связи с форс-мажорными обстоятнльствами на нашей основной площадке, следующее занятие пройдет в субботу 26 октября, c 11-00 до 14-00, по адресу Москва, Большой Саввинский переулок д.8, стр. 1 Deworkacy Big Data. У нас уже там проводились занятия.
+
+ОНЛАЙН
+Онлайн созвон как обычно состоится в субботу, 11-30. Запись созвона будет доступна.
+
+Михаил Корнеев и команда Learn Python
+
+============================================================
+
+This email was sent to sirionhvg@gmail.com (mailto:sirionhvg@gmail.com)
+why did I get this? (https://moscowpython.us10.list-manage.com/about?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df&c=ed04b5008a)     unsubscribe from this list (https://moscowpython.us10.list-manage.com/unsubscribe?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df&c=ed04b5008a)     update subscription preferences (https://moscowpython.us10.list-manage.com/profile?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df)
+MoscowPython . Москва, Серебряническая набережная, 29 . Moscow 101000 . Russia
+--_----------=_MCPart_643246272
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+    <head>
+        <!-- NAME: SIMPLE TEXT -->
+        <!--[if gte mso 15]>
+        <xml>
+            <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Learn Python: изменение площадки</title>
+
+    <style type="text/css">
+		p{
+			margin:10px 0;
+			padding:0;
+		}
+		table{
+			border-collapse:collapse;
+		}
+		h1,h2,h3,h4,h5,h6{
+			display:block;
+			margin:0;
+			padding:0;
+		}
+		img,a img{
+			border:0;
+			height:auto;
+			outline:none;
+			text-decoration:none;
+		}
+		body,#bodyTable,#bodyCell{
+			height:100%;
+			margin:0;
+			padding:0;
+			width:100%;
+		}
+		.mcnPreviewText{
+			display:none !important;
+		}
+		#outlook a{
+			padding:0;
+		}
+		img{
+			-ms-interpolation-mode:bicubic;
+		}
+		table{
+			mso-table-lspace:0pt;
+			mso-table-rspace:0pt;
+		}
+		.ReadMsgBody{
+			width:100%;
+		}
+		.ExternalClass{
+			width:100%;
+		}
+		p,a,li,td,blockquote{
+			mso-line-height-rule:exactly;
+		}
+		a[href^=tel],a[href^=sms]{
+			color:inherit;
+			cursor:default;
+			text-decoration:none;
+		}
+		p,a,li,td,body,table,blockquote{
+			-ms-text-size-adjust:100%;
+			-webkit-text-size-adjust:100%;
+		}
+		.ExternalClass,.ExternalClass p,.ExternalClass td,.ExternalClass div,.ExternalClass span,.ExternalClass font{
+			line-height:100%;
+		}
+		a[x-apple-data-detectors]{
+			color:inherit !important;
+			text-decoration:none !important;
+			font-size:inherit !important;
+			font-family:inherit !important;
+			font-weight:inherit !important;
+			line-height:inherit !important;
+		}
+		#bodyCell{
+			padding:10px;
+		}
+		.templateContainer{
+			max-width:600px !important;
+		}
+		a.mcnButton{
+			display:block;
+		}
+		.mcnImage,.mcnRetinaImage{
+			vertical-align:bottom;
+		}
+		.mcnTextContent{
+			word-break:break-word;
+		}
+		.mcnTextContent img{
+			height:auto !important;
+		}
+		.mcnDividerBlock{
+			table-layout:fixed !important;
+		}
+		body,#bodyTable{
+			background-color:#FFFFFF;
+			background-image:none;
+			background-repeat:no-repeat;
+			background-position:center;
+			background-size:cover;
+		}
+		#bodyCell{
+			border-top:0;
+		}
+		.templateContainer{
+			border:0;
+		}
+		h1{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:26px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:125%;
+			letter-spacing:normal;
+			text-align:left;
+		}
+		h2{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:22px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:125%;
+			letter-spacing:normal;
+			text-align:left;
+		}
+		h3{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:20px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:125%;
+			letter-spacing:normal;
+			text-align:left;
+		}
+		h4{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:18px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:125%;
+			letter-spacing:normal;
+			text-align:left;
+		}
+		#templateHeader{
+			border-top:0;
+			border-bottom:0;
+		}
+		#templateHeader .mcnTextContent,#templateHeader .mcnTextContent p{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:16px;
+			line-height:150%;
+			text-align:left;
+		}
+		#templateHeader .mcnTextContent a,#templateHeader .mcnTextContent p a{
+			color:#007C89;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+		#templateBody{
+			border-top:0;
+			border-bottom:0;
+		}
+		#templateBody .mcnTextContent,#templateBody .mcnTextContent p{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:16px;
+			line-height:150%;
+			text-align:left;
+		}
+		#templateBody .mcnTextContent a,#templateBody .mcnTextContent p a{
+			color:#007C89;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+		#templateFooter{
+			border-top:0;
+			border-bottom:0;
+		}
+		#templateFooter .mcnTextContent,#templateFooter .mcnTextContent p{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:12px;
+			line-height:150%;
+			text-align:left;
+		}
+		#templateFooter .mcnTextContent a,#templateFooter .mcnTextContent p a{
+			color:#202020;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+	@media only screen and (min-width:768px){
+		.templateContainer{
+			width:600px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		body,table,td,p,a,li,blockquote{
+			-webkit-text-size-adjust:none !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		body{
+			width:100% !important;
+			min-width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		#bodyCell{
+			padding-top:10px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnRetinaImage{
+			max-width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImage{
+			width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnCartContainer,.mcnCaptionTopContent,.mcnRecContentContainer,.mcnCaptionBottomContent,.mcnTextContentContainer,.mcnBoxedTextContentContainer,.mcnImageGroupContentContainer,.mcnCaptionLeftTextContentContainer,.mcnCaptionRightTextContentContainer,.mcnCaptionLeftImageContentContainer,.mcnCaptionRightImageContentContainer,.mcnImageCardLeftTextContentContainer,.mcnImageCardRightTextContentContainer,.mcnImageCardLeftImageContentContainer,.mcnImageCardRightImageContentContainer{
+			max-width:100% !important;
+			width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnBoxedTextContentContainer{
+			min-width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageGroupContent{
+			padding:9px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnCaptionLeftContentOuter .mcnTextContent,.mcnCaptionRightContentOuter .mcnTextContent{
+			padding-top:9px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageCardTopImageContent,.mcnCaptionBottomContent:last-child .mcnCaptionBottomImageContent,.mcnCaptionBlockInner .mcnCaptionTopContent:last-child .mcnTextContent{
+			padding-top:18px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageCardBottomImageContent{
+			padding-bottom:9px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageGroupBlockInner{
+			padding-top:0 !important;
+			padding-bottom:0 !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageGroupBlockOuter{
+			padding-top:9px !important;
+			padding-bottom:9px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnTextContent,.mcnBoxedTextContentColumn{
+			padding-right:18px !important;
+			padding-left:18px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageCardLeftImageContent,.mcnImageCardRightImageContent{
+			padding-right:18px !important;
+			padding-bottom:0 !important;
+			padding-left:18px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcpreview-image-uploader{
+			display:none !important;
+			width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		h1{
+			font-size:22px !important;
+			line-height:125% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		h2{
+			font-size:20px !important;
+			line-height:125% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		h3{
+			font-size:18px !important;
+			line-height:125% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		h4{
+			font-size:16px !important;
+			line-height:150% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		table.mcnBoxedTextContentContainer td.mcnTextContent,td.mcnBoxedTextContentContainer td.mcnTextContent p{
+			font-size:14px !important;
+			line-height:150% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		td#templateHeader td.mcnTextContent,td#templateHeader td.mcnTextContent p{
+			font-size:16px !important;
+			line-height:150% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		td#templateBody td.mcnTextContent,td#templateBody td.mcnTextContent p{
+			font-size:16px !important;
+			line-height:150% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		td#templateFooter td.mcnTextContent,td#templateFooter td.mcnTextContent p{
+			font-size:14px !important;
+			line-height:150% !important;
+		}
+
+}</style></head>
+    <body style="background:#FFFFFF none no-repeat center/cover;height: 100%;margin: 0;padding: 0;width: 100%;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #FFFFFF;background-image: none;background-repeat: no-repeat;background-position: center;background-size: cover;">
+        <!--
+-->
+        <center>
+            <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable" style="background:#FFFFFF none no-repeat center/cover;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;height: 100%;margin: 0;padding: 0;width: 100%;background-color: #FFFFFF;background-image: none;background-repeat: no-repeat;background-position: center;background-size: cover;">
+                <tr>
+                    <td align="left" valign="top" id="bodyCell" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;height: 100%;margin: 0;padding: 10px;width: 100%;border-top: 0;">
+                        <!-- BEGIN TEMPLATE // -->
+                        <!--[if (gte mso 9)|(IE)]>
+                        <table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;">
+                        <tr>
+                        <td align="center" valign="top" width="600" style="width:600px;">
+                        <![endif]-->
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="templateContainer" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;border: 0;max-width: 600px !important;">
+                            <tr>
+                                <td valign="top" id="templateHeader" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;border-top: 0;border-bottom: 0;"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnImageBlock" style="min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+    <tbody class="mcnImageBlockOuter">
+            <tr>
+                <td valign="top" style="padding: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class="mcnImageBlockInner">
+                    <table align="left" width="100%" border="0" cellpadding="0" cellspacing="0" class="mcnImageContentContainer" style="min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                        <tbody><tr>
+                            <td class="mcnImageContent" valign="top" style="padding-right: 9px;padding-left: 9px;padding-top: 0;padding-bottom: 0;text-align: center;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+
+
+                                        <img align="center" alt="" src="https://gallery.mailchimp.com/c697064155714e24c8be7e9d8/images/5219f651-af8a-4e53-be38-3215ee7f0a38.jpg" width="234" style="max-width: 234px;padding-bottom: 0;display: inline !important;vertical-align: bottom;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" class="mcnImage">
+
+
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+    </tbody>
+</table></td>
+                            </tr>
+                            <tr>
+                                <td valign="top" id="templateBody" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;border-top: 0;border-bottom: 0;"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock" style="min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+    <tbody class="mcnTextBlockOuter">
+        <tr>
+            <td valign="top" class="mcnTextBlockInner" style="padding-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+              	<!--[if mso]>
+				<table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
+				<tr>
+				<![endif]-->
+			
+				<!--[if mso]>
+				<td valign="top" width="600" style="width:600px;">
+				<![endif]-->
+                <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width: 100%;min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" width="100%" class="mcnTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign="top" class="mcnTextContent" style="padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;color: #202020;font-family: Helvetica;font-size: 16px;line-height: 150%;text-align: left;">
+
+                            <strong>Привет Денис!</strong><br>
+<br>
+<strong><span style="color:#FF0000">ВНИМАНИЕ! ПЕРЕНОС МЕСТА ЗАНЯТИЯ!</span><br>
+<br>
+ОФФЛАЙН</strong><br>
+В связи с форс-мажорными обстоятнльствами на нашей основной площадке, следующее занятие пройдет в <strong>субботу 26 октября, c 11-00 до 14-00</strong>, по адресу Москва, Большой Саввинский переулок д.8, стр. 1 Deworkacy Big Data. У нас уже там проводились занятия.<br>
+<br>
+<strong>ОНЛАЙН</strong><br>
+Онлайн созвон как обычно состоится в субботу, 11-30. Запись созвона будет доступна.<br>
+<br>
+<em>Михаил Корнеев и команда Learn Python</em>
+                        </td>
+                    </tr>
+                </tbody></table>
+				<!--[if mso]>
+				</td>
+				<![endif]-->
+
+				<!--[if mso]>
+				</tr>
+				</table>
+				<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                            </tr>
+                            <tr>
+                                <td valign="top" id="templateFooter" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;border-top: 0;border-bottom: 0;"></td>
+                            </tr>
+                        </table>
+                        <!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]-->
+                        <!-- // END TEMPLATE -->
+                    </td>
+                </tr>
+            </table>
+        </center>
+                <center>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" id="canspamBarWrapper" style="background-color:#FFFFFF; border-top:1px solid #E5E5E5;">
+                    <tr>
+                        <td align="center" valign="top" style="padding-top:20px; padding-bottom:20px;">
+                            <table border="0" cellpadding="0" cellspacing="0" id="canspamBar">
+                                <tr>
+                                    <td align="center" valign="top" style="color:#606060; font-family:Helvetica, Arial, sans-serif; font-size:11px; line-height:150%; padding-right:20px; padding-bottom:5px; padding-left:20px; text-align:center;">
+                                        This email was sent to <a href="mailto:sirionhvg@gmail.com" target="_blank" style="color:#404040 !important;">sirionhvg@gmail.com</a>
+                                        <br />
+                                        <a href="https://moscowpython.us10.list-manage.com/about?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df&c=ed04b5008a" target="_blank" style="color:#404040 !important;"><em>why did I get this?</em></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://moscowpython.us10.list-manage.com/unsubscribe?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df&c=ed04b5008a" style="color:#404040 !important;">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://moscowpython.us10.list-manage.com/profile?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df" style="color:#404040 !important;">update subscription preferences</a>
+                                        <br />
+                                        MoscowPython &middot; Москва, Серебряническая набережная, 29 &middot; Moscow 101000 &middot; Russia
+                                        <br />
+                                        <br />
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <style type="text/css">
+                    @media only screen and (max-width: 480px){
+                        table#canspamBar td{font-size:14px !important;}
+                        table#canspamBar td a{display:block !important; margin-top:10px !important;}
+                    }
+                </style>
+            </center><img src="https://moscowpython.us10.list-manage.com/track/open.php?u=c697064155714e24c8be7e9d8&id=ed04b5008a&e=cbfff661df" height="1" width="1"></body>
+</html>
+--_----------=_MCPart_643246272--
+Delivered-To: sirionhvg@gmail.com
+Received: by 2002:a92:474d:0:0:0:0:0 with SMTP id u74csp1091394ila;
+        Sat, 26 Oct 2019 09:25:23 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqxons/aP+ZfYC0wpYby3+qU3WbV17z1mrIsA7HkUty/+X5Ny+hdqcCGaB+CKSFq1wYcu+uv
+X-Received: by 2002:a17:902:d895:: with SMTP id b21mr10115763plz.337.1572107123296;
+        Sat, 26 Oct 2019 09:25:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t72107123; cv=none;
+        d=google.com; s=arc-20160816;
+        b=lmjth6j/caAE7Mh3lyDjB8NON1uthhgAjmGTOdPGJO4rZRkJmVIWPnRE+m4K4D9w0I
+         tYWMC/sLMXeY1FeWQlwCcXFg7w/PaeWVrGepo71hR4ilALqJt9VmYTVfbk27hmSeS4pt
+         tLw/q7j6QGlqIaJIRR7IqUJIZepMz2DPT9Dz2SIwcazJ6igRsW1iJG+dPeWmaKzszO3H
+         dDqyNOPFLkeLQLyVn8Dxalp5gWEGg/9zxiU+vzVu8y9QcVEks7zVOY4Fy2MDUPNf56JQ
+         HZVcuJntA8DpJnlbdh84UmDb95I/LgbU+BByEKQQ2VKsmbIlJoGBLajkXqMtnKC7mM8g
+         XcUw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe-post:list-unsubscribe:list-id
+         :feedback-id:message-id:date:to:reply-to:from:subject:dkim-signature
+         :dkim-signature;
+        bh=4jZkaI9wVWMB1rnKE9YsLFF92ofKRsnVKdYKj1SogP8=;
+        b=Jsfk6CE0ka4P3CqFnuXtOFqRGEvtPEGp85bUBjMZkAuM9GZIapYLKQupw8J6f7sfgO
+         7OU/aehxN6WxpNtsH6rVDXykmLsHgemt23mhrNSuJsbkDZsnYhwofeDVzcdghzuK01TT
+         MuaCVPLXkaPhMQh4W99OBS8QgXYS5Ap4pax7KzL08gH5giim80R74lv+9tD6yR9UoXSh
+         /43fG5SD7GhkLjUkjgr0DovstOjwAhY0VSybX4XQeKl4KLCbjsYgOrTB40RVMlX2g6DB
+         aij3u8wyOQLi2wVQ+nNtC89h3PvZExtRoRwDLYroSHvPbouwpLRw8DH/42mTP3TVInhg
+         ZnSg=
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=QpeaEiwu;
+       dkim=pass header.i=@mailchimpapp.net header.s=k1 header.b=S3Lt8KaN;
+       spf=pass (google.com: domain of bounce-mc.us10_40874093.1357153-cbfff661df@mail102.sea61.rsgsv.net designates 148.105.14.102 as permitted sender) smtp.mailfrom=bounce-mc.us10_40874093.1357153-cbfff661df@mail102.sea61.rsgsv.net
+Return-Path: <bounce-mc.us10_40874093.1357153-cbfff661df@mail102.sea61.rsgsv.net>
+Received: from mail102.sea61.rsgsv.net (mail102.sea61.rsgsv.net. [148.105.14.102])
+        by mx.google.com with ESMTPS id i2si6461907pgm.425.2019.10.26.09.25.23
+        for <sirionhvg@gmail.com>
+        (version=TLS1_2 cipherDHE-RSA-AES128-GCM-SHA256 bits8/128);
+        Sat, 26 Oct 2019 09:25:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-mc.us10_40874093.1357153-cbfff661df@mail102.sea61.rsgsv.net designates 148.105.14.102 as permitted sender) client-ip8.105.14.102;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=QpeaEiwu;
+       dkim=pass header.i=@mailchimpapp.net header.s=k1 header.b=S3Lt8KaN;
+       spf=pass (google.com: domain of bounce-mc.us10_40874093.1357153-cbfff661df@mail102.sea61.rsgsv.net designates 148.105.14.102 as permitted sender) smtp.mailfrom=bounce-mc.us10_40874093.1357153-cbfff661df@mail102.sea61.rsgsv.net
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.mcsv.net;
+	s=k1; t72107122; bh=4jZkaI9wVWMB1rnKE9YsLFF92ofKRsnVKdYKj1SogP8=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:Feedback-ID:List-ID:
+	 List-Unsubscribe:Content-Type:MIME-Version;
+	b=QpeaEiwuToVc0CYHuIpwvGgqbNKYgyrSMXSSVld3QIXokOBLit/wvtcBPGn3TFVts
+	 AjqfNOA5WL+CO7zps8J3dNA7MB2is22YhHyhZ4SQX/83DkFP+zD5oHNaxi8QHW9QTN
+	 fsidV0bbjNK+9vkvNz98KSWSN+CS4w+PIkFlj2CsDKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailchimpapp.net;
+	s=k1; t72107122; i=learn=3Dpython.ru@mailchimpapp.net;
+	bh=4jZkaI9wVWMB1rnKE9YsLFF92ofKRsnVKdYKj1SogP8=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:List-ID:List-Unsubscribe:
+	 Content-Type:MIME-Version;
+	b=S3Lt8KaNT4jsTozxRPUIvkrwSdIEjz3moIDhQsmquIsfDUEi9M5KHMVaR6/jCKn0d
+	 HLwyUidr70HTesBoFPsWI+0GmCyJ83F1CDU7Tg2C3ZHanFY3CgVIzXQowrRlLRlzcK
+	 aoprDw9HrzGv0I0mEWbB2uWb6KqmxBqf6yEqk4YsReceived: from localhost (localhost [127.0.0.1])
+	by mail102.sea61.rsgsv.net (Mailchimp) with ESMTP id 470mYG608jzHXYTmW
+	for <sirionhvg@gmail.com>; Sat, 26 Oct 2019 16:25:22 +0000 (GMT)
+x-mcpf-jobid: mc.us10_40874093.1357153.5db4736bc8bef.full_000001
+Subject: =?utf-8?Q?Learn Python: Лекции 9 недели?From: =?utf-8?Q?Learn Python Team?= <learn@python.ru>
+Reply-To: =?utf-8?Q?Learn Python Team?= <learn@python.ru>
+To: =?utf-8?Q?Денис?= <sirionhvg@gmail.com>
+Date: Sat, 26 Oct 2019 16:25:21 +0000
+Message-ID: <c697064155714e24c8be7e9d8.cbfff661df.20191026162518.643160951a.ca03575e@mail102.sea61.rsgsv.net>
+X-Mailer: MailChimp Mailer - **CID643160951acbfff661df**
+X-Campaign: mailchimpc697064155714e24c8be7e9d8.643160951a
+X-campaignid: mailchimpc697064155714e24c8be7e9d8.643160951a
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u97064155714e24c8be7e9d8&idd3160951a&efff661df
+X-MC-User: c697064155714e24c8be7e9d8
+Feedback-ID: 40874093:40874093.1357153:us10:mc
+List-ID: c697064155714e24c8be7e9d8mc list <c697064155714e24c8be7e9d8.300209.list-id.mcsv.net>
+X-Accounttype: pd
+List-Unsubscribe: <https://moscowpython.us10.list-manage.com/unsubscribe?u97064155714e24c8be7e9d8&ide32647f76&efff661df&cd3160951a>, <mailto:unsubscribe-mc.us10_c697064155714e24c8be7e9d8.643160951a-cbfff661df@mailin.mcsv.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_2108343301"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_2108343301
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+Привет Денис!
+
+Новая неделя - и новый материал для изучения.
+
+Трек "Веб-разработка"
+На этой неделе мы:
+1. Создадим отдельный модуль для получения новостей (https://www.youtube.com/watch?v=YFgWRVKb-rI&list=PL48Rj2xJlxN2ZbjN6SSkjX3hhA6J-HH1m&index=1)
+2. Соберем сниппеты с Хабрахабр (https://www.youtube.com/watch?v=b-byWpaEiww&list=PL48Rj2xJlxN2ZbjN6SSkjX3hhA6J-HH1m&index=2)
+3. Обработаем тексты новостей (https://www.youtube.com/watch?v=KSOFq2v9pL4&list=PL48Rj2xJlxN2ZbjN6SSkjX3hhA6J-HH1m&index=3)
+4. Рассмотрим страницы статей на сайте (https://www.youtube.com/watch?v=8vmDTwiinEw&list=PL48Rj2xJlxN2ZbjN6SSkjX3hhA6J-HH1m&index=4)
+5. Познакомимся с Celery (https://www.youtube.com/watch?v=sF_SeAWDq0Y&list=PL48Rj2xJlxN2ZbjN6SSkjX3hhA6J-HH1m&index=5)
+6. Узнаем про выполнение задач по расписанию (https://www.youtube.com/watch?v=6vRazf2V4rw&list=PL48Rj2xJlxN2ZbjN6SSkjX3hhA6J-HH1m&index=6)
+
+Слайды также доступны по ссылке (https://learn.python.ru/lessons/web7.html?full#cover) .
+
+Трек "Боты":
+Думаю вы уже хорошо освоили использование стандартной клавиатуры. Пришла пора познакомиться с Inline-клавиатурами (слайды (https://learn.python.ru/lessons/bots8.html?full#cover) ):
+1. Клавиатура для текстовых сообщений (https://www.youtube.com/watch?v=DpCeCFIm4A4&t=2s&list=PL48Rj2xJlxN1k4RANWo3Xh4ZEjfQK4nCo&index=2)
+2. Клавиатура для сообщений с картинками (https://www.youtube.com/watch?v=rX7idZsnWfI&list=PL48Rj2xJlxN1k4RANWo3Xh4ZEjfQK4nCo&index=2)
+
+Михаил Корнеев и команда Learn Python
+
+============================================================
+
+This email was sent to sirionhvg@gmail.com (mailto:sirionhvg@gmail.com)
+why did I get this? (https://moscowpython.us10.list-manage.com/about?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df&c=643160951a)     unsubscribe from this list (https://moscowpython.us10.list-manage.com/unsubscribe?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df&c=643160951a)     update subscription preferences (https://moscowpython.us10.list-manage.com/profile?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df)
+MoscowPython . Москва, Серебряническая набережная, 29 . Moscow 101000 . Russia
+--_----------=_MCPart_2108343301
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+    <head>
+        <!-- NAME: SIMPLE TEXT -->
+        <!--[if gte mso 15]>
+        <xml>
+            <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Learn Python: Лекции 9 недели</title>
+
+    <style type="text/css">
+		p{
+			margin:10px 0;
+			padding:0;
+		}
+		table{
+			border-collapse:collapse;
+		}
+		h1,h2,h3,h4,h5,h6{
+			display:block;
+			margin:0;
+			padding:0;
+		}
+		img,a img{
+			border:0;
+			height:auto;
+			outline:none;
+			text-decoration:none;
+		}
+		body,#bodyTable,#bodyCell{
+			height:100%;
+			margin:0;
+			padding:0;
+			width:100%;
+		}
+		.mcnPreviewText{
+			display:none !important;
+		}
+		#outlook a{
+			padding:0;
+		}
+		img{
+			-ms-interpolation-mode:bicubic;
+		}
+		table{
+			mso-table-lspace:0pt;
+			mso-table-rspace:0pt;
+		}
+		.ReadMsgBody{
+			width:100%;
+		}
+		.ExternalClass{
+			width:100%;
+		}
+		p,a,li,td,blockquote{
+			mso-line-height-rule:exactly;
+		}
+		a[href^=tel],a[href^=sms]{
+			color:inherit;
+			cursor:default;
+			text-decoration:none;
+		}
+		p,a,li,td,body,table,blockquote{
+			-ms-text-size-adjust:100%;
+			-webkit-text-size-adjust:100%;
+		}
+		.ExternalClass,.ExternalClass p,.ExternalClass td,.ExternalClass div,.ExternalClass span,.ExternalClass font{
+			line-height:100%;
+		}
+		a[x-apple-data-detectors]{
+			color:inherit !important;
+			text-decoration:none !important;
+			font-size:inherit !important;
+			font-family:inherit !important;
+			font-weight:inherit !important;
+			line-height:inherit !important;
+		}
+		#bodyCell{
+			padding:10px;
+		}
+		.templateContainer{
+			max-width:600px !important;
+		}
+		a.mcnButton{
+			display:block;
+		}
+		.mcnImage,.mcnRetinaImage{
+			vertical-align:bottom;
+		}
+		.mcnTextContent{
+			word-break:break-word;
+		}
+		.mcnTextContent img{
+			height:auto !important;
+		}
+		.mcnDividerBlock{
+			table-layout:fixed !important;
+		}
+		body,#bodyTable{
+			background-color:#FFFFFF;
+			background-image:none;
+			background-repeat:no-repeat;
+			background-position:center;
+			background-size:cover;
+		}
+		#bodyCell{
+			border-top:0;
+		}
+		.templateContainer{
+			border:0;
+		}
+		h1{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:26px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:125%;
+			letter-spacing:normal;
+			text-align:left;
+		}
+		h2{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:22px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:125%;
+			letter-spacing:normal;
+			text-align:left;
+		}
+		h3{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:20px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:125%;
+			letter-spacing:normal;
+			text-align:left;
+		}
+		h4{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:18px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:125%;
+			letter-spacing:normal;
+			text-align:left;
+		}
+		#templateHeader{
+			border-top:0;
+			border-bottom:0;
+		}
+		#templateHeader .mcnTextContent,#templateHeader .mcnTextContent p{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:16px;
+			line-height:150%;
+			text-align:left;
+		}
+		#templateHeader .mcnTextContent a,#templateHeader .mcnTextContent p a{
+			color:#007C89;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+		#templateBody{
+			border-top:0;
+			border-bottom:0;
+		}
+		#templateBody .mcnTextContent,#templateBody .mcnTextContent p{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:16px;
+			line-height:150%;
+			text-align:left;
+		}
+		#templateBody .mcnTextContent a,#templateBody .mcnTextContent p a{
+			color:#007C89;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+		#templateFooter{
+			border-top:0;
+			border-bottom:0;
+		}
+		#templateFooter .mcnTextContent,#templateFooter .mcnTextContent p{
+			color:#202020;
+			font-family:Helvetica;
+			font-size:12px;
+			line-height:150%;
+			text-align:left;
+		}
+		#templateFooter .mcnTextContent a,#templateFooter .mcnTextContent p a{
+			color:#202020;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+	@media only screen and (min-width:768px){
+		.templateContainer{
+			width:600px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		body,table,td,p,a,li,blockquote{
+			-webkit-text-size-adjust:none !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		body{
+			width:100% !important;
+			min-width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		#bodyCell{
+			padding-top:10px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnRetinaImage{
+			max-width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImage{
+			width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnCartContainer,.mcnCaptionTopContent,.mcnRecContentContainer,.mcnCaptionBottomContent,.mcnTextContentContainer,.mcnBoxedTextContentContainer,.mcnImageGroupContentContainer,.mcnCaptionLeftTextContentContainer,.mcnCaptionRightTextContentContainer,.mcnCaptionLeftImageContentContainer,.mcnCaptionRightImageContentContainer,.mcnImageCardLeftTextContentContainer,.mcnImageCardRightTextContentContainer,.mcnImageCardLeftImageContentContainer,.mcnImageCardRightImageContentContainer{
+			max-width:100% !important;
+			width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnBoxedTextContentContainer{
+			min-width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageGroupContent{
+			padding:9px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnCaptionLeftContentOuter .mcnTextContent,.mcnCaptionRightContentOuter .mcnTextContent{
+			padding-top:9px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageCardTopImageContent,.mcnCaptionBottomContent:last-child .mcnCaptionBottomImageContent,.mcnCaptionBlockInner .mcnCaptionTopContent:last-child .mcnTextContent{
+			padding-top:18px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageCardBottomImageContent{
+			padding-bottom:9px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageGroupBlockInner{
+			padding-top:0 !important;
+			padding-bottom:0 !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageGroupBlockOuter{
+			padding-top:9px !important;
+			padding-bottom:9px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnTextContent,.mcnBoxedTextContentColumn{
+			padding-right:18px !important;
+			padding-left:18px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcnImageCardLeftImageContent,.mcnImageCardRightImageContent{
+			padding-right:18px !important;
+			padding-bottom:0 !important;
+			padding-left:18px !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		.mcpreview-image-uploader{
+			display:none !important;
+			width:100% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		h1{
+			font-size:22px !important;
+			line-height:125% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		h2{
+			font-size:20px !important;
+			line-height:125% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		h3{
+			font-size:18px !important;
+			line-height:125% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		h4{
+			font-size:16px !important;
+			line-height:150% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		table.mcnBoxedTextContentContainer td.mcnTextContent,td.mcnBoxedTextContentContainer td.mcnTextContent p{
+			font-size:14px !important;
+			line-height:150% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		td#templateHeader td.mcnTextContent,td#templateHeader td.mcnTextContent p{
+			font-size:16px !important;
+			line-height:150% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		td#templateBody td.mcnTextContent,td#templateBody td.mcnTextContent p{
+			font-size:16px !important;
+			line-height:150% !important;
+		}
+
+}	@media only screen and (max-width: 480px){
+		td#templateFooter td.mcnTextContent,td#templateFooter td.mcnTextContent p{
+			font-size:14px !important;
+			line-height:150% !important;
+		}
+
+}</style></head>
+    <body style="background:#FFFFFF none no-repeat center/cover;height: 100%;margin: 0;padding: 0;width: 100%;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #FFFFFF;background-image: none;background-repeat: no-repeat;background-position: center;background-size: cover;">
+        <!--
+-->
+        <center>
+            <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable" style="background:#FFFFFF none no-repeat center/cover;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;height: 100%;margin: 0;padding: 0;width: 100%;background-color: #FFFFFF;background-image: none;background-repeat: no-repeat;background-position: center;background-size: cover;">
+                <tr>
+                    <td align="left" valign="top" id="bodyCell" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;height: 100%;margin: 0;padding: 10px;width: 100%;border-top: 0;">
+                        <!-- BEGIN TEMPLATE // -->
+                        <!--[if (gte mso 9)|(IE)]>
+                        <table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;">
+                        <tr>
+                        <td align="center" valign="top" width="600" style="width:600px;">
+                        <![endif]-->
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="templateContainer" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;border: 0;max-width: 600px !important;">
+                            <tr>
+                                <td valign="top" id="templateHeader" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;border-top: 0;border-bottom: 0;"></td>
+                            </tr>
+                            <tr>
+                                <td valign="top" id="templateBody" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;border-top: 0;border-bottom: 0;"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock" style="min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+    <tbody class="mcnTextBlockOuter">
+        <tr>
+            <td valign="top" class="mcnTextBlockInner" style="padding-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+              	<!--[if mso]>
+				<table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
+				<tr>
+				<![endif]-->
+			
+				<!--[if mso]>
+				<td valign="top" width="600" style="width:600px;">
+				<![endif]-->
+                <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width: 100%;min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" width="100%" class="mcnTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign="top" class="mcnTextContent" style="padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;color: #202020;font-family: Helvetica;font-size: 16px;line-height: 150%;text-align: left;">
+
+                            <strong>Привет Денис!</strong>
+
+<p style="margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #202020;font-family: Helvetica;font-size: 16px;line-height: 150%;text-align: left;">Новая неделя - и новый материал для изучения.<br>
+<br>
+<strong>Трек "Веб-разработка"</strong><br>
+На этой неделе мы:</p>
+
+<ol>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=a4dda929dd&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Создадим отдельный модуль для получения новостей</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=f935669d14&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Соберем сниппеты с Хабрахабр</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=375e0d7d38&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Обработаем тексты новостей</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=f2dc0dd855&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Рассмотрим страницы статей на сайте</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=4012042131&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Познакомимся с Celery</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=6b67d8c7af&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Узнаем про выполнение задач по расписанию</a></li>
+</ol>
+Слайды также доступны по <a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=ab2b1abff3&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">ссылке</a>.<br>
+<br>
+<strong>Трек "Боты":</strong><br>
+Думаю вы уже хорошо освоили использование стандартной клавиатуры. Пришла пора познакомиться с Inline-клавиатурами (<a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=2e7ba3d910&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">слайды</a>):
+
+<ol>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=93166cb3d1&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Клавиатура для текстовых сообщений</a></li>
+	<li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&id=d7fff68f22&e=cbfff661df" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">Клавиатура для сообщений с картинками</a></li>
+</ol>
+<em>Михаил Корнеев и команда Learn Python</em>
+                        </td>
+                    </tr>
+                </tbody></table>
+				<!--[if mso]>
+				</td>
+				<![endif]-->
+
+				<!--[if mso]>
+				</tr>
+				</table>
+				<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                            </tr>
+                            <tr>
+                                <td valign="top" id="templateFooter" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;border-top: 0;border-bottom: 0;"></td>
+                            </tr>
+                        </table>
+                        <!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]-->
+                        <!-- // END TEMPLATE -->
+                    </td>
+                </tr>
+            </table>
+        </center>
+                <center>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" id="canspamBarWrapper" style="background-color:#FFFFFF; border-top:1px solid #E5E5E5;">
+                    <tr>
+                        <td align="center" valign="top" style="padding-top:20px; padding-bottom:20px;">
+                            <table border="0" cellpadding="0" cellspacing="0" id="canspamBar">
+                                <tr>
+                                    <td align="center" valign="top" style="color:#606060; font-family:Helvetica, Arial, sans-serif; font-size:11px; line-height:150%; padding-right:20px; padding-bottom:5px; padding-left:20px; text-align:center;">
+                                        This email was sent to <a href="mailto:sirionhvg@gmail.com" target="_blank" style="color:#404040 !important;">sirionhvg@gmail.com</a>
+                                        <br />
+                                        <a href="https://moscowpython.us10.list-manage.com/about?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df&c=643160951a" target="_blank" style="color:#404040 !important;"><em>why did I get this?</em></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://moscowpython.us10.list-manage.com/unsubscribe?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df&c=643160951a" style="color:#404040 !important;">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://moscowpython.us10.list-manage.com/profile?u=c697064155714e24c8be7e9d8&id=6532647f76&e=cbfff661df" style="color:#404040 !important;">update subscription preferences</a>
+                                        <br />
+                                        MoscowPython &middot; Москва, Серебряническая набережная, 29 &middot; Moscow 101000 &middot; Russia
+                                        <br />
+                                        <br />
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <style type="text/css">
+                    @media only screen and (max-width: 480px){
+                        table#canspamBar td{font-size:14px !important;}
+                        table#canspamBar td a{display:block !important; margin-top:10px !important;}
+                    }
+                </style>
+            </center><img src="https://moscowpython.us10.list-manage.com/track/open.php?u=c697064155714e24c8be7e9d8&id=643160951a&e=cbfff661df" height="1" width="1"></body>
+</html>
+--_----------=_MCPart_2108343301--
