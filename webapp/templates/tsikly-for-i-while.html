@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base_common.html' %}
 {% from "macros.html" import nav_link with context %}.
 
 
@@ -16,7 +16,7 @@
   <li class="treeview is-expanded"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Общий курс</span><i class="treeview-indicator fa fa-angle-right"></i></a>
     <ul class="treeview-menu">
         {% for menu in common_menu %}
-            {{ nav_link('common', menu.slug, menu.theme_name) }}
+            {{ nav_link('common', menu.slug, menu.lesson_name) }}
         {% endfor %}    
     </ul>
   </li>
@@ -56,48 +56,27 @@
 </ul>
 {% endblock %}
 
+{% block content_title %}{{ page_content[0].lesson_name }}{% endblock %}
+
+{% set paragraph_list = page_content[0].description.split(":") %}
+{% block content_paragraph %}{{ paragraph_list[0] }}:{% endblock %}
+
 {% block content %}
-<main class="app-content">
-    <div class="app-title">
-      <div>
-        <h1><i class="fa fa-play-circle-o"></i> Циклы for и while</h1>
-        <p>Общий курс</p>
-      </div>
-      <ul class="app-breadcrumb breadcrumb">
-        <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-        <li class="breadcrumb-item"><a href="{{url_for('index')}}">Главная</a></li>
-      </ul>
-    </div>
-    
-    <div class="row">
-      <div class="col-md-12">
-        <div class="tile">
+<div class="row">
+    <div class="col-md-4"> 
+      {% for item in page_content %}
+              {% if item.type == "youtube_link" %}
+                <h4>{{ item.url_description.capitalize() }} </h4>
+                <iframe width="480" height="270" src="{{ item.url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              {% endif %}
+              {% if item.type == "external_link" %}
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D5b271cef6d%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310542000&amp;usg=AFQjCNGk7k48N91ctF_jh7aIW3ELi3L0Fg" href="{{ item.url }}" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">{{ item.url_description.capitalize() }}</a>                      
+              {% endif %}
+      {% endfor %}
+<br>
+<br>
+{% endblock %}
 
-          <!-- Content of page -->
-          <!-- <p style="margin: 10px 0px; padding: 0px; color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; line-height: 24px; text-align: left; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong>Простые типы данных</strong> -->
-            <!-- <br>Программа на Python — просто текстовый файл, содержащий набор инструкций. Файлы python имеют расширение .py -->
-          </p>
-
-          <div class="row">
-                <div class="col-md-4"> 
-                  <h4>Цикл for:</h4>
-                  <iframe width="480" height="270" src="https://www.youtube.com/embed/iwQt2Cmhexg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D5b271cef6d%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310542000&amp;usg=AFQjCNGk7k48N91ctF_jh7aIW3ELi3L0Fg" href="https://learn.python.ru/lessons/13_for.html?full#cover" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Слайды</a>
-                    <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D5b271cef6d%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310542000&amp;usg=AFQjCNGk7k48N91ctF_jh7aIW3ELi3L0Fg" href="https://learn.python.ru/lessons/13_if.html?full#10" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Задание</a> 
-                </div>
-                <div class="col-md-4"> 
-                  <h4>Цикл while:</h4>
-                  <iframe width="480" height="270" src="https://www.youtube.com/embed/TRTfidVVqsI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D5b271cef6d%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310542000&amp;usg=AFQjCNGk7k48N91ctF_jh7aIW3ELi3L0Fg" href="https://learn.python.ru/lessons/11_while.html?full#cover" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Слайды</a>
-                    <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D5b271cef6d%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310542000&amp;usg=AFQjCNGk7k48N91ctF_jh7aIW3ELi3L0Fg" href="https://learn.python.ru/lessons/11_if.html?full#8" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Задание</a>                      
-                </div>            
-            </div>
-          <br>
-          <br>
-          <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Далее</a>
-          
-        </div>
-      </div>
-    </div>
-  </main>
+{% block button_next %}
+<a id="bottom" href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Далее</a>
 {% endblock %}

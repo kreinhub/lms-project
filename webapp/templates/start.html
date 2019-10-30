@@ -15,7 +15,7 @@
   <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Общий курс</span><i class="treeview-indicator fa fa-angle-right"></i></a>
     <ul class="treeview-menu">
         {% for menu in common_menu %}
-          {{ nav_link('common', menu.slug, menu.theme_name) }}
+          {{ nav_link('common', menu.slug, menu.lesson_name) }}
         {% endfor %} 
     </ul>
   </li>

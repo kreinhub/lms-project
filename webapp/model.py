@@ -31,9 +31,10 @@ class Users(db.Model, UserMixin):           # нехватает поля для
 
 class Content(db.Model):
     content_id = db.Column(db.Integer, primary_key=True)
-    theme_name = db.Column(db.String(120), nullable=False)             # название лекции или курса лекций
+    lesson_name = db.Column(db.String(120), nullable=False)             # название урока в меню
+    description = db.Column(db.String(120), nullable=False)             # описание лекции перед видео
     section_name = db.Column(db.String(50), nullable=False)              # название большого раздела
-    description = db.Column(db.String(120), nullable=True)
+    url_description = db.Column(db.String(120), nullable=True)         # для заголовков внутри описания
     type = db.Column(db.String(50), nullable=False)
     url = db.Column(db.String(120), unique=True, nullable=False)
     create_date = db.Column(db.DateTime, default=datetime.now())     # как часто обновляется лекция
@@ -47,7 +48,7 @@ class Content(db.Model):
 class Progress(db.Model, UserMixin):            # общий прогресс
     record_id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
-    theme = db.Column(db.String(120), db.ForeignKey('content.theme_name'))
+    theme = db.Column(db.String(120), db.ForeignKey('content.lesson_name'))
     section = db.Column(db.String(120), db.ForeignKey('content.section_name'))
 
 
