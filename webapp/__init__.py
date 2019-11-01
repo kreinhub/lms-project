@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request
-from sqlalchemy import or_, and_, not_
-
-from webapp.model import db, News, Articles, Content
+import logging
+from flask import Flask, render_template, request, flash, redirect, url_for
+from webapp.forms import LoginForm, RegistrationForm
+from webapp.model import db, News, Articles, Content, Users
+from flask_login import LoginManager, login_user, logout_user, current_user, login_required
+from webapp.config import SECRET_KEY
 
 
 def create_app():
@@ -9,12 +11,99 @@ def create_app():
     app.config.from_pyfile('config.py')
     db.init_app(app)
 
+    login_manager = LoginManager()
+    login_manager.init_app(app)
+    login_manager.login_view = '/'
+
+    logging.basicConfig(filename='app.log',
+                        filemode='w',
+                        level=logging.ERROR,
+                        datefmt='%m/%d/%Y %I:%M:%S %p',
+                        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        return Users.query.get(user_id)
+
     @app.route('/')
+    def login():
+        form = LoginForm()
+        title = 'Login'
+        if current_user.is_authenticated:
+            logging.error('Вы уже авторизованы')
+            flash('Вы уже авторизованы')
+            return redirect(url_for('index'))
+
+        return render_template('page-login.html', form=form, title=title)
+
+    @app.route('/process-login', methods=['POST'])
+    def process_login():
+        form = LoginForm()
+        if form.validate_on_submit():
+            user = Users.query.filter_by(email=form.email.data).first()
+            if user and user.check_password(form.password.data):
+                login_user(user)
+                return redirect(url_for('index'))
+
+            else:
+                logging.error('Неправильное имя пользователя или пароль')
+                flash('Неправильное имя пользователя или пароль')
+                return redirect(url_for('login'))
+
+    @app.route('/registration')
+    def registration():
+        if current_user.is_authenticated:
+            logging.error('Вы уже авторизованы')
+            flash('Вы уже авторизованы')
+            return redirect(url_for('index'))
+
+        title = "Регистрация"
+        registration_form = RegistrationForm()
+        return render_template('page-registration.html', title=title, form=registration_form, active='registration')
+
+    @app.route('/process_registration', methods=['POST'])
+    def process_registration():
+        form = RegistrationForm()
+        if form.validate_on_submit():
+
+            email = form.email.data
+            password = form.password_reg.data
+            password_confirm = form.password_reg_confirm.data
+
+            if Users.query.filter(Users.email == email).count():
+                logging.error('Такой пользователь уже есть')
+                flash('Такой пользователь уже есть')
+                return redirect(url_for('login'))
+
+            if not password == password_confirm:
+                logging.error('Пароли не совпадают')
+                flash('Пароли не совпадают. Повторите ввод')
+                return redirect(url_for('registration'))
+
+            new_user = Users(email=email)
+            new_user.set_password(password)
+            db.session.add(new_user)
+            db.session.commit()
+
+            flash('Вы успешно зарегистрировались')
+            return redirect(url_for('login'))
+        logging.error('Пароль не соответствует требованиям')
+        flash('Пароль должен содержать хотя бы одну заглавную букву, хотя бы одну цифру и быть не менее 8 символов')
+        return redirect(url_for('registration'))
+
+    @app.route('/logout')
+    def logout():
+        logout_user()
+        flash('Вы успешно вышли из системы')
+        return redirect(url_for('login'))
+
+    @app.route('/index')
     def index():
         # print(request.args["test"])
         news_list = News.query.order_by(News.published.desc()).all()
         habr_list = Articles.query.filter_by(source="habr").all()
         tproger_list = Articles.query.filter_by(source="tproger").all()
+        return render_template('index.html', news_list=news_list, habr_list=habr_list, tproger_list=tproger_list)
 
         common_menu = Content.query.with_entities(Content.lesson_name, Content.slug).filter(and_(Content.slug != "", Content.slug != "learn-python")).filter((or_(Content.section_name.ilike('%первой%'), Content.section_name.ilike('%2 недели%'), Content.section_name.ilike('%окружение%')))).distinct()
         web_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Веб%'), Content.section_name.ilike('%Трек: веб%'))).distinct()
@@ -31,8 +120,7 @@ def create_app():
         ds_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Анализ%'), Content.section_name.ilike('%Трек Data%'), Content.section_name.ilike('%Трек: анализ%'))).distinct()
         bot_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Telegram%'), Content.section_name.ilike('%Трек Боты%'), Content.section_name.ilike('%Трек: боты%'))).distinct()
         add_menu = Content.query.with_entities(Content.description, Content.slug).filter(Content.slug != "").filter(Content.section_name.ilike('%Дополнительно%')).distinct()
-
-        return render_template('start.html', common_menu=common_menu, web_menu=web_menu, ds_menu=ds_menu, bot_menu=bot_menu, add_menu=add_menu)
+return render_template('start.html', common_menu=common_menu, web_menu=web_menu, ds_menu=ds_menu, bot_menu=bot_menu, add_menu=add_menu)
 
     @app.route('/common/<page_slug>/')
     def common(page_slug):
@@ -127,7 +215,7 @@ def create_app():
 
         return render_template('page_in_progress.html', common_menu=common_menu, web_menu=web_menu, ds_menu=ds_menu, bot_menu=bot_menu, add_menu=add_menu)
 
-    return app
 
+    return app
 
 # export FLASK_APP=webapp && export FLASK_ENV=development && flask run
