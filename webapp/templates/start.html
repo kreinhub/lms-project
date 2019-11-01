@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+{% from "macros.html" import nav_link with context %}.
+
+{% block menu_highlight %}
+<ul class="app-menu">
+  <li><a class="app-menu__item" href="{{url_for('index')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Главная</span></a></li>
+  <li class="treeview menu is-expanded"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-play-circle-o"></i><span class="app-menu__label">Начало курса</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+    <ul class="treeview-menu">
+      <li><a class="treeview-item" href="{{url_for('start')}}#top"><i class="icon fa fa-circle-o"></i>О курсе и коммуникации</a></li>
+      <li><a class="treeview-item" href="{{url_for('start')}}#faq"><i class="icon fa fa-circle-o"></i>Вопросы</a></li>
+      <li><a class="treeview-item" href="{{url_for('start')}}#python"><i class="icon fa fa-circle-o"></i>Настройка рабочего места</a></li>
+      <li><a class="treeview-item" href="{{url_for('start')}}#bottom"><i class="icon fa fa-circle-o"></i>Начать обучение</a></li>
+    </ul>
+  </li>
+  <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Общий курс</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+    <ul class="treeview-menu">
+        {% for menu in common_menu %}
+          {% if "ООП" in menu.lesson_name %}
+            {{ nav_link('common', menu.slug, "ООП в Python") }}
+          {% else %}
+            {{ nav_link('common', menu.slug, menu.lesson_name) }}
+          {% endif %}
+        {% endfor %}      
+    </ul>
+  </li>
+  <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Трек Веб-разработка</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+    <ul class="treeview-menu">
+        {% for menu in web_menu %}
+          {% set shorted_menu_item = menu.url_description.split(":") %}
+          {{ nav_link('web', menu.slug, shorted_menu_item[1].strip().capitalize()) }}
+        {% endfor %} 
+    </ul>
+  </li>
+  <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Трек Data-Science</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+    <ul class="treeview-menu">
+        {% for menu in ds_menu %}
+          {% set shorted_menu_item = menu.url_description.split(":") %}
+          {{ nav_link('ds', menu.slug, shorted_menu_item[1].strip().capitalize()) }}
+        {% endfor %}   
+    </ul>
+    <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Трек Telegram-Bot</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+      <ul class="treeview-menu">
+          {% for menu in bot_menu %}
+          {% set shorted_menu_item = menu.url_description.split(":") %}
+            {{ nav_link('bot', menu.slug, shorted_menu_item[1].strip().capitalize()) }}
+          {% endfor %} 
+      </ul>
+    <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Дополнительно</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+      <ul class="treeview-menu">
+        {% for menu in add_menu %}
+            {{ nav_link('add', menu.slug, menu.description) }}
+        {% endfor %} 
+      </ul>
+      <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-info-circle"></i><span class="app-menu__label">Справочная</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <ul class="treeview-menu">
+          <li><a class="treeview-item" href="{{url_for('help')}}"><i class="icon fa fa-question-circle"></i>FAQ</a></li>
+          <li><a class="treeview-item" href="{{url_for('help')}}"><i class="icon fa fa-database"></i>База знаний</a></li>
+          <li><a class="treeview-item" href="{{url_for('help')}}"><i class="icon fa fa-book"></i>Литература</a></li>
+          <li><a class="treeview-item" href="{{url_for('help')}}"><i class="icon fa fa-address-book"></i>Контакты</a></li>
+        </ul>
+  </li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<main class="app-content">
+    <div class="app-title">
+      <div>
+        <h1><i class="fa fa-play-circle-o"></i> Начало курса</h1>
+        <p>Подготовка к курсу</p>
+      </div>
+      <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+        <li class="breadcrumb-item"><a href="{{url_for('index')}}">Главная</a></li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tile">
+
+          <!-- Content of page -->
+          <h1 style="display: block; margin: 0px; padding: 0px; color: rgb(32, 32, 32); font-family: Helvetica; font-size: 26px; font-style: normal; font-weight: bold; line-height: 32.5px; letter-spacing: normal; text-align: left; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong>Добро пожаловать на курс Learn Python,&nbsp;</strong>&nbsp;&lt;username&gt;&nbsp;<strong>!</strong></h1>
+          <p id="top" style="margin: 10px 0px; padding: 0px; color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; line-height: 24px; text-align: left; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Это Михаил Корнеев и команда Learn Python! Мы хотим рассказать вам о том, как устроен курс.
+            <br>
+            <br>Первое занятие пройдет <strong>в эту субботу, 7 сентября. 
+              <br>
+              <br><span style="color: rgb(255, 0, 0);">Если вы занимаетесь онлайн,</span></strong>
+            <br>Мы созвонимся с вами для того, чтобы рассказать, как будет проходить наш курс, познакомить с куратором, ответить на ваши вопросы. Начало в&nbsp;<strong>13-00</strong>, созваниваться мы будем через 
+            <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Dba0902b208%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310541000&amp;usg=AFQjCNEQ_oU5AyLn4ddtJp6yz-2P1aASFg" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=ba0902b208&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Zoom</a> (установите себе клиент).
+            <br>
+            <br>Ссылка для созвона - 
+            <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D6f4c780df1%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310541000&amp;usg=AFQjCNHa856RuT_NgaZ-XWeEIrZUXlA9PA" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=6f4c780df1&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">https://zoom.us/j/881657362</a>
+            <wbr> (нажми на нее в субботу, раньше - не надо, там ничего не будет =) )
+            <br>Если вы не сможете присутствовать на созвоне, мы будем очень скучать по вам. Запись созвона ведется, поэтому вы сможете просмотреть его позже.
+            <br>
+            <br>Все последующие созвоны будут проходить по субботам с 11.30.
+            <br>
+            <br>
+            <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D99e3ace17e%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310541000&amp;usg=AFQjCNG5MJfew2GwkjLYWezIv2jDoResMQ" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=99e3ace17e&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Часто задаваемые вопросы</a> про учебу онлайн.
+            <br>
+            <br><span style="color: rgb(255, 0, 0);"><strong>Если вы занимаетесь оффлайн,</strong></span>
+            <br>С вами мы встречаемся&nbsp;<strong>в 10-00&nbsp;</strong>в&nbsp;<strong>Deworkacy Полянка</strong> (ул. Большая Полянка, 2/10с1). Приходить лучше чуть пораньше. Занятие продлится до&nbsp;<strong>19-00</strong>. Будет перерыв на обед, мы заказываем пиццу для вас.
+            <br>
+            <br>На первом&nbsp;занятии мы разберем базовые конструкции языка Python и напишем работающего бота для Telegram. Обязательно возьмите с собой ноутбук и зарядку.
+          </p>
+          <p style="margin: 10px 0px; padding: 0px; color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; line-height: 24px; text-align: left; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Все последующие занятия будут проходить по субботам с 11:00 до 14:00.</p>
+          <p style="margin: 10px 0px; padding: 0px; color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; line-height: 24px; text-align: left; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+            <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D652bfe6c4d%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310541000&amp;usg=AFQjCNHkUpC2iZ1yPIKz8SdvawcX-3q7yw" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=652bfe6c4d&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Часто задаваемые вопросы</a> про учебу оффлайн.
+            <br>
+            <br><strong>Коммуникация</strong>
+            <br>Для общения между занятиями бы используем Telegram, чтобы подключиться к чату:
+          </p>
+          <ol style="color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+            <li style="margin-left: 15px;">Установите телеграм на компьютер (
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D3f4e3f3388%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310541000&amp;usg=AFQjCNHWl60kBxd2mGioBY2zfJbwbtlbvA" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=3f4e3f3388&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">windows</a> / 
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D18b1c39f25%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310541000&amp;usg=AFQjCNGUVB5WIHgHb7Il5YBn7TjuS6cPEQ" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=18b1c39f25&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">macos</a> / 
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D07dc2a178a%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310541000&amp;usg=AFQjCNG_lYDZMuWGB-CfuBNOwIWjtIN_vA" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=07dc2a178a&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">linix</a>) и на телефон.
+            </li>
+            <li style="margin-left: 15px;">Зарегистрируте аккаунт.&nbsp;Обязательно выбери себе&nbsp;<em>@никнейм</em>, чтобы мы могли вас найти</li>
+            <li style="margin-left: 15px;">Подключитесь к чату&nbsp;(
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3De9c7565b68%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310541000&amp;usg=AFQjCNGhiST38oMQ9UhQJ_Ok9hHbXVO4hg" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=e9c7565b68&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">ссылка на чат</a>)
+            </li>
+            <li style="margin-left: 15px;">Помните, что РКН "борется" с Telegram и подключение по ссылке будет работать только через VPN или откройте ссылку на телефоне через Telegram.</li>
+            <li style="margin-left: 15px;">Пожалуйста, сразу установите себе никнейм, чтобы вас было легко найти в чате. Поиск по номеру телефона для незнакомых контактов не работает. Также очень сложно найти человека, если он Алексей Петров, никнейм не установлен, а в имени в Телеграме - ShadowWarriror312.</li>
+          </ol>
+          <p><span style="color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Если у вас не получится побывать на первом занятии - не переживайте, весь материал, который мы будем проходить на занятии, вы обязательно получите.</span></p>
+          <br>
+          <p id="faq" style="margin: 10px 0px; padding: 0px; color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; line-height: 24px; text-align: left; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong>Некоторые вопросы перед курсом:</strong>
+            <br>Мы разделим все участников курса на небольшие группы по 5-7 человек. У каждой группы будет свой куратор, который будет помогать вам на занятиях и онлайн. Со своим куратором вы познакомитесь на первом занятии.
+            <br>
+            <br>При регистрации вы заполняли анкету, мы хотим больше знать про вас и ваш уровень, чтобы лучше разделить вас на группы, поэтому просим вас&nbsp;
+            <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D645e8408d8%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1572280544942000&amp;usg=AFQjCNHfeC39_eQDbTTRewjjd7kof-k1og" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=645e8408d8&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">ответить на вопросы</a>.
+          </p>
+          <p><span style="color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">После третьего занятия, вы перейдете от решения задач к работе над дипломными проектами. Каждый участник курса должен будет написать работающую систему, решающую практическую задачу. Вот несколько примеров того, что делали учащиеся на предыдущих наших курсах:</span></p>
+          <ul style="color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+            <li style="margin-left: 15px;">Сайт, предоставляющий аналитику по курсу акций на основе Yahoo! Finance</li>
+            <li style="margin-left: 15px;">Сайт, на котором абонент Beeline может ввести свой номер телефона и посмотреть, какие дополнительные услуги у него подключены</li>
+            <li style="margin-left: 15px;">Бот для Telegram, который принимает заявки от клиентов службы техподдержки и кладет их в систему работы с заявками</li>
+            <li style="margin-left: 15px;">Сайт, ищущий посты о сдаче квартир в фейсбуке, скачивает их и размещает как объявления у себя</li>
+            <li style="margin-left: 15px;">Интернет-магазин handmade-товаров</li>
+          </ul>
+          <p style="margin: 10px 0px; padding: 0px; color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; line-height: 24px; text-align: left; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Подробнее о дипломных проектах мы расскажем на первом занятии.
+            <br>Материалы обучения для онлайн и оффлайн студентов не различаются, не переживайте.
+            <br>
+            <br><span id="python" style="color: rgb(255, 0, 0);"><strong>Что еще нужно сделать перед началом занятия?</strong></span>
+            <br>
+            <br><strong>Установите нужные программы на компьютер</strong>
+            <br>Мы подготовили видео, на которых рассказываем как настроить компьютер для участия в курсе. Выберите операционную систему и следуй инструкциям:
+          </p>
+
+          <div class="row">
+            <div class="col-md-4"> 
+                  <h4>Установка python на Windows</h4>
+                  <iframe width="480" height="270" src="https://www.youtube.com/embed/1_cnG-uVStE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>      
+                  <!-- <br> -->
+                  <!-- <br> -->
+            <div class="col-md-4"> 
+                  <h4>Установка git на Windows</h4>                        
+                  <iframe width="480" height="270" src="https://www.youtube.com/embed/qx7R1ropPog" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>                        
+                  <!-- <br>
+                  <br> -->
+            <div class="col-md-4"> 
+                  <h4>Установка IDE на Windows</h4>                                                
+                  <iframe width="480" height="270" src="https://www.youtube.com/embed/pJoBPVZjfnM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="row">
+              <div class="col-md-4"> 
+                    <h4>Установка python на Mac OS</h4>
+                    <iframe width="480" height="270" src="https://www.youtube.com/embed/qUjO1H0LYAs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>      
+                    <!-- <br> -->
+                    <!-- <br> -->
+              <div class="col-md-4"> 
+                    <h4>Установка git на MacOS</h4>
+                    <iframe width="480" height="270" src="https://www.youtube.com/embed/EHUgqqTWnA4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                        
+              </div>                        
+                    <!-- <br>
+                    <br> -->
+              <div class="col-md-4"> 
+                    <h4>Установка IDE на MacOS</h4>
+                    <iframe width="480" height="270" src="https://www.youtube.com/embed/1Uj6dcBa3eo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                                                
+              </div>
+            </div>
+            
+            <br>
+          <br>
+          <div class="row">
+              <div class="col-md-4"> 
+                    <h4>Установка python на Linux</h4>
+                    <iframe width="480" height="270" src="https://www.youtube.com/embed/BBjyrFPFvPI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>      
+                    <!-- <br> -->
+                    <!-- <br> -->
+              <div class="col-md-4"> 
+                    <h4>Установка git на Linux</h4>
+                    <iframe width="480" height="270" src="https://www.youtube.com/embed/mMsvNxTVoyo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>                        
+                    <!-- <br>
+                    <br> -->
+              <div class="col-md-4"> 
+                    <h4>Установка IDE на Linux</h4>
+                    <iframe width="480" height="270" src="https://www.youtube.com/embed/9iN-oQBYGdU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </div> 
+          <!-- <ul style="color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+            <li style="margin-left: 15px;">
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Dcb17e41cb6%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1572280544943000&amp;usg=AFQjCNFYXTpDDPPmmCb0Z1dJ2tu2sFmlAA" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=cb17e41cb6&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Windows</a> + 
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D3774ea5cbd%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1572280544943000&amp;usg=AFQjCNFiAsTkFSd2Sy8XGP8oQRDX8bXHYA" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=3774ea5cbd&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Git</a> + 
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D056825686e%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1572280544943000&amp;usg=AFQjCNEiyfo7mFG-Qfg18nXTGAnzQCvvag" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=056825686e&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">IDE</a>
+            </li>
+            <li style="margin-left: 15px;">
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D770f8c37be%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1572280544943000&amp;usg=AFQjCNGNskV6CkcxB09uocYR8xFEhiDZ8A" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=770f8c37be&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Mac OS</a> + 
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Dd74b07500c%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1572280544943000&amp;usg=AFQjCNGgUGnf-TkrEnXX_3zt802_ZMfbEQ" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=d74b07500c&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">IDE</a> + 
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Df3f8683242%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1572280544943000&amp;usg=AFQjCNGOawb3tyTibrb1OaCtJie5uneqNA" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=f3f8683242&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Git</a>
+            </li>
+            <li style="margin-left: 15px;">
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Df33275e6c4%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1572280544943000&amp;usg=AFQjCNE2Mn0hl_nL9-jmQLkVgxmcJfEROQ" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=f33275e6c4&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Linux</a>&nbsp; + 
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Dcfbe103394%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1572280544943000&amp;usg=AFQjCNGClsLsTdFoagbs-oSn3_-s7ZV_lw" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=cfbe103394&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Git</a> + 
+              <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D71cb811575%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1572280544943000&amp;usg=AFQjCNFiugcbY_EP4lkWYKdAXShvCvzVkg" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=71cb811575&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">IDE</a>
+            </li> -->
+          <!-- </ul> -->
+          <p style="margin: 10px 0px; padding: 0px; color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; line-height: 24px; text-align: left; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+            <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D5b271cef6d%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1572280544943000&amp;usg=AFQjCNExao_OtD3M_Gfa0MO5N85997wWmA" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=5b271cef6d&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Слайды</a> с установкой Python 3.7
+            <!-- <br>
+            <br><strong>Зарегистрируйте аккаунт на Github</strong>
+            <br>
+            <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3Dbf99288e7d%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1572280544943000&amp;usg=AFQjCNEED-yhhzhOPCGnyKixmQbmlfpnWQ" href="https://moscowpython.us10.list-manage.com/track/click?u=c697064155714e24c8be7e9d8&amp;id=bf99288e7d&amp;e=cbfff661df" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">Регистрация на GitHub</a> устроена куда проще, все доступно по ссылке.
+            <br>&nbsp; -->
+          </p>
+          
+          </ol>
+          <p style="margin: 10px 0px; padding: 0px; color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; line-height: 24px; text-align: left; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Если остались вопросы - пишите на&nbsp;
+            <a href="mailto:learn@python.ru" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">learn@python.ru</a>, в чат или звоните&nbsp;+7&nbsp;906 051 81 90, Семен поможет вам.
+            <br>
+            <br>До встречи на курсе!
+            <br>
+            <br>
+          <a id="bottom" href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Начать обучение</a>
+
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}

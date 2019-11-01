@@ -1,18 +1,15 @@
 import logging
-
-from flask import Flask, render_template, flash, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for
 from webapp.forms import LoginForm, RegistrationForm
 from webapp.model import db, News, Articles, Content, Users
-from flask_login import LoginManager, login_user, logout_user, current_user
+from flask_login import LoginManager, login_user, logout_user, current_user, login_required
 from webapp.config import SECRET_KEY
-from flask_migrate import Migrate
 
 
 def create_app():
     app = Flask(__name__)
     app.config.from_pyfile('config.py')
     db.init_app(app)
-    migrate = Migrate(app, db)
 
     login_manager = LoginManager()
     login_manager.init_app(app)
@@ -73,6 +70,16 @@ def create_app():
             password = form.password_reg.data
             password_confirm = form.password_reg_confirm.data
 
+            if Users.query.filter(Users.email == email).count():
+                logging.error('Такой пользователь уже есть')
+                flash('Такой пользователь уже есть')
+                return redirect(url_for('login'))
+
+            if not password == password_confirm:
+                logging.error('Пароли не совпадают')
+                flash('Пароли не совпадают. Повторите ввод')
+                return redirect(url_for('registration'))
+
             new_user = Users(email=email)
             new_user.set_password(password)
             db.session.add(new_user)
@@ -80,16 +87,8 @@ def create_app():
 
             flash('Вы успешно зарегистрировались')
             return redirect(url_for('login'))
-        else:
-            for field, errors in form.errors.items():
-                for error in errors:
-                    flash('Ошибка в поле "{}": - {}'.format(
-                        getattr(form, field).label.text,
-                        error))
-
-        logging.error('Ошибка в поле "{}": - {}'.format(
-                        getattr(form, field).label.text,
-                        error))
+        logging.error('Пароль не соответствует требованиям')
+        flash('Пароль должен содержать хотя бы одну заглавную букву, хотя бы одну цифру и быть не менее 8 символов')
         return redirect(url_for('registration'))
 
     @app.route('/logout')
@@ -106,15 +105,116 @@ def create_app():
         tproger_list = Articles.query.filter_by(source="tproger").all()
         return render_template('index.html', news_list=news_list, habr_list=habr_list, tproger_list=tproger_list)
 
-    @app.route('/lections/start')
-    def start():
-        # content_item = Content.query.filter_by(url="text_1").first()
-        return render_template('getting-started.html')
+        common_menu = Content.query.with_entities(Content.lesson_name, Content.slug).filter(and_(Content.slug != "", Content.slug != "learn-python")).filter((or_(Content.section_name.ilike('%первой%'), Content.section_name.ilike('%2 недели%'), Content.section_name.ilike('%окружение%')))).distinct()
+        web_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Веб%'), Content.section_name.ilike('%Трек: веб%'))).distinct()
+        ds_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Анализ%'), Content.section_name.ilike('%Трек Data%'), Content.section_name.ilike('%Трек: анализ%'))).distinct()
+        bot_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Telegram%'), Content.section_name.ilike('%Трек Боты%'), Content.section_name.ilike('%Трек: боты%'))).distinct()
+        add_menu = Content.query.with_entities(Content.description, Content.slug).filter(Content.slug != "").filter(Content.section_name.ilike('%Дополнительно%')).distinct()
 
-    @app.route('/lections/common=1')
-    def common_1():
-        # content_item = Content.query.filter_by(url="text_1").first()
-        return render_template('common_1.html')
+        return render_template('index.html', news_list=news_list, habr_list=habr_list, tproger_list=tproger_list, common_menu=common_menu, web_menu=web_menu, ds_menu=ds_menu, bot_menu=bot_menu, add_menu=add_menu)
+
+    @app.route('/start/')
+    def start():
+        common_menu = Content.query.with_entities(Content.lesson_name, Content.slug).filter(and_(Content.slug != "", Content.slug != "learn-python")).filter((or_(Content.section_name.ilike('%первой%'), Content.section_name.ilike('%2 недели%'), Content.section_name.ilike('%окружение%')))).distinct()
+        web_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Веб%'), Content.section_name.ilike('%Трек: веб%'))).distinct()
+        ds_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Анализ%'), Content.section_name.ilike('%Трек Data%'), Content.section_name.ilike('%Трек: анализ%'))).distinct()
+        bot_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Telegram%'), Content.section_name.ilike('%Трек Боты%'), Content.section_name.ilike('%Трек: боты%'))).distinct()
+        add_menu = Content.query.with_entities(Content.description, Content.slug).filter(Content.slug != "").filter(Content.section_name.ilike('%Дополнительно%')).distinct()
+return render_template('start.html', common_menu=common_menu, web_menu=web_menu, ds_menu=ds_menu, bot_menu=bot_menu, add_menu=add_menu)
+
+    @app.route('/common/<page_slug>/')
+    def common(page_slug):
+        common_menu = Content.query.with_entities(Content.lesson_name, Content.slug).filter(and_(Content.slug != "", Content.slug != "learn-python")).filter((or_(Content.section_name.ilike('%первой%'), Content.section_name.ilike('%2 недели%'), Content.section_name.ilike('%окружение%')))).distinct()
+        web_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Веб%'), Content.section_name.ilike('%Трек: веб%'))).distinct()
+        ds_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Анализ%'), Content.section_name.ilike('%Трек Data%'), Content.section_name.ilike('%Трек: анализ%'))).distinct()
+        bot_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Telegram%'), Content.section_name.ilike('%Трек Боты%'), Content.section_name.ilike('%Трек: боты%'))).distinct()
+        add_menu = Content.query.with_entities(Content.description, Content.slug).filter(Content.slug != "").filter(Content.section_name.ilike('%Дополнительно%')).distinct()
+
+        page_content = Content.query.with_entities(Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description).filter(Content.slug != "").filter((or_(Content.section_name.ilike('%первой%'), Content.section_name.ilike('%2 недели%'), Content.section_name.ilike('%окружение%')))).filter(Content.slug == page_slug).distinct()
+
+        page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
+        if not page:
+            return 'Not found', 404
+
+        return render_template(f'/common/{page.slug}.html', common_menu=common_menu, web_menu=web_menu, ds_menu=ds_menu, bot_menu=bot_menu, add_menu=add_menu, page_content=page_content)
+
+    #     slug_list = [content.slug for content in db.session.query(Content).all()]
+    #     uniq_slugs = [x for i, x in enumerate(slug_list) if x not in slug_list[:i]]
+    
+    @app.route('/web/<page_slug>/')
+    def web(page_slug):
+        common_menu = Content.query.with_entities(Content.lesson_name, Content.slug).filter(and_(Content.slug != "", Content.slug != "learn-python")).filter((or_(Content.section_name.ilike('%первой%'), Content.section_name.ilike('%2 недели%'), Content.section_name.ilike('%окружение%')))).distinct()
+        web_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Веб%'), Content.section_name.ilike('%Трек: веб%'))).distinct()
+        ds_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Анализ%'), Content.section_name.ilike('%Трек Data%'), Content.section_name.ilike('%Трек: анализ%'))).distinct()
+        bot_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Telegram%'), Content.section_name.ilike('%Трек Боты%'), Content.section_name.ilike('%Трек: боты%'))).distinct()
+        add_menu = Content.query.with_entities(Content.description, Content.slug).filter(Content.slug != "").filter(Content.section_name.ilike('%Дополнительно%')).distinct()
+        
+        page_content = Content.query.with_entities(Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description).filter(Content.slug != "").filter(Content.slug == page_slug).distinct()
+
+        page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
+        if not page:
+            return 'Not found', 404
+
+        return render_template(f'/web/{page.slug}.html', common_menu=common_menu, web_menu=web_menu, ds_menu=ds_menu, bot_menu=bot_menu, page_content=page_content, add_menu=add_menu)
+
+    @app.route('/data-science/<page_slug>/')
+    def ds(page_slug):
+        common_menu = Content.query.with_entities(Content.lesson_name, Content.slug).filter(and_(Content.slug != "", Content.slug != "learn-python")).filter((or_(Content.section_name.ilike('%первой%'), Content.section_name.ilike('%2 недели%'), Content.section_name.ilike('%окружение%')))).distinct()
+        web_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Веб%'), Content.section_name.ilike('%Трек: веб%'))).distinct()
+        ds_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Анализ%'), Content.section_name.ilike('%Трек Data%'), Content.section_name.ilike('%Трек: анализ%'))).distinct()
+        bot_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Telegram%'), Content.section_name.ilike('%Трек Боты%'), Content.section_name.ilike('%Трек: боты%'))).distinct()
+        add_menu = Content.query.with_entities(Content.description, Content.slug).filter(Content.slug != "").filter(Content.section_name.ilike('%Дополнительно%')).distinct()
+        
+        page_content = Content.query.with_entities(Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description).filter(Content.slug != "").filter(Content.slug == page_slug).distinct()
+
+        page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
+        if not page:
+            return 'Not found', 404
+
+        return render_template(f'/ds/{page.slug}.html', common_menu=common_menu, web_menu=web_menu, ds_menu=ds_menu, bot_menu=bot_menu, page_content=page_content, add_menu=add_menu)
+
+    @app.route('/bot/<page_slug>/')
+    def bot(page_slug):
+        common_menu = Content.query.with_entities(Content.lesson_name, Content.slug).filter(and_(Content.slug != "", Content.slug != "learn-python")).filter((or_(Content.section_name.ilike('%первой%'), Content.section_name.ilike('%2 недели%'), Content.section_name.ilike('%окружение%')))).distinct()
+        web_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Веб%'), Content.section_name.ilike('%Трек: веб%'))).distinct()
+        ds_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Анализ%'), Content.section_name.ilike('%Трек Data%'), Content.section_name.ilike('%Трек: анализ%'))).distinct()
+        bot_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Telegram%'), Content.section_name.ilike('%Трек Боты%'), Content.section_name.ilike('%Трек: боты%'))).distinct()
+        add_menu = Content.query.with_entities(Content.description, Content.slug).filter(Content.slug != "").filter(Content.section_name.ilike('%Дополнительно%')).distinct()
+        
+        page_content = Content.query.with_entities(Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description).filter(Content.slug != "").filter(Content.slug == page_slug).distinct()
+
+        page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
+        if not page:
+            return 'Not found', 404
+
+        return render_template(f'/bot/{page.slug}.html', common_menu=common_menu, web_menu=web_menu, ds_menu=ds_menu, bot_menu=bot_menu, add_menu=add_menu, page_content=page_content)
+
+    @app.route('/additional/<page_slug>/')
+    def add(page_slug):
+        common_menu = Content.query.with_entities(Content.lesson_name, Content.slug).filter(and_(Content.slug != "", Content.slug != "learn-python")).filter((or_(Content.section_name.ilike('%первой%'), Content.section_name.ilike('%2 недели%'), Content.section_name.ilike('%окружение%')))).distinct()
+        web_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Веб%'), Content.section_name.ilike('%Трек: веб%'))).distinct()
+        ds_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Анализ%'), Content.section_name.ilike('%Трек Data%'), Content.section_name.ilike('%Трек: анализ%'))).distinct()
+        bot_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Telegram%'), Content.section_name.ilike('%Трек Боты%'), Content.section_name.ilike('%Трек: боты%'))).distinct()
+        add_menu = Content.query.with_entities(Content.description, Content.slug).filter(Content.slug != "").filter(Content.section_name.ilike('%Дополнительно%')).distinct()
+        
+        page_content = Content.query.with_entities(Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description).filter(Content.slug != "").filter(Content.slug == page_slug).distinct()
+
+        page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
+        if not page:
+            return 'Not found', 404
+
+        return render_template(f'/add/{page.slug}.html', common_menu=common_menu, web_menu=web_menu, ds_menu=ds_menu, bot_menu=bot_menu, add_menu=add_menu, page_content=page_content)
+
+    @app.route('/helps/')
+    def help():
+        common_menu = Content.query.with_entities(Content.lesson_name, Content.slug).filter(and_(Content.slug != "", Content.slug != "learn-python")).filter((or_(Content.section_name.ilike('%первой%'), Content.section_name.ilike('%2 недели%'), Content.section_name.ilike('%окружение%')))).distinct()
+        web_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Веб%'), Content.section_name.ilike('%Трек: веб%'))).distinct()
+        ds_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Анализ%'), Content.section_name.ilike('%Трек Data%'), Content.section_name.ilike('%Трек: анализ%'))).distinct()
+        bot_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Telegram%'), Content.section_name.ilike('%Трек Боты%'), Content.section_name.ilike('%Трек: боты%'))).distinct()
+        add_menu = Content.query.with_entities(Content.description, Content.slug).filter(Content.slug != "").filter(Content.section_name.ilike('%Дополнительно%')).distinct()
+
+        return render_template('page_in_progress.html', common_menu=common_menu, web_menu=web_menu, ds_menu=ds_menu, bot_menu=bot_menu, add_menu=add_menu)
+
 
     return app
 
