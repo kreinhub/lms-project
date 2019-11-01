@@ -1,7 +1,0 @@
-{% macro nav_link(endpoint, slug, theme_name) %}
-{% if request.path ==  url_for(endpoint, page_slug=slug)  %}
-  <li><a class="treeview-item active" href="{{ url_for(endpoint, page_slug=slug) }}"><i class="icon fa fa-circle-o"></i>{{ theme_name }}</a></li>
-{% else %}
-  <li><a class="treeview-item" href="{{ url_for(endpoint, page_slug=slug) }}"><i class="icon fa fa-circle-o"></i>{{ theme_name }}</a></li>
-{% endif %}
-{% endmacro %}

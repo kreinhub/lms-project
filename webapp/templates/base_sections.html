@@ -14,23 +14,21 @@
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
     <title>
-      {% if request.endpoint.startswith('index') %}
-      Главная
-      {% elif request.endpoint.startswith('start') %}
-      Начало курса
-      {% elif request.endpoint.startswith('common') %}
-      Общий курс
-      {% elif request.endpoint.startswith('web') %}
-      Трек Веб-разработка
-      {% elif request.endpoint.startswith('ds') %}
-      Трек Data-Science
-      {% elif request.endpoint.startswith('bot') %}
-      Трек Telegram-bot
-      {% elif request.endpoint.startswith('add') %}
-      Дополнительно
-      {% else %}
-      Неизвестный раздел
-      {% endif %}| Flask app
+        {% if request.endpoint.startswith('start') %}
+        Начало курса
+        {% elif request.endpoint.startswith('common') %}
+        Общий курс
+        {% elif request.endpoint.startswith('web') %}
+        Трек Веб-разработка
+        {% elif request.endpoint.startswith('ds') %}
+        Трек Data-Science
+        {% elif request.endpoint.startswith('bot') %}
+        Трек Telegram-bot
+        {% elif request.endpoint.startswith('add') %}
+        Дополнительно
+        {% else %}
+        Неизвестный раздел
+        {% endif %}| Flask app
     </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -123,10 +121,62 @@
     </aside>
 
     <!-- Main page content-->
-    {% block content %}
 
-    {% endblock %}
+
+
     
+<main class="app-content">
+    <div class="app-title">
+      <div>
+        <h1><i class="fa fa-play-circle-o"></i> {% block content_title %}{% endblock %}</h1>
+        {% if request.endpoint.startswith('start') %}
+        <p>{{ "Начало курса" }}</p>
+        {% elif request.endpoint.startswith('common') %}
+        <p>{{ "Общий курс" }}</p>
+        {% elif request.endpoint.startswith('web') %}
+        <p>{{ "Трек Веб-разработка" }}</p>
+        {% elif request.endpoint.startswith('ds') %}
+        <p>{{ "Трек Data-Science" }}</p>
+        {% elif request.endpoint.startswith('bot') %}
+        <p>{{ "Трек Telegram-bot" }}</p>
+        {% elif request.endpoint.startswith('add') %}
+        <p>{{ "Дополнительно" }}</p>
+        {% else %}
+        <p>{{ "Неизвестный раздел" }}</p>
+        {% endif %}
+      </div>
+      <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+        <li class="breadcrumb-item"><a href="{{url_for('index')}}">Главная</a></li>
+      </ul>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tile">
+
+            <!-- Content of page -->
+            <p style="margin: 10px 0px; padding: 0px; color: rgb(32, 32, 32); font-family: Helvetica; font-size: 16px; line-height: 24px; text-align: left; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong>{% block content_header %}{% endblock %}</strong>
+              <br>{% block content_paragraph %}{% endblock %}
+            </p>
+  
+            {% block content %}
+
+            {% endblock %}
+           
+            {% block button_next %}
+
+            {% endblock %}
+            
+          </div>
+        </div>
+      </div>
+    </main>
+
+
+
+
+
     <!-- Essential javascripts for application to work-->
     <script src="/static/js/jquery-3.2.1.min.js"></script>
     <script src="/static/js/popper.min.js"></script>

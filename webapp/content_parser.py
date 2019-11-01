@@ -180,7 +180,7 @@ def pretifier(lesson_name):
         return "Работа с файлами"    
     elif "типичных применений" in lesson_name.lower():
         return "Табличный формат csv"
-    elif "ООП" in lesson_name.lower():
+    elif "ооп" in lesson_name.lower():
         return "ООП в Python"
     return min(result)
 
@@ -303,9 +303,9 @@ def get_content_entries(counter):
                             write_to_db(lesson_name, description, section_name, url, modified_date=modified_date, url_description=url_description, type=type, slug=slug)
                         elif "трек" in strong.text.lower() or "дополнительно" in strong.text.lower():
                             # continue
-                            if "5-й недели" in letter["letter_title"].lower() or "9 недели" in letter["letter_title"].lower():
+                            if "5-й недели" in letter["letter_title"].lower():
                                 next_next_ = next_.find_next().find_next().find_next()
-                            elif "трек" in strong.text.lower():
+                            elif "трек" in strong.text.lower()  or "9 недели" in letter["letter_title"].lower():
                                 next_next_ = next_.find_next().find_next()
                             elif "дополнительно" in strong.text.lower():
                                 next_next_ = next_.find_next()
@@ -330,7 +330,7 @@ def get_content_entries(counter):
                             match = regex.search(a.text)
                             if not match:                            
                                 url, type = get_url_and_url_type(a)
-                                url_description = a.text       
+                                url_description = a.text      
                                 slug = get_slug_url(lesson_name, section_name)  # возможно стоит передавать description вместо lesson_name. Проверить!
                                 write_to_db(lesson_name, description, section_name, url, modified_date=modified_date, type=type, url_description=url_description, slug=slug)
                 
