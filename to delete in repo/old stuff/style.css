@@ -1,8 +1,0 @@
-body {
-    height: 2000px;
-}
-
-.scrolldiv {
-    height:300px;
-    overflow-y: scroll;
-  }
