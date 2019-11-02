@@ -1,9 +1,13 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import logging
 from flask import Flask, render_template, request, flash, redirect, url_for
 from webapp.forms import LoginForm, RegistrationForm
 from webapp.model import db, News, Articles, Content, Users
 from flask_login import LoginManager, login_user, logout_user, current_user, login_required
 from webapp.config import SECRET_KEY
+from sqlalchemy import or_, and_, not_
 
 
 def create_app():
@@ -103,7 +107,6 @@ def create_app():
         news_list = News.query.order_by(News.published.desc()).all()
         habr_list = Articles.query.filter_by(source="habr").all()
         tproger_list = Articles.query.filter_by(source="tproger").all()
-        return render_template('index.html', news_list=news_list, habr_list=habr_list, tproger_list=tproger_list)
 
         common_menu = Content.query.with_entities(Content.lesson_name, Content.slug).filter(and_(Content.slug != "", Content.slug != "learn-python")).filter((or_(Content.section_name.ilike('%первой%'), Content.section_name.ilike('%2 недели%'), Content.section_name.ilike('%окружение%')))).distinct()
         web_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Веб%'), Content.section_name.ilike('%Трек: веб%'))).distinct()
@@ -113,6 +116,8 @@ def create_app():
 
         return render_template('index.html', news_list=news_list, habr_list=habr_list, tproger_list=tproger_list, common_menu=common_menu, web_menu=web_menu, ds_menu=ds_menu, bot_menu=bot_menu, add_menu=add_menu)
 
+
+
     @app.route('/start/')
     def start():
         common_menu = Content.query.with_entities(Content.lesson_name, Content.slug).filter(and_(Content.slug != "", Content.slug != "learn-python")).filter((or_(Content.section_name.ilike('%первой%'), Content.section_name.ilike('%2 недели%'), Content.section_name.ilike('%окружение%')))).distinct()
@@ -120,7 +125,7 @@ def create_app():
         ds_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Анализ%'), Content.section_name.ilike('%Трек Data%'), Content.section_name.ilike('%Трек: анализ%'))).distinct()
         bot_menu = Content.query.with_entities(Content.url_description, Content.slug).filter(and_(Content.slug != "", Content.slug != "slaydy")).filter(or_(Content.section_name.ilike('%Трек Telegram%'), Content.section_name.ilike('%Трек Боты%'), Content.section_name.ilike('%Трек: боты%'))).distinct()
         add_menu = Content.query.with_entities(Content.description, Content.slug).filter(Content.slug != "").filter(Content.section_name.ilike('%Дополнительно%')).distinct()
-return render_template('start.html', common_menu=common_menu, web_menu=web_menu, ds_menu=ds_menu, bot_menu=bot_menu, add_menu=add_menu)
+        return render_template('start.html', common_menu=common_menu, web_menu=web_menu, ds_menu=ds_menu, bot_menu=bot_menu, add_menu=add_menu)
 
     @app.route('/common/<page_slug>/')
     def common(page_slug):
@@ -132,7 +137,7 @@ return render_template('start.html', common_menu=common_menu, web_menu=web_menu,
 
         page_content = Content.query.with_entities(Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description).filter(Content.slug != "").filter((or_(Content.section_name.ilike('%первой%'), Content.section_name.ilike('%2 недели%'), Content.section_name.ilike('%окружение%')))).filter(Content.slug == page_slug).distinct()
 
-        page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
+        page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()
         if not page:
             return 'Not found', 404
 
@@ -140,7 +145,7 @@ return render_template('start.html', common_menu=common_menu, web_menu=web_menu,
 
     #     slug_list = [content.slug for content in db.session.query(Content).all()]
     #     uniq_slugs = [x for i, x in enumerate(slug_list) if x not in slug_list[:i]]
-    
+
     @app.route('/web/<page_slug>/')
     def web(page_slug):
         common_menu = Content.query.with_entities(Content.lesson_name, Content.slug).filter(and_(Content.slug != "", Content.slug != "learn-python")).filter((or_(Content.section_name.ilike('%первой%'), Content.section_name.ilike('%2 недели%'), Content.section_name.ilike('%окружение%')))).distinct()
