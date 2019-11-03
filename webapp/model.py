@@ -47,7 +47,7 @@ class Content(db.Model):
 
 class Progress(db.Model, UserMixin):            # общий прогресс
     record_id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     theme = db.Column(db.String(120), db.ForeignKey('content.lesson_name'))
     section = db.Column(db.String(120), db.ForeignKey('content.section_name'))
 

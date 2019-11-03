@@ -17,9 +17,12 @@ class LoginForm(FlaskForm):
 
 
 class RegistrationForm(FlaskForm):
-    email = StringField('Email',
+    email = StringField('Email(*)', validators=[DataRequired()],
                         render_kw={"class": "form-control", "placeholder": "Enter email", "type": "email"})
-    password_reg = PasswordField('Password', validators=[DataRequired(), Regexp(regexp)],
+
+    username = StringField('Name', render_kw={"class": "form-control", "placeholder": "Enter your name", "type": "text"})
+
+    password_reg = PasswordField('Password(*)', validators=[DataRequired(), Regexp(regexp)],
                                  render_kw={"class": "form-control", "placeholder": "Enter Password",
                                             "type": "password"})
     password_reg_confirm = PasswordField('Password',
