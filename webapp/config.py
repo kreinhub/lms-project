@@ -5,4 +5,4 @@ SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, '..', 'webapp.db'
 
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-SECRET_KEY = os.urandom(24)
+SECRET_KEY = 'A0tr43j/3yO VB~XHH123!jmN42]pWpWX/,?RT!'
