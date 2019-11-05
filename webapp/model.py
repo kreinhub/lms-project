@@ -30,7 +30,7 @@ class Users(db.Model, UserMixin):           # нехватает поля для
 
 
 class Content(db.Model):
-    content_id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     lesson_name = db.Column(db.String(120), nullable=False)             # название урока в меню
     description = db.Column(db.String(120), nullable=False)             # описание лекции перед видео
     section_name = db.Column(db.String(50), nullable=False)              # название большого раздела
@@ -43,10 +43,10 @@ class Content(db.Model):
     slug = db.Column(db.String(200))
 
     def __repr__(self):
-        return f'<Content {self.theme_name} {self.type}>'
+        return f'<Content {self.lesson_name} | {self.section_name} | {self.type}>'
 
 class Progress(db.Model, UserMixin):            # общий прогресс
-    record_id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     theme = db.Column(db.String(120), db.ForeignKey('content.lesson_name'))
     section = db.Column(db.String(120), db.ForeignKey('content.section_name'))
@@ -54,11 +54,6 @@ class Progress(db.Model, UserMixin):            # общий прогресс
 
     def __repr__(self):
         return f'<Users progress by {self.theme}>'
-
-class Structure:
-    content_id = db.Column(db.Integer, db.ForeignKey('content.content_id'))
-    theme = db.Column(db.String(120), db.ForeignKey('content.theme_name'))
-    section = db.Column(db.String(59), db.ForeignKey('content.section_name'))
 
 
 class News(db.Model):
