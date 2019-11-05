@@ -1,6 +1,7 @@
 from datetime import datetime
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import or_, and_, not_
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -41,6 +42,43 @@ class Content(db.Model):
     modified_date = db.Column(db.DateTime, default=datetime.now())   # используем как иентификатор раздела (section)
     rating = db.Column(db.Integer, default=0)      # need to specify default arg    (в процентах так как проще)
     slug = db.Column(db.String(200))
+
+    @classmethod
+    def common_menu(cls):
+        return cls.query.with_entities(Content.lesson_name, Content.slug).filter(
+                and_(Content.slug != "", Content.slug != "learn-python")
+            ).filter(
+                (or_(Content.section_name.ilike('%первой%'), Content.section_name.ilike('%2 недели%'), Content.section_name.ilike('%окружение%')))
+            ).distinct()
+
+    @classmethod
+    def web_menu(cls):
+        return cls.query.with_entities(Content.url_description, Content.slug).filter(
+                and_(Content.slug != "", Content.slug != "slaydy")
+            ).filter(
+                or_(Content.section_name.ilike('%Трек Веб%'), Content.section_name.ilike('%Трек: веб%'))
+            ).distinct()
+
+    @classmethod
+    def ds_menu(cls):
+        return cls.query.with_entities(Content.url_description, Content.slug).filter(
+                and_(Content.slug != "", Content.slug != "slaydy")
+            ).filter(
+                or_(Content.section_name.ilike('%Трек Анализ%'), Content.section_name.ilike('%Трек Data%'), Content.section_name.ilike('%Трек: анализ%'))
+            ).distinct()
+
+    @classmethod
+    def bot_menu(cls):
+        return cls.query.with_entities(Content.url_description, Content.slug).filter(
+                and_(Content.slug != "", Content.slug != "slaydy")
+            ).filter(
+                or_(Content.section_name.ilike('%Трек Telegram%'), Content.section_name.ilike('%Трек Боты%'), Content.section_name.ilike('%Трек: боты%'))
+            ).distinct()
+
+    @classmethod
+    def add_menu(cls):
+        return cls.query.with_entities(Content.description, Content.slug).filter(Content.slug != "").filter(Content.section_name.ilike('%Дополнительно%')).distinct()
+
 
     def __repr__(self):
         return f'<Content {self.lesson_name} | {self.section_name} | {self.type}>'
