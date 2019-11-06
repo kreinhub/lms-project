@@ -85,5 +85,34 @@
 {% endblock %}
 
 {% block button_next %}
-<a id="bottom" href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Далее</a>
+
+{% set current_url_list = request.path.split('/') %}
+{% set current_section, current_lesson = current_url_list[1], current_url_list[2] %}
+
+{% if current_section == "common" %}
+      {% set current_menu, next_route, next_slug = common_menu, 'web', web_menu[0].slug %}
+{% elif current_section == "web" %}
+      {% set current_menu, next_route, next_slug = web_menu, 'ds', ds_menu[0].slug %}
+{% elif current_section == "data-science" %}
+      {% set current_menu, next_route, next_slug = ds_menu, 'bot', bot_menu[0].slug %}
+      {% set current_section =  'ds' %}
+{% elif current_section == "bot" %}
+      {% set current_menu, next_route, next_slug = bot_menu, 'add', add_menu[0].slug %}
+{% elif current_section == "additional" %}
+      {% set current_menu = add_menu %}
+      {% set current_section =  'add' %}
+{% endif %}
+
+{% for menu in current_menu %}
+      {% if loop.last %}
+        {% if current_section == 'add' %}
+          {% break %}
+        {% elif current_lesson == menu.slug %}
+          <a id="to_next_section" href="{{ url_for(next_route, page_slug=next_slug)  }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Следующий раздел</a>
+        {% endif %}
+      {% elif current_lesson == menu.slug %}
+          <a id="to_next_lesson" href="{{ url_for(current_section, page_slug=loop.nextitem.slug)  }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Далее</a>
+      {% endif %}
+{% endfor %}
+
 {% endblock %}

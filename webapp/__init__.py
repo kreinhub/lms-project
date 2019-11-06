@@ -14,6 +14,7 @@ from flask_migrate import Migrate
 def create_app():
     app = Flask(__name__)
     app.config.from_pyfile('config.py')
+    app.jinja_env.add_extension('jinja2.ext.loopcontrols')
     db.init_app(app)
     migrate = Migrate(app, db)
 
@@ -117,9 +118,9 @@ def create_app():
 
 
     @app.route('/start/')
-    def start():      
+    def start():
         return render_template(
-            'start.html', 
+            'start.html',
             common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), add_menu=Content.add_menu())
 
 

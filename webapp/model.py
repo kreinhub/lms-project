@@ -8,7 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 db = SQLAlchemy()
 
 
-class Users(db.Model, UserMixin):           # нехватает поля для лэвэла
+class Users(db.Model, UserMixin):           
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), nullable=True)
     password = db.Column(db.String(120), nullable=False)
@@ -113,10 +113,3 @@ class Articles(db.Model):
     published = db.Column(db.DateTime, nullable=False)
     img_url = db.Column(db.String)
     source = db.Column(db.String, nullable=False)
-
-# class Таблица структура контента
-# id единица контента
-# id единица сабтемы
-# id единица раздела
-
-# class таблица прогресс по секции (не надо
