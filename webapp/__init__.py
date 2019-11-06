@@ -2,13 +2,14 @@
 # -*- coding: utf-8 -*-
 
 import logging
-from flask import Flask, render_template, request, flash, redirect, url_for, g
+from flask import Flask, render_template, request, flash, redirect, url_for
 from webapp.forms import LoginForm, RegistrationForm
 from webapp.model import db, News, Articles, Content, Users
 from flask_login import LoginManager, login_user, logout_user, current_user, login_required
 from webapp.config import SECRET_KEY
 from sqlalchemy import or_, and_, not_
 from flask_migrate import Migrate
+from flask import g
 
 
 def create_app():
@@ -26,7 +27,7 @@ def create_app():
                         filemode='w',
                         level=logging.ERROR,
                         datefmt='%m/%d/%Y %I:%M:%S %p',
-                        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+            format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
     @login_manager.user_loader
     def load_user(user_id):
@@ -66,7 +67,8 @@ def create_app():
 
         title = "Регистрация"
         registration_form = RegistrationForm()
-        return render_template('page-registration.html', title=title, form=registration_form, active='registration')
+        return render_template('page-registration.html', title=title, 
+                                form=registration_form, active='registration')
 
     @app.route('/process_registration', methods=['POST'])
     def process_registration():
@@ -88,7 +90,7 @@ def create_app():
                 flash('Пароли не совпадают. Повторите ввод')
                 return redirect(url_for('registration'))
 
-            new_user = Users(email=email, username = username)
+            new_user = Users(email=email, username=username)
             new_user.set_password(password)
             db.session.add(new_user)
             db.session.commit()
@@ -96,7 +98,8 @@ def create_app():
             flash('Вы успешно зарегистрировались')
             return redirect(url_for('login'))
         logging.error('Пароль не соответствует требованиям')
-        flash('Пароль должен содержать хотя бы одну заглавную букву, хотя бы одну цифру и быть не менее 8 символов')
+        flash('Пароль должен содержать хотя бы одну заглавную букву,' 
+                    'хотя бы одну цифру и быть не менее 8 символов')
         return redirect(url_for('registration'))
 
     @app.route('/logout')
@@ -110,20 +113,22 @@ def create_app():
     def index():
         get_user_id = current_user.get_id()
         user_by_id = Users.query.filter_by(id=get_user_id).first()
+        
         g.username = user_by_id.username
         g.role = user_by_id.role
         g.avatar = user_by_id.avatar
-
         
-        # print(request.args["test"])
         news_list = News.query.order_by(News.published.desc()).all()
         habr_list = Articles.query.filter_by(source="habr").all()
         tproger_list = Articles.query.filter_by(source="tproger").all()
 
         return render_template(
             'index.html', 
-            news_list=news_list, habr_list=habr_list, tproger_list=tproger_list, 
-            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), add_menu=Content.add_menu())
+            news_list=news_list, habr_list=habr_list, 
+            tproger_list=tproger_list, 
+            common_menu=Content.common_menu(), web_menu=Content.web_menu(), 
+            ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), 
+            add_menu=Content.add_menu(), username = g.username, role = g.role)
 
 
     @app.route('/start/')
@@ -131,107 +136,119 @@ def create_app():
     def start():
         return render_template(
             'start.html',
-            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), add_menu=Content.add_menu())
+            common_menu=Content.common_menu(), web_menu=Content.web_menu(),
+            ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), 
+            add_menu=Content.add_menu())
 
 
     @app.route('/common/<page_slug>/')
     @login_required
     def common(page_slug):
         page_content = Content.query.with_entities(
-            Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description
-            ).filter(
-                Content.slug != ""
-            ).filter(
-                (or_(Content.section_name.ilike('%первой%'), Content.section_name.ilike('%2 недели%'), Content.section_name.ilike('%окружение%')))
-            ).filter(
-                Content.slug == page_slug).distinct()
+            Content.description, Content.type, Content.url, 
+            Content.lesson_name, Content.url_description).filter(
+            Content.slug != "").filter((or_
+            (Content.section_name.ilike('%первой%'), 
+            Content.section_name.ilike('%2 недели%'),
+            Content.section_name.ilike('%окружение%')))).filter(
+            Content.slug == page_slug).distinct()
 
-        page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()
+        page = Content.query.with_entities(Content.slug).filter
+        (Content.slug == page_slug).first()
         if not page:
             return 'Not found', 404
 
         return render_template(
             f'/common/{page.slug}.html',  
             page_content=page_content,
-            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), add_menu=Content.add_menu())
+            common_menu=Content.common_menu(), web_menu=Content.web_menu(),
+            ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), 
+            add_menu=Content.add_menu())
 
 
     @app.route('/web/<page_slug>/')
     @login_required
     def web(page_slug):      
         page_content = Content.query.with_entities(
-            Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description
-            ).filter(
-                Content.slug != ""
-            ).filter(
-                Content.slug == page_slug).distinct()
+            Content.description, Content.type, Content.url,
+            Content.lesson_name, Content.url_description).filter(
+            Content.slug != "").filter(Content.slug == page_slug).distinct()
 
-        page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
+        page = Content.query.with_entities(Content.slug).filter
+        (Content.slug == page_slug).first()        
         if not page:
             return 'Not found', 404
 
         return render_template(
             f'/web/{page.slug}.html',
             page_content=page_content,
-            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), add_menu=Content.add_menu())
+            common_menu=Content.common_menu(), 
+            web_menu=Content.web_menu(), ds_menu=Content.ds_menu(),
+            bot_menu=Content.bot_menu(), add_menu=Content.add_menu())
 
 
     @app.route('/data-science/<page_slug>/')
     @login_required
     def ds(page_slug):
         page_content = Content.query.with_entities(
-            Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description
-            ).filter(
-                Content.slug != ""
-            ).filter(Content.slug == page_slug).distinct()
+            Content.description, Content.type, Content.url,
+            Content.lesson_name, Content.url_description).filter(
+            Content.slug != "").filter(Content.slug == page_slug).distinct()
 
-        page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
+        page = Content.query.with_entities(Content.slug).filter
+        (Content.slug == page_slug).first()        
         if not page:
             return 'Not found', 404
 
         return render_template(
             f'/ds/{page.slug}.html',
             page_content=page_content,
-            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), add_menu=Content.add_menu())
+            common_menu=Content.common_menu(), 
+            web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), 
+            bot_menu=Content.bot_menu(), add_menu=Content.add_menu())
 
 
     @app.route('/bot/<page_slug>/')
     @login_required
     def bot(page_slug):
         page_content = Content.query.with_entities(
-            Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description
-            ).filter(
-                Content.slug != ""
-            ).filter(
-                Content.slug == page_slug).distinct()
+            Content.description, Content.type, Content.url, 
+            Content.lesson_name, Content.url_description).filter(
+            Content.slug != "").filter(
+            Content.slug == page_slug).distinct()
 
-        page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
+        page = Content.query.with_entities(Content.slug).filter
+        (Content.slug == page_slug).first()        
         if not page:
             return 'Not found', 404
 
         return render_template(
             f'/bot/{page.slug}.html', 
             page_content=page_content,
-            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), add_menu=Content.add_menu())
+            common_menu=Content.common_menu(), web_menu=Content.web_menu(),
+            ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), 
+            add_menu=Content.add_menu())
 
 
     @app.route('/additional/<page_slug>/')
     @login_required
     def add(page_slug):
         page_content = Content.query.with_entities(
-            Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description
-            ).filter(
-                Content.slug != ""
-            ).filter(Content.slug == page_slug).distinct()
+            Content.description, Content.type, Content.url, 
+            Content.lesson_name, Content.url_description).filter(
+            Content.slug != "").filter(Content.slug == page_slug).distinct()
 
-        page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
+        page = Content.query.with_entities(Content.slug).filter
+        (Content.slug == page_slug).first()        
         if not page:
             return 'Not found', 404
 
         return render_template(
             f'/add/{page.slug}.html',
             page_content=page_content,
-            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), add_menu=Content.add_menu())
+            common_menu=Content.common_menu(), 
+            web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), 
+            bot_menu=Content.bot_menu(), add_menu=Content.add_menu())
 
 
     @app.route('/helps/')
@@ -239,7 +256,9 @@ def create_app():
     def help():
        return render_template(
             'page_in_progress.html',
-            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), add_menu=Content.add_menu())
+            common_menu=Content.common_menu(), web_menu=Content.web_menu(), 
+            ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), 
+            add_menu=Content.add_menu())
 
 
     return app
