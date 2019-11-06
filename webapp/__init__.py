@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import logging
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for, g
 from webapp.forms import LoginForm, RegistrationForm
 from webapp.model import db, News, Articles, Content, Users
 from flask_login import LoginManager, login_user, logout_user, current_user, login_required
@@ -74,6 +74,7 @@ def create_app():
         if form.validate_on_submit():
 
             email = form.email.data
+            username = form.username.data
             password = form.password_reg.data
             password_confirm = form.password_reg_confirm.data
 
@@ -87,7 +88,7 @@ def create_app():
                 flash('Пароли не совпадают. Повторите ввод')
                 return redirect(url_for('registration'))
 
-            new_user = Users(email=email)
+            new_user = Users(email=email, username = username)
             new_user.set_password(password)
             db.session.add(new_user)
             db.session.commit()
@@ -105,7 +106,13 @@ def create_app():
         return redirect(url_for('login'))
 
     @app.route('/index')
+    @login_required
     def index():
+        get_user_id = current_user.get_id()
+        user_by_id = Users.query.filter_by(id=get_user_id).first()
+        g.username = user_by_id.username
+        g.role = user_by_id.role
+      
         # print(request.args["test"])
         news_list = News.query.order_by(News.published.desc()).all()
         habr_list = Articles.query.filter_by(source="habr").all()
@@ -118,6 +125,7 @@ def create_app():
 
 
     @app.route('/start/')
+    @login_required
     def start():
         return render_template(
             'start.html',
@@ -125,6 +133,7 @@ def create_app():
 
 
     @app.route('/common/<page_slug>/')
+    @login_required
     def common(page_slug):
         page_content = Content.query.with_entities(
             Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description
@@ -146,6 +155,7 @@ def create_app():
 
 
     @app.route('/web/<page_slug>/')
+    @login_required
     def web(page_slug):      
         page_content = Content.query.with_entities(
             Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description
@@ -165,6 +175,7 @@ def create_app():
 
 
     @app.route('/data-science/<page_slug>/')
+    @login_required
     def ds(page_slug):
         page_content = Content.query.with_entities(
             Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description
@@ -183,6 +194,7 @@ def create_app():
 
 
     @app.route('/bot/<page_slug>/')
+    @login_required
     def bot(page_slug):
         page_content = Content.query.with_entities(
             Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description
@@ -202,6 +214,7 @@ def create_app():
 
 
     @app.route('/additional/<page_slug>/')
+    @login_required
     def add(page_slug):
         page_content = Content.query.with_entities(
             Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description
@@ -220,6 +233,7 @@ def create_app():
 
 
     @app.route('/helps/')
+    @login_required
     def help():
        return render_template(
             'page_in_progress.html',
