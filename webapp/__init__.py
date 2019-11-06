@@ -111,10 +111,12 @@ def create_app():
     @app.route('/index')
     @login_required
     def index():
-        user_id = current_user.get_id() #get current user id
-        username = Users.query.filter_by(id=user_id).first()  #get username by user id
-        g.username = username.username #get global username for base template
-        g.role = username.role
+        get_user_id = current_user.get_id()
+        user_by_id = Users.query.filter_by(id=get_user_id).first()
+        
+        g.username = user_by_id.username
+        g.role = user_by_id.role
+        g.avatar = user_by_id.avatar
         
         news_list = News.query.order_by(News.published.desc()).all()
         habr_list = Articles.query.filter_by(source="habr").all()
