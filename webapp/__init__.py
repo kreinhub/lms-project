@@ -112,7 +112,9 @@ def create_app():
         user_by_id = Users.query.filter_by(id=get_user_id).first()
         g.username = user_by_id.username
         g.role = user_by_id.role
-      
+        g.avatar = user_by_id.avatar
+
+        
         # print(request.args["test"])
         news_list = News.query.order_by(News.published.desc()).all()
         habr_list = Articles.query.filter_by(source="habr").all()

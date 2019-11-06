@@ -19,6 +19,7 @@ class Users(db.Model, UserMixin):
     phone = db.Column(db.String(50), nullable=True)
     last_login = db.Column(db.DateTime, default=datetime.now())
     registered = db.Column(db.DateTime, default=datetime.now())
+    avatar = db.Column(db.String(150), default="https://toppng.com/public/uploads/preview/roger-berry-avatar-placeholder-11562991561rbrfzlng6h.png")
 
     def set_password(self, password):
         self.password = generate_password_hash(password)
