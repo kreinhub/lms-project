@@ -201,3 +201,6 @@ fabric.properties
 
 backups
 to delete in repo
+inserts.py
+*.backup.*
+meta_msg.json
