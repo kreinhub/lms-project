@@ -68,9 +68,9 @@
   </li>
 </ul>
 
-        <!-- <ul class="app-menu">
+        <ul class="app-menu">
     <li><a class="app-menu__item" href="{{url_for('logout')}}"><i class="app-menu__icon fa fa-dashboard" aria-hidden="true"></i><span class="app-menu__label">Logout</span></a></li>
-        </ul> -->
+        </ul>
 {% endblock %}
 
 
@@ -81,15 +81,14 @@
       <div class="app-title">
         <div>
           <h1><i class="fa fa-dashboard"></i> Главная</h1>
-          <p>Новости и популярное из мира Python</p>
+          <p>Новости и статистика</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
           <li class="breadcrumb-item"><a href="#">Главная</a></li>
         </ul>
       </div>
-      <!-- ЗДЕСЬ ЗАКОММЕНЧЕННЫ СТАТА и АЧИВКИ -->
-      <!-- <div class="row">
+      <div class="row">
         <div class="col-md-6 col-lg-3">
           <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
             <div class="info">
@@ -122,8 +121,8 @@
             </div>
           </div>
         </div>
-      </div> -->
-      <!-- <div class="row">
+      </div>
+      <div class="row">
         <div class="col-md-6">
           <div class="tile">
             <h3 class="tile-title">Прогресс в виде графика</h3>
@@ -140,7 +139,7 @@
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
 
       <!--News and articles -->
       <!--News -->
@@ -151,11 +150,10 @@
               <ul style="list-style-type: none; margin:0; padding: 0">
                 {% for news in news_list %}
                 <li style="text-align: left;"><a href="{{ news.url }}"><h4>{{ news.title }}</h4></a></li>
-                  <!-- <p>{{ news.published.strftime('%d.%m.%Y %H:%M') }}</p> -->
-                  <hr></hr>
+                  <p>{{ news.published.strftime('%d.%m.%Y %H:%M') }}</p>
                 {% endfor %}
               </ul>
-            <p class="mt-4 mb-4"><a class="btn btn-primary mr-2 mb-2" href="https://docs.python.org/3/" target="_blank"><i class="fa fa-file"></i>Docs</a><a class="btn btn-info mr-2 mb-2" href="https://github.com/python" target="_blank"><i class="fa fa-github"></i>GitHub</a><a class="btn btn-success mr-2 mb-2" href="https://www.python.org/downloads/release/python-380/" target="_blank"><i class="fa fa-download"></i>Download</a></p>
+            <p class="mt-4 mb-4"><a class="btn btn-primary mr-2 mb-2" href="http://pratikborsadiya.in/blog/vali-admin" target="_blank"><i class="fa fa-file"></i>Docs</a><a class="btn btn-info mr-2 mb-2" href="https://github.com/pratikborsadiya/vali-admin" target="_blank"><i class="fa fa-github"></i>GitHub</a><a class="btn btn-success mr-2 mb-2" href="https://github.com/pratikborsadiya/vali-admin/archive/master.zip" target="_blank"><i class="fa fa-download"></i>Download</a></p>
           </div>
         </div>
 
@@ -165,7 +163,7 @@
               <div class="col-md-4">
                 <div class="tile">
                   <h2 class="tile-title">{{ habr_list[0].title }}</h2>
-                  <!-- <p>This theme is not built for a specific framework or technology like Angular or React etc. But due to it's modular nature it's very easy to incorporate it into any front-end or back-end framework like Angular, React or Laravel.</p> -->
+                  <p>This theme is not built for a specific framework or technology like Angular or React etc. But due to it's modular nature it's very easy to incorporate it into any front-end or back-end framework like Angular, React or Laravel.</p>
                   <img src="http://habrahabr.ru/favicon.ico" class="rounded float-right">
                   <a href="{{ habr_list[0].url }}"><h4>Читать на habr.com </h4></a>
                 </div>
@@ -173,7 +171,7 @@
         <div class="col-md-4">
             <div class="tile">
                   <h3 class="tile-title">{{ habr_list[1].title }}</h3>
-                  <!-- <p>This theme is not built for a specific framework or technology like Angular or React etc. But due to it's modular nature it's very easy to incorporate it into any front-end or back-end framework like Angular, React or Laravel.</p> -->
+                  <p>This theme is not built for a specific framework or technology like Angular or React etc. But due to it's modular nature it's very easy to incorporate it into any front-end or back-end framework like Angular, React or Laravel.</p>
                   <img src="http://habrahabr.ru/favicon.ico" class="rounded float-right" style="">
                   <a href="{{ habr_list[1].url }}"><h4>Читать на habr.com</h4></a>
                 </div>
@@ -181,7 +179,7 @@
         <div class="col-md-4">
             <div class="tile">
                   <h3 class="tile-title">{{ habr_list[2].title }}</h3>
-                  <!-- <p>This theme is not built for a specific framework or technology like Angular or React etc. But due to it's modular nature it's very easy to incorporate it into any front-end or back-end framework like Angular, React or Laravel.</p> -->
+                  <p>This theme is not built for a specific framework or technology like Angular or React etc. But due to it's modular nature it's very easy to incorporate it into any front-end or back-end framework like Angular, React or Laravel.</p>
                   <img src="http://habrahabr.ru/favicon.ico" class="rounded float-right" style="">
                   <a href="{{ habr_list[2].url }}"><h4>Читать на habr.com </h4></a>
                 </div>
