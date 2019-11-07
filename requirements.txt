@@ -28,3 +28,4 @@ Werkzeug==0.16.0
 WTForms==2.2.1
 Flask-Migrate==2.5.2
 Flask-WTF==0.14.2
+gunicorn==19.9.0
