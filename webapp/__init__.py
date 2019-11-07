@@ -149,6 +149,13 @@ def create_app():
     @app.route('/common/<page_slug>/')
     @login_required
     def common(page_slug):
+        get_user_id = current_user.get_id()
+        user_by_id = Users.query.filter_by(id=get_user_id).first()
+        
+        g.username = user_by_id.username
+        g.role = user_by_id.role
+        g.avatar = user_by_id.avatar
+        
         page_content = Content.query.with_entities(
             Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description
             ).filter(
@@ -165,12 +172,20 @@ def create_app():
         return render_template(
             f'/common/{page.slug}.html',  
             page_content=page_content,
+            username = g.username, role = g.role,
             common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), 
             bot_menu=Content.bot_menu(), deploy_menu=Content.deploy_menu(), add_menu=Content.add_menu())
 
 
     @app.route('/web/<page_slug>/')
     def web(page_slug):
+        get_user_id = current_user.get_id()
+        user_by_id = Users.query.filter_by(id=get_user_id).first()
+        
+        g.username = user_by_id.username
+        g.role = user_by_id.role
+        g.avatar = user_by_id.avatar
+        
         page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
         if not page:
             return 'Not found', 404
@@ -178,6 +193,7 @@ def create_app():
         return render_template(
             f'/web/{page.slug}.html',
             page_content=Content.page_content(page_slug),
+            username = g.username, role = g.role,
             common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), 
             bot_menu=Content.bot_menu(), deploy_menu=Content.deploy_menu(), add_menu=Content.add_menu())
 
@@ -185,6 +201,13 @@ def create_app():
     @app.route('/data-science/<page_slug>/')
     @login_required
     def ds(page_slug):
+        get_user_id = current_user.get_id()
+        user_by_id = Users.query.filter_by(id=get_user_id).first()
+        
+        g.username = user_by_id.username
+        g.role = user_by_id.role
+        g.avatar = user_by_id.avatar
+        
         page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
         if not page:
             return 'Not found', 404
@@ -192,6 +215,7 @@ def create_app():
         return render_template(
             f'/ds/{page.slug}.html',
             page_content=Content.page_content(page_slug),
+            username = g.username, role = g.role,
             common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), 
             bot_menu=Content.bot_menu(), deploy_menu=Content.deploy_menu(), add_menu=Content.add_menu())
 
@@ -199,6 +223,13 @@ def create_app():
     @app.route('/bot/<page_slug>/')
     @login_required
     def bot(page_slug):
+        get_user_id = current_user.get_id()
+        user_by_id = Users.query.filter_by(id=get_user_id).first()
+        
+        g.username = user_by_id.username
+        g.role = user_by_id.role
+        g.avatar = user_by_id.avatar
+        
         page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
         if not page:
             return 'Not found', 404
@@ -206,11 +237,19 @@ def create_app():
         return render_template(
             f'/bot/{page.slug}.html', 
             page_content=Content.page_content(page_slug),
+            username = g.username, role = g.role,
             common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), 
             bot_menu=Content.bot_menu(), deploy_menu=Content.deploy_menu(), add_menu=Content.add_menu())
 
     @app.route('/deploy/<page_slug>/')
     def deploy(page_slug):
+        get_user_id = current_user.get_id()
+        user_by_id = Users.query.filter_by(id=get_user_id).first()
+        
+        g.username = user_by_id.username
+        g.role = user_by_id.role
+        g.avatar = user_by_id.avatar
+        
         page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
         if not page:
             return 'Not found', 404
@@ -218,6 +257,7 @@ def create_app():
         return render_template(
             f'/deploy/{page_slug}.html',
             page_content=Content.page_content(page_slug),
+            username = g.username, role = g.role,
             common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), 
             bot_menu=Content.bot_menu(), deploy_menu=Content.deploy_menu(), add_menu=Content.add_menu())
 
@@ -225,12 +265,20 @@ def create_app():
     @app.route('/additional/<page_slug>/')
     @login_required
     def add(page_slug):
+        get_user_id = current_user.get_id()
+        user_by_id = Users.query.filter_by(id=get_user_id).first()
+        
+        g.username = user_by_id.username
+        g.role = user_by_id.role
+        g.avatar = user_by_id.avatar
+        
         page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
         if not page:
             return 'Not found', 404
 
         return render_template(
             f'/add/{page.slug}.html',
+            username = g.username, role = g.role,
             page_content=Content.page_content(page_slug),
             common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), 
             bot_menu=Content.bot_menu(), deploy_menu=Content.deploy_menu(), add_menu=Content.add_menu())
@@ -239,8 +287,16 @@ def create_app():
     @app.route('/helps/')
     @login_required
     def help():
-       return render_template(
+        get_user_id = current_user.get_id()
+        user_by_id = Users.query.filter_by(id=get_user_id).first()
+        
+        g.username = user_by_id.username
+        g.role = user_by_id.role
+        g.avatar = user_by_id.avatar
+    
+        return render_template(
             'page_in_progress.html',
+            username = g.username, role = g.role,
             common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), 
             bot_menu=Content.bot_menu(), deploy_menu=Content.deploy_menu(), add_menu=Content.add_menu())
 
