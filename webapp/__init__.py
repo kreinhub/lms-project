@@ -146,7 +146,7 @@ def create_app():
 
 
     @app.route('/web/<page_slug>/')
-    def web(page_slug):      
+    def web(page_slug):
         page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
         if not page:
             return 'Not found', 404
@@ -194,6 +194,9 @@ def create_app():
 
     @app.route('/additional/<page_slug>/')
     def add(page_slug):
+
+
+
         page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
         if not page:
             return 'Not found', 404

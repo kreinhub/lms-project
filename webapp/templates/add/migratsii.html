@@ -1,0 +1,94 @@
+{% extends '/base_sections.html' %}
+{% from "macros.html" import nav_link with context %}.
+
+
+{% block menu_highlight %}
+<ul class="app-menu">
+  <li><a class="app-menu__item" href="{{url_for('index')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Главная</span></a></li>
+  <li class="treeview menu"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-play-circle-o"></i><span class="app-menu__label">Начало курса</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+    <ul class="treeview-menu">
+      <li><a class="treeview-item" href="{{url_for('start')}}#top"><i class="icon fa fa-circle-o"></i>О курсе и коммуникации</a></li>
+      <li><a class="treeview-item" href="{{url_for('start')}}#faq"><i class="icon fa fa-circle-o"></i>Вопросы</a></li>
+      <li><a class="treeview-item" href="{{url_for('start')}}#python"><i class="icon fa fa-circle-o"></i>Настройка рабочего места</a></li>
+      <li><a class="treeview-item" href="{{url_for('start')}}#bottom"><i class="icon fa fa-circle-o"></i>Начать обучение</a></li>
+    </ul>
+  </li>
+  <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Общий курс</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+    <ul class="treeview-menu">
+        {% for menu in common_menu %}
+          {% if "ООП" in menu.lesson_name %}
+            {{ nav_link('common', menu.slug, "ООП в Python") }}
+          {% else %}
+            {{ nav_link('common', menu.slug, menu.lesson_name) }}
+          {% endif %}
+        {% endfor %}      
+    </ul>
+  </li>
+  <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Трек Веб-разработка</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+    <ul class="treeview-menu">
+        {% for menu in web_menu %}
+          {% set shorted_menu_item = menu.url_description.split(":") %}
+          {{ nav_link('web', menu.slug, shorted_menu_item[1].strip().capitalize()) }}
+        {% endfor %} 
+    </ul>
+  </li>
+  <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Трек Data-Science</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+    <ul class="treeview-menu">
+        {% for menu in ds_menu %}
+          {% set shorted_menu_item = menu.url_description.split(":") %}
+          {{ nav_link('ds', menu.slug, shorted_menu_item[1].strip().capitalize()) }}
+        {% endfor %}   
+    </ul>
+    <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Трек Telegram-Bot</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+      <ul class="treeview-menu">
+          {% for menu in bot_menu %}
+          {% set shorted_menu_item = menu.url_description.split(":") %}
+            {{ nav_link('bot', menu.slug, shorted_menu_item[1].strip().capitalize()) }}
+          {% endfor %} 
+      </ul>
+    <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Деплой</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+      <ul class="treeview-menu">
+          {% for menu in deploy_menu %}
+            {{ nav_link('deploy', menu.slug, menu.description) }}
+          {% endfor %}  
+      </ul>
+    <li class="treeview is-expanded"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Дополнительно</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+      <ul class="treeview-menu">
+        {% for menu in add_menu %}
+            {{ nav_link('add', menu.slug, menu.description) }}
+        {% endfor %} 
+      </ul>
+      <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-info-circle"></i><span class="app-menu__label">Справочная</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <ul class="treeview-menu">
+          <li><a class="treeview-item" href="{{url_for('help')}}"><i class="icon fa fa-question-circle"></i>FAQ</a></li>
+          <li><a class="treeview-item" href="{{url_for('help')}}"><i class="icon fa fa-database"></i>База знаний</a></li>
+          <li><a class="treeview-item" href="{{url_for('help')}}"><i class="icon fa fa-book"></i>Литература</a></li>
+          <li><a class="treeview-item" href="{{url_for('help')}}"><i class="icon fa fa-address-book"></i>Контакты</a></li>
+        </ul>
+  </li>
+</ul>
+{% endblock %}
+
+{% block content_title %}{{ page_content[0].lesson_name }}{% endblock %}
+
+{% set paragraph_list = page_content[0].description.split(":") %}
+{% block content_paragraph %}{{ paragraph_list[0] }}:{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4"> 
+      {% for item in page_content %}
+              {% if item.type == "youtube_link" %}
+                <h4>{{ item.description.capitalize() }} </h4>
+                <iframe width="480" height="270" src="{{ item.url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <br />
+                <br />
+                <br />
+              {% elif item.type == "external_link" %}
+                <a data-saferedirecturl="https://www.google.com/url?q=https://moscowpython.us10.list-manage.com/track/click?u%3Dc697064155714e24c8be7e9d8%26id%3D5b271cef6d%26e%3Dcbfff661df&amp;source=gmail&amp;ust=1571772310542000&amp;usg=AFQjCNGk7k48N91ctF_jh7aIW3ELi3L0Fg" href="{{ item.url }}" style="color: rgb(43, 170, 223); font-weight: normal; text-decoration: underline;" target="_blank">{{ item.description.capitalize() }}</a>                      
+              {% endif %}
+      {% endfor %}
+<br>
+<br>
+{% endblock %}
+
