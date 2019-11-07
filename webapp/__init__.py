@@ -114,14 +114,14 @@ def create_app():
         return render_template(
             'index.html', 
             news_list=news_list, habr_list=habr_list, tproger_list=tproger_list, 
-            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), add_menu=Content.add_menu())
+            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), deploy_menu=Content.deploy_menu(), add_menu=Content.add_menu())
 
 
     @app.route('/start/')
     def start():
         return render_template(
             'start.html',
-            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), add_menu=Content.add_menu())
+            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), deploy_menu=Content.deploy_menu(), add_menu=Content.add_menu())
 
 
     @app.route('/common/<page_slug>/')
@@ -142,88 +142,73 @@ def create_app():
         return render_template(
             f'/common/{page.slug}.html',  
             page_content=page_content,
-            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), add_menu=Content.add_menu())
+            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), deploy_menu=Content.deploy_menu(), add_menu=Content.add_menu())
 
 
     @app.route('/web/<page_slug>/')
     def web(page_slug):      
-        page_content = Content.query.with_entities(
-            Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description
-            ).filter(
-                Content.slug != ""
-            ).filter(
-                Content.slug == page_slug).distinct()
-
         page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
         if not page:
             return 'Not found', 404
 
         return render_template(
             f'/web/{page.slug}.html',
-            page_content=page_content,
-            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), add_menu=Content.add_menu())
+            page_content=Content.page_content(page_slug),
+            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), deploy_menu=Content.deploy_menu(), add_menu=Content.add_menu())
 
 
     @app.route('/data-science/<page_slug>/')
     def ds(page_slug):
-        page_content = Content.query.with_entities(
-            Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description
-            ).filter(
-                Content.slug != ""
-            ).filter(Content.slug == page_slug).distinct()
-
         page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
         if not page:
             return 'Not found', 404
 
         return render_template(
             f'/ds/{page.slug}.html',
-            page_content=page_content,
-            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), add_menu=Content.add_menu())
+            page_content=Content.page_content(page_slug),
+            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), deploy_menu=Content.deploy_menu(), add_menu=Content.add_menu())
 
 
     @app.route('/bot/<page_slug>/')
     def bot(page_slug):
-        page_content = Content.query.with_entities(
-            Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description
-            ).filter(
-                Content.slug != ""
-            ).filter(
-                Content.slug == page_slug).distinct()
-
         page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
         if not page:
             return 'Not found', 404
 
         return render_template(
             f'/bot/{page.slug}.html', 
-            page_content=page_content,
-            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), add_menu=Content.add_menu())
+            page_content=Content.page_content(page_slug),
+            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), deploy_menu=Content.deploy_menu(), add_menu=Content.add_menu())
+
+    @app.route('/deploy/<page_slug>/')
+    def deploy(page_slug):
+        page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
+        if not page:
+            return 'Not found', 404
+            
+        return render_template(
+            f'/deploy/{page_slug}.html',
+            page_content=Content.page_content(page_slug),
+            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), deploy_menu=Content.deploy_menu(), add_menu=Content.add_menu())
 
 
     @app.route('/additional/<page_slug>/')
     def add(page_slug):
-        page_content = Content.query.with_entities(
-            Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description
-            ).filter(
-                Content.slug != ""
-            ).filter(Content.slug == page_slug).distinct()
-
         page = Content.query.with_entities(Content.slug).filter(Content.slug == page_slug).first()        
         if not page:
             return 'Not found', 404
 
         return render_template(
             f'/add/{page.slug}.html',
-            page_content=page_content,
-            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), add_menu=Content.add_menu())
+            page_content=Content.page_content(page_slug),
+            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), deploy_menu=Content.deploy_menu(), add_menu=Content.add_menu())
 
 
     @app.route('/helps/')
     def help():
        return render_template(
             'page_in_progress.html',
-            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), add_menu=Content.add_menu())
+            common_menu=Content.common_menu(), web_menu=Content.web_menu(), ds_menu=Content.ds_menu(), bot_menu=Content.bot_menu(), deploy_menu=Content.deploy_menu(), add_menu=Content.add_menu())
 
 
     return app

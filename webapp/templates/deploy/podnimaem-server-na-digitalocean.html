@@ -1,4 +1,4 @@
-{% extends '/base_sections.html' %}
+{% extends 'base_sections.html' %}
 {% from "macros.html" import nav_link with context %}.
 
 
@@ -29,10 +29,10 @@
         {% for menu in web_menu %}
           {% set shorted_menu_item = menu.url_description.split(":") %}
           {{ nav_link('web', menu.slug, shorted_menu_item[1].strip().capitalize()) }}
-        {% endfor %} 
+        {% endfor %}  
     </ul>
   </li>
-  <li class="treeview is-expanded"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Трек Data-Science</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+  <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Трек Data-Science</span><i class="treeview-indicator fa fa-angle-right"></i></a>
     <ul class="treeview-menu">
         {% for menu in ds_menu %}
           {% set shorted_menu_item = menu.url_description.split(":") %}
@@ -46,7 +46,7 @@
             {{ nav_link('bot', menu.slug, shorted_menu_item[1].strip().capitalize()) }}
           {% endfor %}  
       </ul>
-    <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Деплой</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+    <li class="treeview is-expanded"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Деплой</span><i class="treeview-indicator fa fa-angle-right"></i></a>
       <ul class="treeview-menu">
           {% for menu in deploy_menu %}
             {{ nav_link('deploy', menu.slug, menu.description) }}
@@ -69,7 +69,7 @@
 </ul>
 {% endblock %}
 
-{% block content_title %}{{ page_content[0].lesson_name }}{% endblock %}
+{% block content_title %}{{ page_content[0].description }}{% endblock %}
 
 {% set paragraph_list = page_content[0].description.split(":") %}
 {% block content_paragraph %}{{ paragraph_list[0] }}:{% endblock %}

@@ -46,6 +46,12 @@
             {{ nav_link('bot', menu.slug, shorted_menu_item[1].strip().capitalize()) }}
           {% endfor %} 
       </ul>
+    <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Деплой</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+      <ul class="treeview-menu">
+          {% for menu in deploy_menu %}
+            {{ nav_link('deploy', menu.slug, menu.description) }}
+          {% endfor %}  
+      </ul>
     <li class="treeview is-expanded"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Дополнительно</span><i class="treeview-indicator fa fa-angle-right"></i></a>
       <ul class="treeview-menu">
         {% for menu in add_menu %}
