@@ -19,7 +19,6 @@ class Users(db.Model, UserMixin):
     phone = db.Column(db.String(50), nullable=True)
     last_login = db.Column(db.DateTime, default=datetime.now())
     registered = db.Column(db.DateTime, default=datetime.now())
-    avatar = db.Column(db.String(150), default="https://toppng.com/public/uploads/preview/roger-berry-avatar-placeholder-11562991561rbrfzlng6h.png")
 
     def set_password(self, password):
         self.password = generate_password_hash(password)
@@ -77,8 +76,8 @@ class Content(db.Model):
             ).distinct()
 
     @classmethod
-    def deploy_menu(cls):
-        return cls.query.with_entities(Content.description, Content.slug).filter(
+    def deploy(cls):
+        return cls.query.with_entities(Content.url_description, Content.slug).filter(
             Content.section_name.ilike('%Деплой%')
             ).distinct()
 
@@ -88,7 +87,7 @@ class Content(db.Model):
         return cls.query.with_entities(Content.description, Content.slug).filter(Content.slug != "").filter(Content.section_name.ilike('%Дополнительно%')).distinct()
 
     @classmethod
-    def page_content(cls, page_slug):
+    def page_content(cls):
         return cls.query.with_entities(
             Content.description, Content.type, Content.url, Content.lesson_name, Content.url_description
             ).filter(

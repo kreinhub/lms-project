@@ -26,6 +26,8 @@
         Трек Telegram-bot
         {% elif request.endpoint.startswith('add') %}
         Дополнительно
+        {% elif request.endpoint.startswith('deploy') %}
+        Деплой
         {% else %}
         Неизвестный раздел
         {% endif %}| Flask app
@@ -141,6 +143,8 @@
         <p>{{ "Трек Telegram-bot" }}</p>
         {% elif request.endpoint.startswith('add') %}
         <p>{{ "Дополнительно" }}</p>
+        {% elif request.endpoint.startswith('deploy') %}
+        <p>{{ "Деплой" }}</p>
         {% else %}
         <p>{{ "Неизвестный раздел" }}</p>
         {% endif %}
@@ -176,7 +180,9 @@
                   {% set current_menu, next_route, next_slug = ds_menu, 'bot', bot_menu[0].slug %}
                   {% set current_section =  'ds' %}
             {% elif current_section == "bot" %}
-                  {% set current_menu, next_route, next_slug = bot_menu, 'add', add_menu[0].slug %}
+                  {% set current_menu, next_route, next_slug = bot_menu, 'deploy', deploy_menu[0].slug %}
+            {% elif current_section == "deploy" %}
+                  {% set current_menu, next_route, next_slug = deploy_menu, 'add', add_menu[0].slug %}
             {% elif current_section == "additional" %}
                   {% set current_menu = add_menu %}
                   {% set current_section =  'add' %}
