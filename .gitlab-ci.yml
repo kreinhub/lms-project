@@ -23,7 +23,7 @@ baseline-scan:
     # - docker run -v $(pwd):/wrk/:rw -t busybox:latest ls -ld /wrk/
       # - docker run --rm --user $(id -u):$(id -g) -v $(pwd):/zap/wrk/:rw -t -d ictu/zap2docker-weekly /bin/bash -c "touch /zap/wrk/testreport.html && ls -la /zap/wrk"
     # - docker run --rm -v $(pwd):/zap/wrk/:rw -t ictu/zap2docker-weekly zap-baseline.py -t http://$website:5000 -r dast-report.html --hook=/zap/auth_hook.py -z "auth.loginurl=http://$login_url:5000 auth.username_field=$username_id auth.password_field=$password_id auth.submit_field=$submit_id auth.username=$username auth.password=$password" || true
-    - docker run --rm -v $(pwd):/zap/wrk/:rw owasp/zap2docker-stable zap-baseline.py -g baseline-scan.conf -t http://$website:5000 -r baseline-scan-report.html || true
+    - docker run --rm --user $(id -u):$(id -g) -v $(pwd):/zap/wrk/:rw owasp/zap2docker-stable zap-baseline.py -g baseline-scan.conf -t http://$website:5000 -r baseline-scan-report.html || true -d
     - ls -a 
   artifacts:
     name: "dast-report"
