@@ -20,7 +20,7 @@ baseline-scan:
     - website=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' lms)
     - login_url=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' lms)
     - whoami && ls -ld && ls -l && pwd && ls /
-    - docker run --rm -v $(pwd):/zap/wrk/:rw -t busybox:latest whoami && ls -la /zap/wrk
+    - docker run --rm -v $(pwd):/wrk/:rw -t busybox:latest whoami && ls -la /zap/wrk
     # - docker run --rm -v $(pwd):/zap/wrk/:rw -t ictu/zap2docker-weekly zap-baseline.py -t http://$website:5000 -r dast-report.html --hook=/zap/auth_hook.py -z "auth.loginurl=http://$login_url:5000 auth.username_field=$username_id auth.password_field=$password_id auth.submit_field=$submit_id auth.username=$username auth.password=$password" || true
     # - ls -a 
   artifacts:
