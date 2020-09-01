@@ -3,7 +3,7 @@ stages:
 
 baseline-scan:
   stage: dast
-  image: docker:dind
+  image: docker
   tags:
     - dind_lms
   variables:
@@ -17,7 +17,7 @@ baseline-scan:
   allow_failure: true
   script: 
     - docker run --rm -d --name lms geezybe/lms_project:latest
-    - docker run --rm -v .:/zap/wrk/:rw -t ictu/zap2docker-weekly zap-baseline.py -t http://$website:5000 -r dast-report.html --hook=/zap/auth_hook.py -z "auth.loginurl=http://$login_url:5000 auth.username_field=$username_id auth.password_field=$password_id auth.submit_field=$submit_id auth.username=$username auth.password=$password" || true
+    - docker run --rm -v $(pwd):/zap/wrk/:rw -t ictu/zap2docker-weekly zap-baseline.py -t http://$website:5000 -r dast-report.html --hook=/zap/auth_hook.py -z "auth.loginurl=http://$login_url:5000 auth.username_field=$username_id auth.password_field=$password_id auth.submit_field=$submit_id auth.username=$username auth.password=$password" || true
   artifacts:
     name: "dast-report"
     paths: 
