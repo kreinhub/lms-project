@@ -3,6 +3,7 @@ stages:
 
 baseline-scan:
   stage: dast
+  image: docker:dind
   tags:
     - dind_lms
   variables:
