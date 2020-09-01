@@ -18,7 +18,7 @@ baseline-scan:
   script: 
     - docker run --rm -d --name lms geezybe/lms_project:latest
     - website=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' lms)
-    # - login_url=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' lms)
+    - login_url=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' lms)
     # - whoami && ls -ld && ls -l && pwd && ls /
     # - docker run -v $(pwd):/wrk/:rw -t busybox:latest ls -ld /wrk/
       # - docker run --rm --user $(id -u):$(id -g) -v $(pwd):/zap/wrk/:rw -t -d ictu/zap2docker-weekly /bin/bash -c "touch /zap/wrk/testreport.html && ls -la /zap/wrk"
