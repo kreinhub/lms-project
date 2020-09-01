@@ -24,4 +24,4 @@ baseline-scan:
   artifacts:
     name: "dast-report"
     paths: 
-        - dast-report.html
+        - $(pwd)/dast-report.html
