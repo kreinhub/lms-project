@@ -104,7 +104,7 @@ sqlparse==0.3.1
 team==1.0
 texttable==1.6.2
 toml==0.10.1
-urllib3==1.25.10
+urllib3==1.26.5
 virtualenv==20.0.23
 virtualenv-clone==0.5.4
 webencodings==0.5.1
