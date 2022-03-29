@@ -60,7 +60,7 @@ msgpack==1.0.0
 nftables==0.1
 ordered-set==4.0.2
 packaging==20.4
-paramiko==2.7.2
+paramiko==2.10.1
 patiencediff==0.2.0
 pep517==0.8.2
 pexpect==4.8.0
